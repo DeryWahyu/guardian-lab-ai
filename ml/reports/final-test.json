@@ -1,0 +1,2032 @@
+{
+  "evaluated_at_utc": "2026-11-01T05:23:09.343254+00:00",
+  "model_name": "tfidf_logistic_sgd",
+  "bundle_sha256": "7e5f8849edec6e3612ea530e9b9148e98137b40111c2fa6e73d66281d4985c02",
+  "data_sha256": "f1b4cc6f64681eae2b93f9b331b702547d2f128fe0b3539fe1dd8dfb112b9a17",
+  "selection_frozen_before_final_test": true,
+  "thresholds_frozen_before_final_test": true,
+  "primary_evaluation": "test_novel_domain",
+  "results": {
+    "test_all": {
+      "rows": 154953,
+      "benign": 85786,
+      "phishing": 69167,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 85763,
+        "fp": 23,
+        "fn": 47699,
+        "tp": 21468
+      },
+      "accuracy": 0.6920227423799474,
+      "precision": 0.998929784560979,
+      "recall": 0.3103792270880622,
+      "fpr": 0.0002681090154570676,
+      "f1": 0.47360409450903396,
+      "brier_score": 0.05313544494086626,
+      "log_loss": 0.18767648564332914,
+      "fpr_wilson95_rows_iid_assumption": [
+        0.00017867001818291714, 0.0004023015510980231
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.30694197360475695, 0.3138375420584141
+      ],
+      "average_precision": 0.9763419450937039,
+      "roc_auc": 0.9765193088385288,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 60658,
+          "mean_probability": 0.03344719353475933,
+          "phishing_fraction": 0.023690197500741864
+        },
+        {
+          "lower": 0.1,
+          "rows": 12602,
+          "mean_probability": 0.1431594539875248,
+          "phishing_fraction": 0.09101729884145374
+        },
+        {
+          "lower": 0.2,
+          "rows": 6328,
+          "mean_probability": 0.24610710023845583,
+          "phishing_fraction": 0.16450695322376738
+        },
+        {
+          "lower": 0.3,
+          "rows": 4089,
+          "mean_probability": 0.347125838465599,
+          "phishing_fraction": 0.26461237466373194
+        },
+        {
+          "lower": 0.4,
+          "rows": 3246,
+          "mean_probability": 0.44759173577379874,
+          "phishing_fraction": 0.37276648182378314
+        },
+        {
+          "lower": 0.5,
+          "rows": 3006,
+          "mean_probability": 0.550134954096751,
+          "phishing_fraction": 0.4886892880904857
+        },
+        {
+          "lower": 0.6,
+          "rows": 3002,
+          "mean_probability": 0.6503605491595407,
+          "phishing_fraction": 0.619586942038641
+        },
+        {
+          "lower": 0.7,
+          "rows": 3638,
+          "mean_probability": 0.7529697492728371,
+          "phishing_fraction": 0.7534359538207807
+        },
+        {
+          "lower": 0.8,
+          "rows": 6409,
+          "mean_probability": 0.8562087210968861,
+          "phishing_fraction": 0.8868778280542986
+        },
+        {
+          "lower": 0.9,
+          "rows": 51975,
+          "mean_probability": 0.9779763753838747,
+          "phishing_fraction": 0.9907840307840308
+        }
+      ],
+      "group_bootstrap": {
+        "resampling_unit": "PSL registered domain/private tenant",
+        "repeats": 200,
+        "fpr95": [0.00017392425258267705, 0.00039387259321407977],
+        "recall95": [0.2950857466780396, 0.32536416692159587],
+        "precision95": [0.9984702206063618, 0.9993254932518888]
+      }
+    },
+    "test_novel_domain": {
+      "rows": 80052,
+      "benign": 29146,
+      "phishing": 50906,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 29128,
+        "fp": 18,
+        "fn": 34868,
+        "tp": 16038
+      },
+      "accuracy": 0.5642082646279918,
+      "precision": 0.9988789237668162,
+      "recall": 0.31505127097002317,
+      "fpr": 0.0006175804570095382,
+      "f1": 0.47901795047937634,
+      "brier_score": 0.07172378422298738,
+      "log_loss": 0.2395663130906741,
+      "fpr_wilson95_rows_iid_assumption": [
+        0.00039070065915579224, 0.0009760806620042981
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.31102998558972905, 0.31910046737522524
+      ],
+      "average_precision": 0.9797361815655572,
+      "roc_auc": 0.9624292331968272,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 16429,
+          "mean_probability": 0.040000520785206814,
+          "phishing_fraction": 0.05496378355347252
+        },
+        {
+          "lower": 0.1,
+          "rows": 5727,
+          "mean_probability": 0.14507507958081467,
+          "phishing_fraction": 0.1538327221931203
+        },
+        {
+          "lower": 0.2,
+          "rows": 3507,
+          "mean_probability": 0.2472288003775841,
+          "phishing_fraction": 0.24322783005417736
+        },
+        {
+          "lower": 0.3,
+          "rows": 2603,
+          "mean_probability": 0.34758426227169603,
+          "phishing_fraction": 0.3472915866308106
+        },
+        {
+          "lower": 0.4,
+          "rows": 2235,
+          "mean_probability": 0.4487539616975983,
+          "phishing_fraction": 0.4532438478747204
+        },
+        {
+          "lower": 0.5,
+          "rows": 2239,
+          "mean_probability": 0.5504046784324629,
+          "phishing_fraction": 0.5761500669941938
+        },
+        {
+          "lower": 0.6,
+          "rows": 2336,
+          "mean_probability": 0.6504875119217928,
+          "phishing_fraction": 0.6832191780821918
+        },
+        {
+          "lower": 0.7,
+          "rows": 2896,
+          "mean_probability": 0.7533369245297782,
+          "phishing_fraction": 0.7834944751381215
+        },
+        {
+          "lower": 0.8,
+          "rows": 4940,
+          "mean_probability": 0.8558143104036283,
+          "phishing_fraction": 0.8931174089068826
+        },
+        {
+          "lower": 0.9,
+          "rows": 37140,
+          "mean_probability": 0.9780869952016851,
+          "phishing_fraction": 0.9904415724286484
+        }
+      ],
+      "group_bootstrap": {
+        "resampling_unit": "PSL registered domain/private tenant",
+        "repeats": 200,
+        "fpr95": [0.0003101115561661895, 0.000898045076916229],
+        "recall95": [0.30611803024007644, 0.3264626552946486],
+        "precision95": [0.9983365244994047, 0.9994327817165499]
+      }
+    },
+    "test_by_risk_threshold": {
+      "low": {
+        "rows": 154953,
+        "benign": 85786,
+        "phishing": 69167,
+        "threshold": 0.91626276360179,
+        "confusion_matrix": {
+          "tn": 85402,
+          "fp": 384,
+          "fn": 19289,
+          "tp": 49878
+        },
+        "accuracy": 0.8730389214794163,
+        "precision": 0.9923600334248538,
+        "recall": 0.7211242355458528,
+        "fpr": 0.004476254866761477,
+        "f1": 0.8352745145651391,
+        "brier_score": 0.05313544494086626,
+        "log_loss": 0.18767648564332914,
+        "fpr_wilson95_rows_iid_assumption": [
+          0.004051195128723201, 0.00494569128225332
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.7177700053984861, 0.7244539050654408
+        ],
+        "average_precision": 0.9763419450937039,
+        "roc_auc": 0.9765193088385288,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 60658,
+            "mean_probability": 0.03344719353475933,
+            "phishing_fraction": 0.023690197500741864
+          },
+          {
+            "lower": 0.1,
+            "rows": 12602,
+            "mean_probability": 0.1431594539875248,
+            "phishing_fraction": 0.09101729884145374
+          },
+          {
+            "lower": 0.2,
+            "rows": 6328,
+            "mean_probability": 0.24610710023845583,
+            "phishing_fraction": 0.16450695322376738
+          },
+          {
+            "lower": 0.3,
+            "rows": 4089,
+            "mean_probability": 0.347125838465599,
+            "phishing_fraction": 0.26461237466373194
+          },
+          {
+            "lower": 0.4,
+            "rows": 3246,
+            "mean_probability": 0.44759173577379874,
+            "phishing_fraction": 0.37276648182378314
+          },
+          {
+            "lower": 0.5,
+            "rows": 3006,
+            "mean_probability": 0.550134954096751,
+            "phishing_fraction": 0.4886892880904857
+          },
+          {
+            "lower": 0.6,
+            "rows": 3002,
+            "mean_probability": 0.6503605491595407,
+            "phishing_fraction": 0.619586942038641
+          },
+          {
+            "lower": 0.7,
+            "rows": 3638,
+            "mean_probability": 0.7529697492728371,
+            "phishing_fraction": 0.7534359538207807
+          },
+          {
+            "lower": 0.8,
+            "rows": 6409,
+            "mean_probability": 0.8562087210968861,
+            "phishing_fraction": 0.8868778280542986
+          },
+          {
+            "lower": 0.9,
+            "rows": 51975,
+            "mean_probability": 0.9779763753838747,
+            "phishing_fraction": 0.9907840307840308
+          }
+        ]
+      },
+      "high": {
+        "rows": 154953,
+        "benign": 85786,
+        "phishing": 69167,
+        "threshold": 0.9912639836169382,
+        "confusion_matrix": {
+          "tn": 85763,
+          "fp": 23,
+          "fn": 47699,
+          "tp": 21468
+        },
+        "accuracy": 0.6920227423799474,
+        "precision": 0.998929784560979,
+        "recall": 0.3103792270880622,
+        "fpr": 0.0002681090154570676,
+        "f1": 0.47360409450903396,
+        "brier_score": 0.05313544494086626,
+        "log_loss": 0.18767648564332914,
+        "fpr_wilson95_rows_iid_assumption": [
+          0.00017867001818291714, 0.0004023015510980231
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.30694197360475695, 0.3138375420584141
+        ],
+        "average_precision": 0.9763419450937039,
+        "roc_auc": 0.9765193088385288,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 60658,
+            "mean_probability": 0.03344719353475933,
+            "phishing_fraction": 0.023690197500741864
+          },
+          {
+            "lower": 0.1,
+            "rows": 12602,
+            "mean_probability": 0.1431594539875248,
+            "phishing_fraction": 0.09101729884145374
+          },
+          {
+            "lower": 0.2,
+            "rows": 6328,
+            "mean_probability": 0.24610710023845583,
+            "phishing_fraction": 0.16450695322376738
+          },
+          {
+            "lower": 0.3,
+            "rows": 4089,
+            "mean_probability": 0.347125838465599,
+            "phishing_fraction": 0.26461237466373194
+          },
+          {
+            "lower": 0.4,
+            "rows": 3246,
+            "mean_probability": 0.44759173577379874,
+            "phishing_fraction": 0.37276648182378314
+          },
+          {
+            "lower": 0.5,
+            "rows": 3006,
+            "mean_probability": 0.550134954096751,
+            "phishing_fraction": 0.4886892880904857
+          },
+          {
+            "lower": 0.6,
+            "rows": 3002,
+            "mean_probability": 0.6503605491595407,
+            "phishing_fraction": 0.619586942038641
+          },
+          {
+            "lower": 0.7,
+            "rows": 3638,
+            "mean_probability": 0.7529697492728371,
+            "phishing_fraction": 0.7534359538207807
+          },
+          {
+            "lower": 0.8,
+            "rows": 6409,
+            "mean_probability": 0.8562087210968861,
+            "phishing_fraction": 0.8868778280542986
+          },
+          {
+            "lower": 0.9,
+            "rows": 51975,
+            "mean_probability": 0.9779763753838747,
+            "phishing_fraction": 0.9907840307840308
+          }
+        ]
+      }
+    },
+    "segment_long_core_over_100_chars": {
+      "rows": 5571,
+      "benign": 4222,
+      "phishing": 1349,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 4222,
+        "fp": 0,
+        "fn": 1253,
+        "tp": 96
+      },
+      "accuracy": 0.7750852629689463,
+      "precision": 1.0,
+      "recall": 0.07116382505559674,
+      "fpr": 0.0,
+      "f1": 0.1328719723183391,
+      "brier_score": 0.09960719386928765,
+      "log_loss": 0.3537971627556631,
+      "fpr_wilson95_rows_iid_assumption": [0.0, 0.0009090399765650842],
+      "recall_wilson95_rows_iid_assumption": [
+        0.05862741308056707, 0.0861356391926934
+      ],
+      "average_precision": 0.8348016898774778,
+      "roc_auc": 0.9049784759066755,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 4242,
+          "mean_probability": 0.024961130372697163,
+          "phishing_fraction": 0.08863743517208864
+        },
+        {
+          "lower": 0.1,
+          "rows": 349,
+          "mean_probability": 0.1415900905514794,
+          "phishing_fraction": 0.3954154727793696
+        },
+        {
+          "lower": 0.2,
+          "rows": 152,
+          "mean_probability": 0.2422050452331264,
+          "phishing_fraction": 0.4276315789473684
+        },
+        {
+          "lower": 0.3,
+          "rows": 61,
+          "mean_probability": 0.3503270801730146,
+          "phishing_fraction": 0.5573770491803278
+        },
+        {
+          "lower": 0.4,
+          "rows": 57,
+          "mean_probability": 0.44643351703242334,
+          "phishing_fraction": 0.631578947368421
+        },
+        {
+          "lower": 0.5,
+          "rows": 34,
+          "mean_probability": 0.5530442133575457,
+          "phishing_fraction": 0.8823529411764706
+        },
+        {
+          "lower": 0.6,
+          "rows": 64,
+          "mean_probability": 0.6541098918791579,
+          "phishing_fraction": 0.921875
+        },
+        {
+          "lower": 0.7,
+          "rows": 83,
+          "mean_probability": 0.7563910620468275,
+          "phishing_fraction": 1.0
+        },
+        {
+          "lower": 0.8,
+          "rows": 137,
+          "mean_probability": 0.8531906007565948,
+          "phishing_fraction": 1.0
+        },
+        {
+          "lower": 0.9,
+          "rows": 392,
+          "mean_probability": 0.9640990680508786,
+          "phishing_fraction": 0.9974489795918368
+        }
+      ]
+    },
+    "segment_idn_punycode": {
+      "rows": 377,
+      "benign": 12,
+      "phishing": 365,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 12,
+        "fp": 0,
+        "fn": 343,
+        "tp": 22
+      },
+      "accuracy": 0.09018567639257294,
+      "precision": 1.0,
+      "recall": 0.06027397260273973,
+      "fpr": 0.0,
+      "f1": 0.11369509043927649,
+      "brier_score": 0.025781943933265026,
+      "log_loss": 0.11566786549708145,
+      "fpr_wilson95_rows_iid_assumption": [0.0, 0.24249400665524085],
+      "recall_wilson95_rows_iid_assumption": [
+        0.04013757719180392, 0.08956980161983727
+      ],
+      "average_precision": 0.9983113297466734,
+      "roc_auc": 0.9541095890410959,
+      "reliability_bins": [
+        {
+          "lower": 0.1,
+          "rows": 3,
+          "mean_probability": 0.13560216701009806,
+          "phishing_fraction": 0.0
+        },
+        {
+          "lower": 0.2,
+          "rows": 2,
+          "mean_probability": 0.23528139254191202,
+          "phishing_fraction": 0.0
+        },
+        {
+          "lower": 0.3,
+          "rows": 2,
+          "mean_probability": 0.3602874504403839,
+          "phishing_fraction": 0.5
+        },
+        {
+          "lower": 0.4,
+          "rows": 5,
+          "mean_probability": 0.48281079132852056,
+          "phishing_fraction": 0.8
+        },
+        {
+          "lower": 0.5,
+          "rows": 10,
+          "mean_probability": 0.5480218412841572,
+          "phishing_fraction": 1.0
+        },
+        {
+          "lower": 0.6,
+          "rows": 5,
+          "mean_probability": 0.6633206869024809,
+          "phishing_fraction": 0.6
+        },
+        {
+          "lower": 0.7,
+          "rows": 13,
+          "mean_probability": 0.7611493549347391,
+          "phishing_fraction": 0.8461538461538461
+        },
+        {
+          "lower": 0.8,
+          "rows": 60,
+          "mean_probability": 0.8610537694998878,
+          "phishing_fraction": 1.0
+        },
+        {
+          "lower": 0.9,
+          "rows": 277,
+          "mean_probability": 0.9622873726477296,
+          "phishing_fraction": 0.9963898916967509
+        }
+      ]
+    },
+    "segment_short_path": {
+      "rows": 53659,
+      "benign": 8076,
+      "phishing": 45583,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 8057,
+        "fp": 19,
+        "fn": 29675,
+        "tp": 15908
+      },
+      "accuracy": 0.44661659740211335,
+      "precision": 0.998807057198468,
+      "recall": 0.3489897549525042,
+      "fpr": 0.0023526498266468548,
+      "f1": 0.5172492277678427,
+      "brier_score": 0.05253638143933518,
+      "log_loss": 0.17670591059834054,
+      "fpr_wilson95_rows_iid_assumption": [
+        0.0015067132334946986, 0.0036717867449938837
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.344626952515523, 0.35337800770011407
+      ],
+      "average_precision": 0.9924365222115079,
+      "roc_auc": 0.9614925022283263,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 2023,
+          "mean_probability": 0.048337581868674435,
+          "phishing_fraction": 0.06277805239742956
+        },
+        {
+          "lower": 0.1,
+          "rows": 1689,
+          "mean_probability": 0.1492194968506406,
+          "phishing_fraction": 0.1640023682652457
+        },
+        {
+          "lower": 0.2,
+          "rows": 1412,
+          "mean_probability": 0.24929598980089201,
+          "phishing_fraction": 0.23441926345609065
+        },
+        {
+          "lower": 0.3,
+          "rows": 1168,
+          "mean_probability": 0.3485755510766269,
+          "phishing_fraction": 0.3527397260273973
+        },
+        {
+          "lower": 0.4,
+          "rows": 1120,
+          "mean_probability": 0.44974024532565904,
+          "phishing_fraction": 0.42410714285714285
+        },
+        {
+          "lower": 0.5,
+          "rows": 1273,
+          "mean_probability": 0.5509343765058444,
+          "phishing_fraction": 0.5380989787902593
+        },
+        {
+          "lower": 0.6,
+          "rows": 1413,
+          "mean_probability": 0.6520998602196669,
+          "phishing_fraction": 0.6418966737438075
+        },
+        {
+          "lower": 0.7,
+          "rows": 2066,
+          "mean_probability": 0.7534330683347105,
+          "phishing_fraction": 0.7681510164569216
+        },
+        {
+          "lower": 0.8,
+          "rows": 3930,
+          "mean_probability": 0.8570650801721521,
+          "phishing_fraction": 0.8903307888040712
+        },
+        {
+          "lower": 0.9,
+          "rows": 37565,
+          "mean_probability": 0.9787623786177596,
+          "phishing_fraction": 0.9924930121123386
+        }
+      ]
+    },
+    "error_counts_by_suffix_min5": {
+      "ac": {
+        "fp": 0,
+        "fn": 5
+      },
+      "ae": {
+        "fp": 0,
+        "fn": 189
+      },
+      "agency": {
+        "fp": 0,
+        "fn": 5
+      },
+      "ai": {
+        "fp": 0,
+        "fn": 29
+      },
+      "al": {
+        "fp": 0,
+        "fn": 175
+      },
+      "am": {
+        "fp": 0,
+        "fn": 160
+      },
+      "app": {
+        "fp": 1,
+        "fn": 119
+      },
+      "art": {
+        "fp": 0,
+        "fn": 18
+      },
+      "asia": {
+        "fp": 0,
+        "fn": 17
+      },
+      "at": {
+        "fp": 0,
+        "fn": 42
+      },
+      "autos": {
+        "fp": 0,
+        "fn": 216
+      },
+      "azurewebsites.net": {
+        "fp": 0,
+        "fn": 8
+      },
+      "ba": {
+        "fp": 0,
+        "fn": 165
+      },
+      "be": {
+        "fp": 0,
+        "fn": 164
+      },
+      "bet": {
+        "fp": 0,
+        "fn": 5
+      },
+      "bg": {
+        "fp": 0,
+        "fn": 151
+      },
+      "bid": {
+        "fp": 0,
+        "fn": 6
+      },
+      "bio": {
+        "fp": 0,
+        "fn": 16
+      },
+      "biz": {
+        "fp": 0,
+        "fn": 27
+      },
+      "biz.id": {
+        "fp": 0,
+        "fn": 31
+      },
+      "blob.core.windows.net": {
+        "fp": 0,
+        "fn": 33
+      },
+      "blog": {
+        "fp": 0,
+        "fn": 20
+      },
+      "blogspot.com": {
+        "fp": 2,
+        "fn": 235
+      },
+      "bond": {
+        "fp": 0,
+        "fn": 24
+      },
+      "bubbleapps.io": {
+        "fp": 0,
+        "fn": 12
+      },
+      "business": {
+        "fp": 0,
+        "fn": 5
+      },
+      "buzz": {
+        "fp": 0,
+        "fn": 9
+      },
+      "ca": {
+        "fp": 0,
+        "fn": 290
+      },
+      "cash": {
+        "fp": 0,
+        "fn": 5
+      },
+      "cat": {
+        "fp": 0,
+        "fn": 11
+      },
+      "cc": {
+        "fp": 0,
+        "fn": 1125
+      },
+      "cfd": {
+        "fp": 0,
+        "fn": 1268
+      },
+      "ch": {
+        "fp": 0,
+        "fn": 210
+      },
+      "cl": {
+        "fp": 0,
+        "fn": 140
+      },
+      "click": {
+        "fp": 0,
+        "fn": 499
+      },
+      "cloud": {
+        "fp": 0,
+        "fn": 31
+      },
+      "cloudaccess.host": {
+        "fp": 0,
+        "fn": 5
+      },
+      "cloudfront.net": {
+        "fp": 0,
+        "fn": 13
+      },
+      "club": {
+        "fp": 0,
+        "fn": 32
+      },
+      "cn": {
+        "fp": 0,
+        "fn": 127
+      },
+      "co": {
+        "fp": 0,
+        "fn": 112
+      },
+      "co.at": {
+        "fp": 0,
+        "fn": 199
+      },
+      "co.id": {
+        "fp": 0,
+        "fn": 204
+      },
+      "co.il": {
+        "fp": 0,
+        "fn": 241
+      },
+      "co.in": {
+        "fp": 0,
+        "fn": 36
+      },
+      "co.jp": {
+        "fp": 0,
+        "fn": 6
+      },
+      "co.ke": {
+        "fp": 0,
+        "fn": 200
+      },
+      "co.nz": {
+        "fp": 0,
+        "fn": 251
+      },
+      "co.tz": {
+        "fp": 0,
+        "fn": 6
+      },
+      "co.uk": {
+        "fp": 0,
+        "fn": 347
+      },
+      "co.za": {
+        "fp": 0,
+        "fn": 295
+      },
+      "com": {
+        "fp": 7,
+        "fn": 12071
+      },
+      "com.ar": {
+        "fp": 0,
+        "fn": 189
+      },
+      "com.au": {
+        "fp": 0,
+        "fn": 286
+      },
+      "com.br": {
+        "fp": 2,
+        "fn": 142
+      },
+      "com.by": {
+        "fp": 0,
+        "fn": 139
+      },
+      "com.co": {
+        "fp": 0,
+        "fn": 211
+      },
+      "com.cy": {
+        "fp": 0,
+        "fn": 207
+      },
+      "com.de": {
+        "fp": 0,
+        "fn": 51
+      },
+      "com.ee": {
+        "fp": 0,
+        "fn": 131
+      },
+      "com.eg": {
+        "fp": 0,
+        "fn": 140
+      },
+      "com.es": {
+        "fp": 0,
+        "fn": 159
+      },
+      "com.mt": {
+        "fp": 0,
+        "fn": 203
+      },
+      "com.mx": {
+        "fp": 0,
+        "fn": 47
+      },
+      "com.my": {
+        "fp": 0,
+        "fn": 7
+      },
+      "com.ng": {
+        "fp": 0,
+        "fn": 160
+      },
+      "com.pk": {
+        "fp": 0,
+        "fn": 6
+      },
+      "com.py": {
+        "fp": 0,
+        "fn": 5
+      },
+      "com.se": {
+        "fp": 0,
+        "fn": 10
+      },
+      "com.tr": {
+        "fp": 0,
+        "fn": 250
+      },
+      "com.ua": {
+        "fp": 0,
+        "fn": 12
+      },
+      "com.uy": {
+        "fp": 0,
+        "fn": 185
+      },
+      "consulting": {
+        "fp": 0,
+        "fn": 9
+      },
+      "cyou": {
+        "fp": 0,
+        "fn": 59
+      },
+      "cz": {
+        "fp": 0,
+        "fn": 184
+      },
+      "de": {
+        "fp": 0,
+        "fn": 1728
+      },
+      "dev": {
+        "fp": 1,
+        "fn": 18
+      },
+      "digital": {
+        "fp": 0,
+        "fn": 66
+      },
+      "direct": {
+        "fp": 0,
+        "fn": 5
+      },
+      "dk": {
+        "fp": 0,
+        "fn": 216
+      },
+      "dpdns.org": {
+        "fp": 0,
+        "fn": 81
+      },
+      "duckdns.org": {
+        "fp": 0,
+        "fn": 20
+      },
+      "dynv6.net": {
+        "fp": 0,
+        "fn": 7
+      },
+      "edu": {
+        "fp": 0,
+        "fn": 15
+      },
+      "ee": {
+        "fp": 0,
+        "fn": 15
+      },
+      "es": {
+        "fp": 0,
+        "fn": 95
+      },
+      "eu": {
+        "fp": 0,
+        "fn": 99
+      },
+      "eu.com": {
+        "fp": 0,
+        "fn": 11
+      },
+      "eu.org": {
+        "fp": 0,
+        "fn": 7
+      },
+      "fi": {
+        "fp": 0,
+        "fn": 202
+      },
+      "fit": {
+        "fp": 0,
+        "fn": 21
+      },
+      "fr": {
+        "fp": 0,
+        "fn": 287
+      },
+      "framer.app": {
+        "fp": 0,
+        "fn": 69
+      },
+      "framer.website": {
+        "fp": 0,
+        "fn": 21
+      },
+      "fun": {
+        "fp": 0,
+        "fn": 9
+      },
+      "gd": {
+        "fp": 0,
+        "fn": 11
+      },
+      "github.io": {
+        "fp": 1,
+        "fn": 130
+      },
+      "google": {
+        "fp": 0,
+        "fn": 5
+      },
+      "googleapis.com": {
+        "fp": 0,
+        "fn": 68
+      },
+      "gov": {
+        "fp": 0,
+        "fn": 183
+      },
+      "gq": {
+        "fp": 0,
+        "fn": 5
+      },
+      "gr": {
+        "fp": 0,
+        "fn": 230
+      },
+      "help": {
+        "fp": 0,
+        "fn": 105
+      },
+      "hk": {
+        "fp": 0,
+        "fn": 149
+      },
+      "homes": {
+        "fp": 0,
+        "fn": 7
+      },
+      "host": {
+        "fp": 0,
+        "fn": 9
+      },
+      "hr": {
+        "fp": 0,
+        "fn": 164
+      },
+      "hu": {
+        "fp": 0,
+        "fn": 136
+      },
+      "icu": {
+        "fp": 0,
+        "fn": 87
+      },
+      "id": {
+        "fp": 0,
+        "fn": 15
+      },
+      "ie": {
+        "fp": 0,
+        "fn": 241
+      },
+      "im": {
+        "fp": 0,
+        "fn": 10
+      },
+      "in": {
+        "fp": 0,
+        "fn": 226
+      },
+      "in.net": {
+        "fp": 0,
+        "fn": 6
+      },
+      "in.th": {
+        "fp": 0,
+        "fn": 5
+      },
+      "info": {
+        "fp": 0,
+        "fn": 2422
+      },
+      "ink": {
+        "fp": 0,
+        "fn": 50
+      },
+      "io": {
+        "fp": 2,
+        "fn": 204
+      },
+      "ip": {
+        "fp": 0,
+        "fn": 178
+      },
+      "ir": {
+        "fp": 0,
+        "fn": 27
+      },
+      "is": {
+        "fp": 0,
+        "fn": 210
+      },
+      "it": {
+        "fp": 0,
+        "fn": 357
+      },
+      "it.com": {
+        "fp": 0,
+        "fn": 28
+      },
+      "jdevcloud.com": {
+        "fp": 0,
+        "fn": 14
+      },
+      "jp": {
+        "fp": 0,
+        "fn": 295
+      },
+      "kr": {
+        "fp": 0,
+        "fn": 137
+      },
+      "kz": {
+        "fp": 0,
+        "fn": 6
+      },
+      "lat": {
+        "fp": 0,
+        "fn": 20
+      },
+      "li": {
+        "fp": 0,
+        "fn": 107
+      },
+      "life": {
+        "fp": 0,
+        "fn": 39
+      },
+      "limited": {
+        "fp": 0,
+        "fn": 25
+      },
+      "link": {
+        "fp": 0,
+        "fn": 97
+      },
+      "live": {
+        "fp": 0,
+        "fn": 136
+      },
+      "lk": {
+        "fp": 0,
+        "fn": 14
+      },
+      "loan": {
+        "fp": 0,
+        "fn": 20
+      },
+      "lol": {
+        "fp": 0,
+        "fn": 21
+      },
+      "lovable.app": {
+        "fp": 0,
+        "fn": 5
+      },
+      "lt": {
+        "fp": 0,
+        "fn": 155
+      },
+      "ltd": {
+        "fp": 0,
+        "fn": 10
+      },
+      "lu": {
+        "fp": 0,
+        "fn": 134
+      },
+      "ly": {
+        "fp": 0,
+        "fn": 20
+      },
+      "markets": {
+        "fp": 0,
+        "fn": 5
+      },
+      "md": {
+        "fp": 0,
+        "fn": 168
+      },
+      "me": {
+        "fp": 1,
+        "fn": 96
+      },
+      "mk": {
+        "fp": 0,
+        "fn": 153
+      },
+      "mobi": {
+        "fp": 0,
+        "fn": 75
+      },
+      "mx": {
+        "fp": 0,
+        "fn": 153
+      },
+      "my": {
+        "fp": 0,
+        "fn": 213
+      },
+      "my.id": {
+        "fp": 0,
+        "fn": 79
+      },
+      "myshopify.com": {
+        "fp": 0,
+        "fn": 8
+      },
+      "net": {
+        "fp": 0,
+        "fn": 450
+      },
+      "net.pl": {
+        "fp": 0,
+        "fn": 96
+      },
+      "net.ru": {
+        "fp": 0,
+        "fn": 8
+      },
+      "netlify.app": {
+        "fp": 0,
+        "fn": 240
+      },
+      "news": {
+        "fp": 0,
+        "fn": 9
+      },
+      "nl": {
+        "fp": 0,
+        "fn": 287
+      },
+      "no": {
+        "fp": 0,
+        "fn": 229
+      },
+      "one": {
+        "fp": 0,
+        "fn": 27
+      },
+      "online": {
+        "fp": 0,
+        "fn": 194
+      },
+      "onrender.com": {
+        "fp": 0,
+        "fn": 11
+      },
+      "org": {
+        "fp": 0,
+        "fn": 579
+      },
+      "org.au": {
+        "fp": 0,
+        "fn": 30
+      },
+      "org.in": {
+        "fp": 0,
+        "fn": 5
+      },
+      "org.uk": {
+        "fp": 0,
+        "fn": 9
+      },
+      "page": {
+        "fp": 0,
+        "fn": 28
+      },
+      "pages.dev": {
+        "fp": 0,
+        "fn": 2627
+      },
+      "pe": {
+        "fp": 0,
+        "fn": 167
+      },
+      "pk": {
+        "fp": 0,
+        "fn": 12
+      },
+      "pl": {
+        "fp": 2,
+        "fn": 66
+      },
+      "pp.ua": {
+        "fp": 0,
+        "fn": 5
+      },
+      "pro": {
+        "fp": 0,
+        "fn": 123
+      },
+      "pt": {
+        "fp": 0,
+        "fn": 253
+      },
+      "pub": {
+        "fp": 0,
+        "fn": 5
+      },
+      "pw": {
+        "fp": 0,
+        "fn": 12
+      },
+      "qa": {
+        "fp": 0,
+        "fn": 154
+      },
+      "qpon": {
+        "fp": 0,
+        "fn": 35
+      },
+      "rest": {
+        "fp": 0,
+        "fn": 9
+      },
+      "ro": {
+        "fp": 0,
+        "fn": 187
+      },
+      "rs": {
+        "fp": 0,
+        "fn": 189
+      },
+      "ru": {
+        "fp": 0,
+        "fn": 320
+      },
+      "ru.com": {
+        "fp": 0,
+        "fn": 87
+      },
+      "run": {
+        "fp": 0,
+        "fn": 126
+      },
+      "s3-ap-southeast-2.amazonaws.com": {
+        "fp": 0,
+        "fn": 6
+      },
+      "s3-eu-west-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 28
+      },
+      "s3-us-west-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 5
+      },
+      "s3.amazonaws.com": {
+        "fp": 0,
+        "fn": 23
+      },
+      "s3.ap-northeast-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 5
+      },
+      "s3.ap-southeast-2.amazonaws.com": {
+        "fp": 0,
+        "fn": 18
+      },
+      "s3.ca-central-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 5
+      },
+      "s3.dualstack.ap-southeast-2.amazonaws.com": {
+        "fp": 0,
+        "fn": 5
+      },
+      "s3.eu-north-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 13
+      },
+      "s3.eu-west-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 7
+      },
+      "s3.us-east-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 14
+      },
+      "s3.us-east-2.amazonaws.com": {
+        "fp": 0,
+        "fn": 27
+      },
+      "s3.us-west-1.amazonaws.com": {
+        "fp": 0,
+        "fn": 7
+      },
+      "sa.com": {
+        "fp": 0,
+        "fn": 188
+      },
+      "sbs": {
+        "fp": 0,
+        "fn": 60
+      },
+      "se": {
+        "fp": 0,
+        "fn": 241
+      },
+      "sellfy.store": {
+        "fp": 0,
+        "fn": 26
+      },
+      "sg": {
+        "fp": 0,
+        "fn": 143
+      },
+      "sh": {
+        "fp": 0,
+        "fn": 69
+      },
+      "shop": {
+        "fp": 1,
+        "fn": 3227
+      },
+      "si": {
+        "fp": 0,
+        "fn": 148
+      },
+      "site": {
+        "fp": 0,
+        "fn": 61
+      },
+      "site.tb-hosting.com": {
+        "fp": 0,
+        "fn": 5
+      },
+      "sk": {
+        "fp": 0,
+        "fn": 164
+      },
+      "sn": {
+        "fp": 0,
+        "fn": 148
+      },
+      "so": {
+        "fp": 0,
+        "fn": 5
+      },
+      "solutions": {
+        "fp": 0,
+        "fn": 8
+      },
+      "square.site": {
+        "fp": 0,
+        "fn": 27
+      },
+      "store": {
+        "fp": 0,
+        "fn": 26
+      },
+      "su": {
+        "fp": 0,
+        "fn": 15
+      },
+      "support": {
+        "fp": 0,
+        "fn": 9
+      },
+      "tech": {
+        "fp": 0,
+        "fn": 28
+      },
+      "tk": {
+        "fp": 0,
+        "fn": 7
+      },
+      "to": {
+        "fp": 0,
+        "fn": 15
+      },
+      "today": {
+        "fp": 0,
+        "fn": 6
+      },
+      "top": {
+        "fp": 0,
+        "fn": 561
+      },
+      "trycloudflare.com": {
+        "fp": 0,
+        "fn": 12
+      },
+      "tv": {
+        "fp": 0,
+        "fn": 14
+      },
+      "tw": {
+        "fp": 0,
+        "fn": 140
+      },
+      "typedream.app": {
+        "fp": 0,
+        "fn": 107
+      },
+      "ug": {
+        "fp": 0,
+        "fn": 135
+      },
+      "uk": {
+        "fp": 0,
+        "fn": 32
+      },
+      "us": {
+        "fp": 0,
+        "fn": 387
+      },
+      "us.com": {
+        "fp": 0,
+        "fn": 42
+      },
+      "vercel.app": {
+        "fp": 0,
+        "fn": 146
+      },
+      "vg": {
+        "fp": 0,
+        "fn": 5
+      },
+      "vip": {
+        "fp": 0,
+        "fn": 303
+      },
+      "vn": {
+        "fp": 0,
+        "fn": 6
+      },
+      "web.app": {
+        "fp": 0,
+        "fn": 12
+      },
+      "web.id": {
+        "fp": 0,
+        "fn": 5
+      },
+      "webflow.io": {
+        "fp": 0,
+        "fn": 8
+      },
+      "website": {
+        "fp": 0,
+        "fn": 12
+      },
+      "wiki": {
+        "fp": 0,
+        "fn": 22
+      },
+      "win": {
+        "fp": 0,
+        "fn": 10
+      },
+      "wixsite.com": {
+        "fp": 0,
+        "fn": 14
+      },
+      "wixstudio.com": {
+        "fp": 0,
+        "fn": 8
+      },
+      "work": {
+        "fp": 0,
+        "fn": 13
+      },
+      "workers.dev": {
+        "fp": 1,
+        "fn": 7
+      },
+      "world": {
+        "fp": 0,
+        "fn": 59
+      },
+      "wpenginepowered.com": {
+        "fp": 0,
+        "fn": 18
+      },
+      "ws": {
+        "fp": 0,
+        "fn": 19
+      },
+      "xin": {
+        "fp": 0,
+        "fn": 7
+      },
+      "xyz": {
+        "fp": 1,
+        "fn": 766
+      },
+      "yolasite.com": {
+        "fp": 0,
+        "fn": 6
+      },
+      "za.com": {
+        "fp": 0,
+        "fn": 30
+      },
+      "zeabur.app": {
+        "fp": 0,
+        "fn": 24
+      },
+      "zone": {
+        "fp": 0,
+        "fn": 6
+      }
+    },
+    "external_all": {
+      "rows": 219036,
+      "benign": 133440,
+      "phishing": 85596,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 133430,
+        "fp": 10,
+        "fn": 61401,
+        "tp": 24195
+      },
+      "accuracy": 0.7196305630124729,
+      "precision": 0.9995868622185499,
+      "recall": 0.28266507780737415,
+      "fpr": 7.494004796163069e-5,
+      "f1": 0.4407063687944554,
+      "brier_score": 0.06992395935703669,
+      "log_loss": 0.24783794886005603,
+      "fpr_wilson95_rows_iid_assumption": [
+        4.070782045580523e-5, 0.00013795504296342073
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.27965827822998757, 0.28569138403663463
+      ],
+      "average_precision": 0.9700028431816679,
+      "roc_auc": 0.9774103093716671,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 43702,
+          "mean_probability": 0.04807965427258094,
+          "phishing_fraction": 0.005148505789208732
+        },
+        {
+          "lower": 0.1,
+          "rows": 32520,
+          "mean_probability": 0.14738206381407895,
+          "phishing_fraction": 0.015375153751537515
+        },
+        {
+          "lower": 0.2,
+          "rows": 22757,
+          "mean_probability": 0.24671323270933,
+          "phishing_fraction": 0.040163466186228416
+        },
+        {
+          "lower": 0.3,
+          "rows": 15568,
+          "mean_probability": 0.3469099208484431,
+          "phishing_fraction": 0.08080678314491264
+        },
+        {
+          "lower": 0.4,
+          "rows": 10899,
+          "mean_probability": 0.4469641744393082,
+          "phishing_fraction": 0.1608404440774383
+        },
+        {
+          "lower": 0.5,
+          "rows": 8184,
+          "mean_probability": 0.5485820492139888,
+          "phishing_fraction": 0.32416911045943303
+        },
+        {
+          "lower": 0.6,
+          "rows": 7176,
+          "mean_probability": 0.650166721698251,
+          "phishing_fraction": 0.56061872909699
+        },
+        {
+          "lower": 0.7,
+          "rows": 8451,
+          "mean_probability": 0.751477797202403,
+          "phishing_fraction": 0.7834575789847356
+        },
+        {
+          "lower": 0.8,
+          "rows": 13100,
+          "mean_probability": 0.8550575281623153,
+          "phishing_fraction": 0.9119847328244275
+        },
+        {
+          "lower": 0.9,
+          "rows": 56679,
+          "mean_probability": 0.9741791051120411,
+          "phishing_fraction": 0.9827625752042203
+        }
+      ],
+      "group_bootstrap": {
+        "resampling_unit": "PSL registered domain/private tenant",
+        "repeats": 200,
+        "fpr95": [2.9926841969330788e-5, 0.00012758416764089935],
+        "recall95": [0.240803041688391, 0.3357158475913229],
+        "precision95": [0.9992494992033772, 0.9998603350574393]
+      }
+    },
+    "external_novel_domain": {
+      "rows": 194559,
+      "benign": 120189,
+      "phishing": 74370,
+      "threshold": 0.9912639836169382,
+      "confusion_matrix": {
+        "tn": 120179,
+        "fp": 10,
+        "fn": 56244,
+        "tp": 18126
+      },
+      "accuracy": 0.7108640566614755,
+      "precision": 0.9994486104984561,
+      "recall": 0.24372730939895118,
+      "fpr": 8.320228972701329e-5,
+      "f1": 0.39188809374527056,
+      "brier_score": 0.07494419903155669,
+      "log_loss": 0.2634476787261713,
+      "fpr_wilson95_rows_iid_assumption": [
+        4.519597283004031e-5, 0.00015316408365354366
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.2406549910951451, 0.24682610101564534
+      ],
+      "average_precision": 0.9634716221085027,
+      "roc_auc": 0.973488977866449,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 36856,
+          "mean_probability": 0.050423283445515325,
+          "phishing_fraction": 0.005887779466029954
+        },
+        {
+          "lower": 0.1,
+          "rows": 29621,
+          "mean_probability": 0.14761034291237093,
+          "phishing_fraction": 0.016441038452449278
+        },
+        {
+          "lower": 0.2,
+          "rows": 21138,
+          "mean_probability": 0.2467467760286239,
+          "phishing_fraction": 0.042293499858075505
+        },
+        {
+          "lower": 0.3,
+          "rows": 14648,
+          "mean_probability": 0.3469635747109597,
+          "phishing_fraction": 0.08328782086291645
+        },
+        {
+          "lower": 0.4,
+          "rows": 10331,
+          "mean_probability": 0.4470549642468165,
+          "phishing_fraction": 0.16503726647952763
+        },
+        {
+          "lower": 0.5,
+          "rows": 7818,
+          "mean_probability": 0.5485519089739265,
+          "phishing_fraction": 0.3283448452289588
+        },
+        {
+          "lower": 0.6,
+          "rows": 6890,
+          "mean_probability": 0.6500775785772706,
+          "phishing_fraction": 0.5618287373004354
+        },
+        {
+          "lower": 0.7,
+          "rows": 8060,
+          "mean_probability": 0.7513487659330657,
+          "phishing_fraction": 0.7807692307692308
+        },
+        {
+          "lower": 0.8,
+          "rows": 12252,
+          "mean_probability": 0.8549021692236872,
+          "phishing_fraction": 0.9089128305582762
+        },
+        {
+          "lower": 0.9,
+          "rows": 46945,
+          "mean_probability": 0.9720249505423971,
+          "phishing_fraction": 0.9794440302481627
+        }
+      ],
+      "group_bootstrap": {
+        "resampling_unit": "PSL registered domain/private tenant",
+        "repeats": 200,
+        "fpr95": [4.159535818311684e-5, 0.0001413283410446734],
+        "recall95": [0.23018948816095583, 0.26676816894945227],
+        "precision95": [0.9990400076607401, 0.9997278799860628]
+      }
+    },
+    "external_by_risk_threshold": {
+      "low": {
+        "rows": 219036,
+        "benign": 133440,
+        "phishing": 85596,
+        "threshold": 0.91626276360179,
+        "confusion_matrix": {
+          "tn": 132652,
+          "fp": 788,
+          "fn": 32870,
+          "tp": 52726
+        },
+        "accuracy": 0.8463357621578188,
+        "precision": 0.9852748813394626,
+        "recall": 0.6159867283517921,
+        "fpr": 0.005905275779376499,
+        "f1": 0.7580475882395227,
+        "brier_score": 0.06992395935703669,
+        "log_loss": 0.24783794886005603,
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0055081672244913634, 0.0063308314250507805
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.6127233740849033, 0.6192396723601311
+        ],
+        "average_precision": 0.9700028431816679,
+        "roc_auc": 0.9774103093716671,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 43702,
+            "mean_probability": 0.04807965427258094,
+            "phishing_fraction": 0.005148505789208732
+          },
+          {
+            "lower": 0.1,
+            "rows": 32520,
+            "mean_probability": 0.14738206381407895,
+            "phishing_fraction": 0.015375153751537515
+          },
+          {
+            "lower": 0.2,
+            "rows": 22757,
+            "mean_probability": 0.24671323270933,
+            "phishing_fraction": 0.040163466186228416
+          },
+          {
+            "lower": 0.3,
+            "rows": 15568,
+            "mean_probability": 0.3469099208484431,
+            "phishing_fraction": 0.08080678314491264
+          },
+          {
+            "lower": 0.4,
+            "rows": 10899,
+            "mean_probability": 0.4469641744393082,
+            "phishing_fraction": 0.1608404440774383
+          },
+          {
+            "lower": 0.5,
+            "rows": 8184,
+            "mean_probability": 0.5485820492139888,
+            "phishing_fraction": 0.32416911045943303
+          },
+          {
+            "lower": 0.6,
+            "rows": 7176,
+            "mean_probability": 0.650166721698251,
+            "phishing_fraction": 0.56061872909699
+          },
+          {
+            "lower": 0.7,
+            "rows": 8451,
+            "mean_probability": 0.751477797202403,
+            "phishing_fraction": 0.7834575789847356
+          },
+          {
+            "lower": 0.8,
+            "rows": 13100,
+            "mean_probability": 0.8550575281623153,
+            "phishing_fraction": 0.9119847328244275
+          },
+          {
+            "lower": 0.9,
+            "rows": 56679,
+            "mean_probability": 0.9741791051120411,
+            "phishing_fraction": 0.9827625752042203
+          }
+        ]
+      },
+      "high": {
+        "rows": 219036,
+        "benign": 133440,
+        "phishing": 85596,
+        "threshold": 0.9912639836169382,
+        "confusion_matrix": {
+          "tn": 133430,
+          "fp": 10,
+          "fn": 61401,
+          "tp": 24195
+        },
+        "accuracy": 0.7196305630124729,
+        "precision": 0.9995868622185499,
+        "recall": 0.28266507780737415,
+        "fpr": 7.494004796163069e-5,
+        "f1": 0.4407063687944554,
+        "brier_score": 0.06992395935703669,
+        "log_loss": 0.24783794886005603,
+        "fpr_wilson95_rows_iid_assumption": [
+          4.070782045580523e-5, 0.00013795504296342073
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.27965827822998757, 0.28569138403663463
+        ],
+        "average_precision": 0.9700028431816679,
+        "roc_auc": 0.9774103093716671,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 43702,
+            "mean_probability": 0.04807965427258094,
+            "phishing_fraction": 0.005148505789208732
+          },
+          {
+            "lower": 0.1,
+            "rows": 32520,
+            "mean_probability": 0.14738206381407895,
+            "phishing_fraction": 0.015375153751537515
+          },
+          {
+            "lower": 0.2,
+            "rows": 22757,
+            "mean_probability": 0.24671323270933,
+            "phishing_fraction": 0.040163466186228416
+          },
+          {
+            "lower": 0.3,
+            "rows": 15568,
+            "mean_probability": 0.3469099208484431,
+            "phishing_fraction": 0.08080678314491264
+          },
+          {
+            "lower": 0.4,
+            "rows": 10899,
+            "mean_probability": 0.4469641744393082,
+            "phishing_fraction": 0.1608404440774383
+          },
+          {
+            "lower": 0.5,
+            "rows": 8184,
+            "mean_probability": 0.5485820492139888,
+            "phishing_fraction": 0.32416911045943303
+          },
+          {
+            "lower": 0.6,
+            "rows": 7176,
+            "mean_probability": 0.650166721698251,
+            "phishing_fraction": 0.56061872909699
+          },
+          {
+            "lower": 0.7,
+            "rows": 8451,
+            "mean_probability": 0.751477797202403,
+            "phishing_fraction": 0.7834575789847356
+          },
+          {
+            "lower": 0.8,
+            "rows": 13100,
+            "mean_probability": 0.8550575281623153,
+            "phishing_fraction": 0.9119847328244275
+          },
+          {
+            "lower": 0.9,
+            "rows": 56679,
+            "mean_probability": 0.9741791051120411,
+            "phishing_fraction": 0.9827625752042203
+          }
+        ]
+      }
+    }
+  },
+  "inference_benchmark": {
+    "samples": 100,
+    "batch_size": 1,
+    "threads": 4,
+    "startup_seconds": 0.29397250001784414,
+    "latency_ms_p50": 4.237799992552027,
+    "latency_ms_p95": 6.577690030098893,
+    "rss_bytes_evaluation_process_not_inference_only": 825044992,
+    "peak_working_set_bytes_if_available": 875417600
+  },
+  "parity": {
+    "url_equals_qr": true,
+    "query_ignored_consistently": true,
+    "save_reload_identical": true
+  },
+  "limits": [
+    "No manual re-verification of every source label; automated audits cannot prove all labels true.",
+    "Domain-disjointness is not proof of campaign-disjointness.",
+    "Independent Indonesia gold set and contemporary 2026 holdout remain unavailable.",
+    "Research prevalence differs from live user traffic; precision and calibration will change.",
+    "Query-only threats, redirect destinations, page content, and APK malware are outside this model."
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "frozen_at_utc": "2026-11-01T05:22:04.626570+00:00",
+  "selection": {
+    "name": "tfidf_logistic_sgd",
+    "parameters": {
+      "optimizer": "SGD logistic regression",
+      "trials": [
+        {
+          "alpha": 1e-5,
+          "epochs": 4,
+          "best_tune_average_precision": 0.9353071621373059
+        },
+        {
+          "alpha": 1e-6,
+          "epochs": 7,
+          "best_tune_average_precision": 0.9407373951602056
+        }
+      ],
+      "max_epochs_per_trial": 12,
+      "vocabulary_fit_rows": 100000,
+      "vocabulary_features": 40000,
+      "vocabulary_source": "deterministic fit-only sample for memory budget"
+    },
+    "tune": {
+      "rows": 31348,
+      "benign": 15010,
+      "phishing": 16338,
+      "threshold": 0.997820258140564,
+      "confusion_matrix": {
+        "tn": 14995,
+        "fp": 15,
+        "fn": 11699,
+        "tp": 4639
+      },
+      "accuracy": 0.6263238484113819,
+      "precision": 0.9967769660507091,
+      "recall": 0.2839392826539356,
+      "fpr": 0.000999333777481679,
+      "f1": 0.4419778963414634,
+      "brier_score": 0.12620832609367716,
+      "log_loss": 0.5394115884732572,
+      "fpr_wilson95_rows_iid_assumption": [
+        0.00060572558277231, 0.00164829174607141
+      ],
+      "recall_wilson95_rows_iid_assumption": [
+        0.2770765875375061, 0.29090355608398966
+      ],
+      "average_precision": 0.9405226439019818,
+      "roc_auc": 0.921765819563389,
+      "reliability_bins": [
+        {
+          "lower": 0.0,
+          "rows": 15485,
+          "mean_probability": 0.013692915078329433,
+          "phishing_fraction": 0.1657087504036164
+        },
+        {
+          "lower": 0.1,
+          "rows": 1076,
+          "mean_probability": 0.14543465865588986,
+          "phishing_fraction": 0.36059479553903345
+        },
+        {
+          "lower": 0.2,
+          "rows": 697,
+          "mean_probability": 0.24665595366588794,
+          "phishing_fraction": 0.4935437589670014
+        },
+        {
+          "lower": 0.3,
+          "rows": 617,
+          "mean_probability": 0.34893763915453,
+          "phishing_fraction": 0.593192868719611
+        },
+        {
+          "lower": 0.4,
+          "rows": 558,
+          "mean_probability": 0.4518640264067599,
+          "phishing_fraction": 0.7043010752688172
+        },
+        {
+          "lower": 0.5,
+          "rows": 639,
+          "mean_probability": 0.5513263836339792,
+          "phishing_fraction": 0.7777777777777778
+        },
+        {
+          "lower": 0.6,
+          "rows": 798,
+          "mean_probability": 0.6534431346675806,
+          "phishing_fraction": 0.8408521303258145
+        },
+        {
+          "lower": 0.7,
+          "rows": 1023,
+          "mean_probability": 0.7512844005637854,
+          "phishing_fraction": 0.8944281524926686
+        },
+        {
+          "lower": 0.8,
+          "rows": 1249,
+          "mean_probability": 0.8507503732573614,
+          "phishing_fraction": 0.9071257005604484
+        },
+        {
+          "lower": 0.9,
+          "rows": 9206,
+          "mean_probability": 0.9873596877021529,
+          "phishing_fraction": 0.9846839018031719
+        }
+      ]
+    },
+    "operating_points": {
+      "0.01": {
+        "threshold": 0.8968871831893921,
+        "empirical_fpr": 0.009993337774816789,
+        "recall": 0.5571673399436896,
+        "target_fpr": 0.01
+      },
+      "0.001": {
+        "threshold": 0.997820258140564,
+        "empirical_fpr": 0.000999333777481679,
+        "recall": 0.2839392826539356,
+        "target_fpr": 0.001
+      },
+      "0.0001": {
+        "threshold": 0.9999861717224121,
+        "empirical_fpr": 6.662225183211193e-5,
+        "recall": 0.02913453299057412,
+        "target_fpr": 0.0001
+      }
+    },
+    "fit_and_tune_seconds": 42.761303499981295,
+    "artifact_bytes": 808647,
+    "artifact_sha256": "83dffcb3ca2ae354b8853e274af9dcbeb01c785ec920cb29741ec06bb60e08fd"
+  },
+  "manifest": {
+    "model_version": "url-core-v1",
+    "model_name": "tfidf_logistic_sgd",
+    "created_at_utc": "2026-11-01T05:22:04.103156+00:00",
+    "representation_version": "url-core-redacted-v1",
+    "feature_schema_version": "url-lexical-v1",
+    "feature_schema": [
+      "url_length",
+      "host_length",
+      "path_length",
+      "host_labels",
+      "host_hyphens",
+      "host_digits",
+      "host_digit_ratio",
+      "host_entropy",
+      "path_entropy",
+      "path_depth",
+      "path_digits",
+      "path_digit_ratio",
+      "path_hyphens",
+      "path_underscores",
+      "path_dots",
+      "path_percents",
+      "host_max_label",
+      "registered_length",
+      "subdomain_length",
+      "suffix_length",
+      "punycode",
+      "ip_literal",
+      "https",
+      "keyword_count",
+      "brand_count",
+      "brand_in_subdomain",
+      "brand_in_path",
+      "path_equals",
+      "path_at",
+      "path_semicolon",
+      "path_upper_ratio",
+      "path_non_ascii_encoded",
+      "download_extension",
+      "host_vowel_ratio",
+      "suffix"
+    ],
+    "brands": [
+      "bca",
+      "bni",
+      "bri",
+      "mandiri",
+      "dana",
+      "gopay",
+      "ovo",
+      "shopee",
+      "tokopedia",
+      "paypal",
+      "microsoft",
+      "google",
+      "apple",
+      "facebook"
+    ],
+    "label_mapping": {
+      "benign": 0,
+      "phishing": 1
+    },
+    "source_revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "data_sha256": "f1b4cc6f64681eae2b93f9b331b702547d2f128fe0b3539fe1dd8dfb112b9a17",
+    "seed": 20261101,
+    "threads": 4,
+    "environment": {
+      "python": "3.12.0",
+      "platform": "Windows",
+      "dependencies": {
+        "catboost": "1.2.10",
+        "joblib": "1.5.3",
+        "numpy": "2.4.3",
+        "pandas": "2.2.3",
+        "pyarrow": "22.0.0",
+        "requests": "2.32.3",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.16.3",
+        "tldextract": "5.3.0",
+        "xgboost": "3.1.1",
+        "threadpoolctl": "3.6.0",
+        "requests-file": "3.0.1",
+        "filelock": "3.16.1",
+        "urllib3": "2.2.1",
+        "idna": "3.7",
+        "certifi": "2024.2.2",
+        "matplotlib": "3.10.8",
+        "psutil": "7.1.3"
+      },
+      "psl": {
+        "package": "5.3.0",
+        "snapshot_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+        "private_suffixes": true,
+        "network_refresh": false
+      }
+    },
+    "source_hashes": {
+      "ml/src/guardian_ml/__init__.py": "4aff0b04bb8d0db771926223eec98f1aaa2de5916941709bc2f6ab4c572725d8",
+      "ml/src/guardian_ml/dataset.py": "9742856f1c0260c53293087ccfc3d97b1d3ebe6aa733e80ac743447faf083fad",
+      "ml/src/guardian_ml/evaluate.py": "70af003117895c2f4facc537b1e747d30f28e5cdd4755c1153b62da25bad8de0",
+      "ml/src/guardian_ml/evaluation.py": "06080dc63ec1ff0e377765cc82767642c13dc0b9223a1af651e9fc5db6bc59e1",
+      "ml/src/guardian_ml/features.py": "969b68cc6e2d3513654a8c0a7dbdfb2c78e7fb3742465317faee6d768096ad51",
+      "ml/src/guardian_ml/fitting.py": "f8abd6bbf0c89a2fc50161acba3ae0f36e6fb4c2d68d20b31c60fef70fea4ea0",
+      "ml/src/guardian_ml/metadata.py": "a2468aa9ab217e8160cb5a96170aae6f520d3e4dbd17282fdd52be281657fb55",
+      "ml/src/guardian_ml/models.py": "a570d7eee328a228dbcbfa4ccb10c972d6901374f8375d548b102929f2f776fd",
+      "ml/src/guardian_ml/paths.py": "90053d40c85cc3da77fa1fffce559affa8824b1a2e03d6f875883f2b8d566377",
+      "ml/src/guardian_ml/predictor.py": "b7e7dbc663132382b03e3d5b92c110b72e63d92624bb19d57eb09b3ae31b3927",
+      "ml/src/guardian_ml/preprocessing.py": "169f4d17d4ff0e5e039dc5f16fd9cc81bec1b026fde4f891099e30ff3cbc644c",
+      "ml/src/guardian_ml/sources.py": "886a531f9055acf0e88d8473666a0b2315ad731a7feb29ae48dc3cd4ff1c05f3",
+      "ml/src/guardian_ml/train.py": "0bef2456fcf33068793437656a63411749a2224f487dfbf54d845a94cba4ce84"
+    },
+    "thresholds": {
+      "low": 0.91626276360179,
+      "high": 0.9912639836169382
+    },
+    "probability_reference": "curated PhreshPhish; not calibrated to live Guardian Lab prevalence",
+    "deployment_status": "research_candidate_not_production_approved",
+    "bundle_filename": "url-core-v1.joblib",
+    "bundle_sha256": "7e5f8849edec6e3612ea530e9b9148e98137b40111c2fa6e73d66281d4985c02",
+    "bundle_bytes": 811300
+  },
+  "calibration": {
+    "internal_group_holdout_brier": {
+      "sigmoid": 0.08374240800021347,
+      "isotonic": 0.0847187265753746
+    },
+    "selected": "sigmoid",
+    "rows": 14695,
+    "probability_reference": "curated PhreshPhish calibration distribution",
+    "production_prevalence_calibrated": false
+  },
+  "threshold_operating_points": {
+    "0.01": {
+      "threshold": 0.91626276360179,
+      "empirical_fpr": 0.009950908849674938,
+      "recall": 0.6264326127955897,
+      "target_fpr": 0.01
+    },
+    "0.001": {
+      "threshold": 0.9912639836169382,
+      "empirical_fpr": 0.0009287514926363275,
+      "recall": 0.34498766864935443,
+      "target_fpr": 0.001
+    },
+    "0.0001": {
+      "threshold": 0.997598563080052,
+      "empirical_fpr": 0.0,
+      "recall": 0.18032786885245902,
+      "target_fpr": 0.0001
+    }
+  },
+  "threshold_metrics": {
+    "rows": 14430,
+    "benign": 7537,
+    "phishing": 6893,
+    "threshold": 0.9912639836169382,
+    "confusion_matrix": {
+      "tn": 7530,
+      "fp": 7,
+      "fn": 4515,
+      "tp": 2378
+    },
+    "accuracy": 0.6866250866250866,
+    "precision": 0.9970649895178197,
+    "recall": 0.34498766864935443,
+    "fpr": 0.0009287514926363275,
+    "f1": 0.512610476395775,
+    "brier_score": 0.09005179636467923,
+    "log_loss": 0.2977373342918858,
+    "fpr_wilson95_rows_iid_assumption": [
+      0.0004499660219915778, 0.0019160111594839144
+    ],
+    "recall_wilson95_rows_iid_assumption": [
+      0.33385479668338086, 0.3562932206721739
+    ],
+    "average_precision": 0.949445640934725,
+    "roc_auc": 0.9425464868022528,
+    "reliability_bins": [
+      {
+        "lower": 0.0,
+        "rows": 4520,
+        "mean_probability": 0.03741841432111399,
+        "phishing_fraction": 0.049557522123893805
+      },
+      {
+        "lower": 0.1,
+        "rows": 1453,
+        "mean_probability": 0.14444076101210362,
+        "phishing_fraction": 0.16173434273916035
+      },
+      {
+        "lower": 0.2,
+        "rows": 860,
+        "mean_probability": 0.24497231225411592,
+        "phishing_fraction": 0.27209302325581397
+      },
+      {
+        "lower": 0.3,
+        "rows": 614,
+        "mean_probability": 0.34646976023451487,
+        "phishing_fraction": 0.3501628664495114
+      },
+      {
+        "lower": 0.4,
+        "rows": 405,
+        "mean_probability": 0.44938114139101537,
+        "phishing_fraction": 0.34074074074074073
+      },
+      {
+        "lower": 0.5,
+        "rows": 407,
+        "mean_probability": 0.5492702071664903,
+        "phishing_fraction": 0.457002457002457
+      },
+      {
+        "lower": 0.6,
+        "rows": 441,
+        "mean_probability": 0.647938216681206,
+        "phishing_fraction": 0.6349206349206349
+      },
+      {
+        "lower": 0.7,
+        "rows": 470,
+        "mean_probability": 0.7513012684871259,
+        "phishing_fraction": 0.6659574468085107
+      },
+      {
+        "lower": 0.8,
+        "rows": 715,
+        "mean_probability": 0.852670760205926,
+        "phishing_fraction": 0.8573426573426574
+      },
+      {
+        "lower": 0.9,
+        "rows": 4545,
+        "mean_probability": 0.9811080677417583,
+        "phishing_fraction": 0.9801980198019802
+      }
+    ]
+  },
+  "final_test_opened": false
+}

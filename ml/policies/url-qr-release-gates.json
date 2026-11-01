@@ -1,0 +1,27 @@
+{
+  "schema_version": "url-qr-release-gates-v1",
+  "declared_at": "2026-11-01",
+  "scope": "indonesia_url_and_decoded_qr_url",
+  "status": "proposed_frozen_research_gate_not_achieved",
+  "minimum_phishing_rows": 1000,
+  "minimum_benign_rows": 3000,
+  "minimum_independent_human_reviewers": 2,
+  "recall_lower_wilson95_min": 0.85,
+  "fpr_upper_wilson95_max": 0.01,
+  "require_provenance_and_rights": true,
+  "require_privacy_qa": true,
+  "require_indonesia_relevance_review": true,
+  "require_group_time_and_campaign_audit": true,
+  "require_independent_final_holdout": true,
+  "require_segment_and_regression_review": true,
+  "allow_shadow_service": true,
+  "automatic_production_promotion": false,
+  "network_target_fetching_allowed": false,
+  "unlabeled_monitoring_quality_metrics": null,
+  "limitations": [
+    "Minimum sample counts alone do not establish recall or FPR targets.",
+    "Wilson intervals assume row independence; domain/campaign uncertainty requires separate review.",
+    "Positive-only feeds cannot establish FPR or traffic precision.",
+    "No source label, model response, or invented reviewer substitutes for independent human evidence."
+  ]
+}

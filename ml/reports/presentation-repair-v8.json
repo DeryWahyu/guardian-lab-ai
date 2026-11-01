@@ -1,0 +1,23 @@
+{
+  "repaired_at_utc": "2026-11-01T12:04:03.638959+00:00",
+  "scope": "presentation_only_dataframe_empty_list_display_fix_after_evaluation",
+  "original_frozen_at_utc": "2026-11-01T11:58:03.680385+00:00",
+  "original_model_sha256": "cddb94257b104cd81da09b3171a77fdb94a4930b4b6f938b8b7d5cfbd4803862",
+  "repaired_model_sha256": "a1d437592169c2a8ef7cbeefedbed05698bb253d040ec8c8b71b5c83de59ca24",
+  "original_code_sha256": "c990802164779323217a6e519f17a64be4de8c7350f6d2d47928aa991507ae91",
+  "repaired_code_sha256": "ddfde88bb4ee1646774924125a183be40d55a2b1ddd0d3e9a0fcdddb8ba3db70",
+  "original_spec_sha256": "74aea0a5589bdfaa767b9b0b91627e09098ce4fc4456a59315c304fd75c2ec0d",
+  "repaired_spec_sha256": "1e919b1c915ec76ac8945ffb1ec371691b84889fce1867e3cecf7e82ea9d0139",
+  "exact_code_change": {
+    "before": "display(pd.DataFrame(quality, index=[\"status\"]).T)",
+    "after": "display(pd.Series(quality, dtype=object).to_frame(\"status\"))"
+  },
+  "estimator_encoder_calibrator_payload_joblib_sha1_before": "539c9962b75879aa50538bc7310906437aea5c72",
+  "estimator_encoder_calibrator_payload_joblib_sha1_after": "539c9962b75879aa50538bc7310906437aea5c72",
+  "evaluation_payload_sha256": "6975ba88d043ef7d8537570be1aaaad3799b93b2bde7afbc13621769fd7cefb0",
+  "classifier_refit": false,
+  "threshold_changed": false,
+  "selection_changed": false,
+  "test_based_tuning": false,
+  "snapshot_directory": "ml/data/expansion-v8/presentation-repair-before"
+}

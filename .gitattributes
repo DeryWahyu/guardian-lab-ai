@@ -1,0 +1,3 @@
+# Preserve exact bytes across OSes: frozen research manifests bind file checksums.
+# -text disables line-ending conversion without disabling normal text diffs.
+* -text

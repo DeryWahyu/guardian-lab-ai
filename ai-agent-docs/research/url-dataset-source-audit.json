@@ -1,0 +1,327 @@
+{
+  "checked_at_utc": "2026-11-01T03:40:54.592341+00:00",
+  "purpose": "Dataset source selection, not model training or an accuracy benchmark",
+  "raw_url_rows_persisted": false,
+  "live_targets_visited": false,
+  "pyarrow_version": "22.0.0",
+  "phiusiil": {
+    "source": "https://archive.ics.uci.edu/static/public/967/phiusiil+phishing+url+dataset.zip",
+    "archive_bytes": 15376007,
+    "archive_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a",
+    "csv_member": "PhiUSIIL_Phishing_URL_Dataset.csv",
+    "columns": [
+      "FILENAME",
+      "URL",
+      "URLLength",
+      "Domain",
+      "DomainLength",
+      "IsDomainIP",
+      "TLD",
+      "URLSimilarityIndex",
+      "CharContinuationRate",
+      "TLDLegitimateProb",
+      "URLCharProb",
+      "TLDLength",
+      "NoOfSubDomain",
+      "HasObfuscation",
+      "NoOfObfuscatedChar",
+      "ObfuscationRatio",
+      "NoOfLettersInURL",
+      "LetterRatioInURL",
+      "NoOfDegitsInURL",
+      "DegitRatioInURL",
+      "NoOfEqualsInURL",
+      "NoOfQMarkInURL",
+      "NoOfAmpersandInURL",
+      "NoOfOtherSpecialCharsInURL",
+      "SpacialCharRatioInURL",
+      "IsHTTPS",
+      "LineOfCode",
+      "LargestLineLength",
+      "HasTitle",
+      "Title",
+      "DomainTitleMatchScore",
+      "URLTitleMatchScore",
+      "HasFavicon",
+      "Robots",
+      "IsResponsive",
+      "NoOfURLRedirect",
+      "NoOfSelfRedirect",
+      "HasDescription",
+      "NoOfPopup",
+      "NoOfiFrame",
+      "HasExternalFormSubmit",
+      "HasSocialNet",
+      "HasSubmitButton",
+      "HasHiddenFields",
+      "HasPasswordField",
+      "Bank",
+      "Pay",
+      "Crypto",
+      "HasCopyrightInfo",
+      "NoOfImage",
+      "NoOfCSS",
+      "NoOfJS",
+      "NoOfSelfRef",
+      "NoOfEmptyRef",
+      "NoOfExternalRef",
+      "label"
+    ],
+    "timestamp_columns": [],
+    "label_mapping_from_official_uci_documentation": {
+      "0": "phishing",
+      "1": "benign"
+    },
+    "scope": "Complete CSV URL/label structural audit; not a verification of every ground-truth label",
+    "summary": {
+      "rows_inspected": 235795,
+      "labels": {
+        "0": {
+          "rows": 100945,
+          "with_query": 6079,
+          "with_fragment": 832,
+          "host_suffix_id": 560,
+          "with_userinfo": 10,
+          "without_explicit_http_scheme": 0,
+          "sensitive_pattern_candidates": 1747
+        },
+        "1": {
+          "rows": 134850,
+          "with_query": 0,
+          "with_fragment": 0,
+          "host_suffix_id": 242,
+          "with_userinfo": 0,
+          "without_explicit_http_scheme": 0,
+          "sensitive_pattern_candidates": 0
+        }
+      },
+      "exact_url_duplicate_rows_within_inspected_data": 425,
+      "date_min": null,
+      "date_max": null,
+      "url_length_median": 28,
+      "url_length_p95": 74,
+      "url_length_max": 6097,
+      "notes": [
+        "Sensitive patterns are screening candidates, not confirmed personal data.",
+        "A .id hostname does not prove an Indonesian target or label correctness.",
+        "Sample duplicate counts do not measure whole-corpus or cross-source leakage."
+      ]
+    }
+  },
+  "phreshphish": {
+    "repository": "phreshphish/phreshphish",
+    "pinned_revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "head_revision_at_inspection": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "repository_last_modified": "2026-10-24T03:07:41.000Z",
+    "gated": false,
+    "card_license": "cc-by-4.0",
+    "parquet_file_count": 77,
+    "listed_asset_bytes": 36576373578,
+    "samples": [
+      {
+        "split": "train",
+        "path": "data/train-000.parquet",
+        "asset_bytes": 49639686,
+        "file_rows": 1000,
+        "file_row_groups": 1,
+        "schema": {
+          "sha256": "large_string",
+          "url": "large_string",
+          "label": "large_string",
+          "target": "large_string",
+          "date": "date32[day]",
+          "lang": "large_string",
+          "lang_score": "float",
+          "html": "large_string"
+        },
+        "projected_columns": ["url", "label", "date", "lang"],
+        "scope": "First row group of first official shard only; not random or representative",
+        "summary": {
+          "rows_inspected": 1000,
+          "labels": {
+            "benign": {
+              "rows": 594,
+              "with_query": 0,
+              "with_fragment": 0,
+              "host_suffix_id": 0,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 12,
+              "sensitive_pattern_candidates": 3
+            },
+            "phish": {
+              "rows": 406,
+              "with_query": 31,
+              "with_fragment": 1,
+              "host_suffix_id": 3,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 0,
+              "sensitive_pattern_candidates": 2
+            }
+          },
+          "exact_url_duplicate_rows_within_inspected_data": 0,
+          "date_min": "2024-07-04",
+          "date_max": "2025-09-08",
+          "url_length_median": 49,
+          "url_length_p95": 114,
+          "url_length_max": 774,
+          "notes": [
+            "Sensitive patterns are screening candidates, not confirmed personal data.",
+            "A .id hostname does not prove an Indonesian target or label correctness.",
+            "Sample duplicate counts do not measure whole-corpus or cross-source leakage."
+          ]
+        }
+      },
+      {
+        "split": "test",
+        "path": "data/test-000.parquet",
+        "asset_bytes": 55340975,
+        "file_rows": 1000,
+        "file_row_groups": 1,
+        "schema": {
+          "sha256": "large_string",
+          "url": "large_string",
+          "label": "large_string",
+          "target": "large_string",
+          "date": "date32[day]",
+          "lang": "large_string",
+          "lang_score": "float",
+          "html": "large_string"
+        },
+        "projected_columns": ["url", "label", "date", "lang"],
+        "scope": "First row group of first official shard only; not random or representative",
+        "summary": {
+          "rows_inspected": 1000,
+          "labels": {
+            "benign": {
+              "rows": 547,
+              "with_query": 0,
+              "with_fragment": 0,
+              "host_suffix_id": 0,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 7,
+              "sensitive_pattern_candidates": 1
+            },
+            "phish": {
+              "rows": 453,
+              "with_query": 123,
+              "with_fragment": 0,
+              "host_suffix_id": 4,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 0,
+              "sensitive_pattern_candidates": 5
+            }
+          },
+          "exact_url_duplicate_rows_within_inspected_data": 0,
+          "date_min": "2025-09-08",
+          "date_max": "2025-12-16",
+          "url_length_median": 46,
+          "url_length_p95": 120,
+          "url_length_max": 1980,
+          "notes": [
+            "Sensitive patterns are screening candidates, not confirmed personal data.",
+            "A .id hostname does not prove an Indonesian target or label correctness.",
+            "Sample duplicate counts do not measure whole-corpus or cross-source leakage."
+          ]
+        }
+      }
+    ]
+  },
+  "transferred_bytes": 15651976,
+  "full_audit_checked_at_utc": "2026-11-01T03:44:15.145979+00:00",
+  "phreshphish_full": {
+    "repository": "phreshphish/phreshphish",
+    "pinned_revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "head_revision_at_inspection": "eca603e0ecd4f698f8d4d226c088659e72681239",
+    "repository_last_modified": "2026-10-24T03:07:41.000Z",
+    "gated": false,
+    "card_license": "cc-by-4.0",
+    "parquet_file_count": 77,
+    "listed_asset_bytes": 36576373578,
+    "samples": [
+      {
+        "split": "train",
+        "scope": "All official shards, projected URL/label/date/lang only; no HTML",
+        "shards_inspected": 56,
+        "summary": {
+          "rows_inspected": 498255,
+          "labels": {
+            "benign": {
+              "rows": 276729,
+              "with_query": 16,
+              "with_fragment": 1,
+              "host_suffix_id": 34,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 4189,
+              "sensitive_pattern_candidates": 905
+            },
+            "phish": {
+              "rows": 221526,
+              "with_query": 16351,
+              "with_fragment": 1494,
+              "host_suffix_id": 572,
+              "with_userinfo": 195,
+              "without_explicit_http_scheme": 0,
+              "sensitive_pattern_candidates": 2912,
+              "parse_errors": 1
+            }
+          },
+          "exact_url_duplicate_rows_within_inspected_data": 0,
+          "exact_url_label_conflicts": 0,
+          "exact_url_rows_present_in_previous_split": 0,
+          "date_min": "2024-07-02",
+          "date_max": "2025-09-08",
+          "url_length_median": 48,
+          "url_length_p95": 112,
+          "url_length_max": 25523,
+          "notes": [
+            "Sensitive patterns are screening candidates, not confirmed personal data.",
+            "A .id hostname does not prove an Indonesian target or label correctness.",
+            "Sample duplicate counts do not measure whole-corpus or cross-source leakage."
+          ]
+        }
+      },
+      {
+        "split": "test",
+        "scope": "All official shards, projected URL/label/date/lang only; no HTML",
+        "shards_inspected": 21,
+        "summary": {
+          "rows_inspected": 168060,
+          "labels": {
+            "benign": {
+              "rows": 91260,
+              "with_query": 52,
+              "with_fragment": 0,
+              "host_suffix_id": 11,
+              "with_userinfo": 0,
+              "without_explicit_http_scheme": 1552,
+              "sensitive_pattern_candidates": 406
+            },
+            "phish": {
+              "rows": 76800,
+              "with_query": 18398,
+              "with_fragment": 107,
+              "host_suffix_id": 432,
+              "with_userinfo": 71,
+              "without_explicit_http_scheme": 0,
+              "sensitive_pattern_candidates": 1180
+            }
+          },
+          "exact_url_duplicate_rows_within_inspected_data": 0,
+          "exact_url_label_conflicts": 0,
+          "exact_url_rows_present_in_previous_split": 0,
+          "date_min": "2025-09-08",
+          "date_max": "2025-12-16",
+          "url_length_median": 46,
+          "url_length_p95": 123,
+          "url_length_max": 6633,
+          "notes": [
+            "Sensitive patterns are screening candidates, not confirmed personal data.",
+            "A .id hostname does not prove an Indonesian target or label correctness.",
+            "Sample duplicate counts do not measure whole-corpus or cross-source leakage."
+          ]
+        }
+      }
+    ]
+  },
+  "full_audit_transferred_bytes": 26551591
+}

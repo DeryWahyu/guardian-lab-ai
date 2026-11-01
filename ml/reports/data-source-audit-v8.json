@@ -1,0 +1,125 @@
+{
+  "audited_at_utc": "2026-11-01T11:51:38.929081+00:00",
+  "protocol": "ai-agent-docs/data-expansion-v8-plan.md",
+  "accepted_source": {
+    "created_at_utc": "2026-11-01T11:48:24.167702+00:00",
+    "source": "knowphish_tr_op",
+    "source_repository_commit": "899982c9f0eef0f2ef758cbee96d2ceff0bd5e9a",
+    "readme_sha256": "406c8c7dd45beff43ba554d87a1e07ba05cf388b7dce4c6f4f911a58b70be73d",
+    "source_url": "https://www.dropbox.com/scl/fi/z1liysgw42g9apcsp1v3i/TR-OP.zip?rlkey=9ovjwzteon3gp6v1yff1pdjrt&dl=1",
+    "archive_bytes": 3672983157,
+    "archive_index_sha256": "7fa24f5376ed50ae7a77468288b26634a0346d5a839a7fc16923acd6a4c7230e",
+    "registry_sha256": "9a6eb6730835a905391b869e37a1a05656b48f8bc2ac484676e11862034c095d",
+    "parser_sha256": "169f4d17d4ff0e5e039dc5f16fd9cc81bec1b026fde4f891099e30ff3cbc644c",
+    "split": "v8-domain:50-60-70-80-100",
+    "source_index_cases": 10000,
+    "text_candidates": 5506,
+    "intake_status_counts": {
+      "valid": 5504,
+      "unsupported_privacy_screening": 2
+    },
+    "audit_counts": {
+      "metadata_cases": 10000,
+      "metadata_known_domain_excluded": 3863,
+      "unsupported_metadata": 631,
+      "conflicting_digests": 0,
+      "duplicate_rows": 40,
+      "domain_cap_removed": 26
+    },
+    "rows": 5438,
+    "groups": 5183,
+    "partition_class_counts": [
+      {
+        "partition": "calibration",
+        "label": 0,
+        "rows": 180
+      },
+      {
+        "partition": "calibration",
+        "label": 1,
+        "rows": 351
+      },
+      {
+        "partition": "fit",
+        "label": 0,
+        "rows": 1005
+      },
+      {
+        "partition": "fit",
+        "label": 1,
+        "rows": 1748
+      },
+      {
+        "partition": "new_test",
+        "label": 0,
+        "rows": 384
+      },
+      {
+        "partition": "new_test",
+        "label": 1,
+        "rows": 713
+      },
+      {
+        "partition": "threshold",
+        "label": 0,
+        "rows": 182
+      },
+      {
+        "partition": "threshold",
+        "label": 1,
+        "rows": 330
+      },
+      {
+        "partition": "tune",
+        "label": 0,
+        "rows": 199
+      },
+      {
+        "partition": "tune",
+        "label": 1,
+        "rows": 346
+      }
+    ],
+    "output_path": "ml/data/expansion-v8/tr-op-curated.parquet",
+    "output_sha256": "d755a8b0342a9a5602f1e19223bf2bdfa2d083e6c70d55412328e5c7c9698adc",
+    "label_tier": "paper_reports_manual_validation_no_two_independent_case_sheets",
+    "rights": "public_author_research_release_no_production_or_redistribution_claim",
+    "metadata_previously_inspected_v7": true,
+    "target_visits": 0,
+    "limitations": [
+      "Historical 2023 data, not Indonesian gold.",
+      "Metadata prefilter excludes known hosts without inspecting their redirect URLs.",
+      "Domain split, not independent publisher/feed or temporal holdout.",
+      "No whole-archive checksum under bounded member projection; index and member CRC/projection hashes recorded."
+    ],
+    "projection_digest_sha256": "b232fe61568816500e6ff28b98ecd9e9380f795bdf4e90531d5d04554d6a835b"
+  },
+  "crc_verified_text_members": 5506,
+  "transport_repair": "Initial shared redirect endpoint returned mismatching ranges; resumed from verified checkpoint using public content endpoint with per-member cache key. All selected members verified before fitting; no failed-integrity rows silently accepted.",
+  "new_fit_rows_before_combined_audit": 2753,
+  "new_test_rows": 1097,
+  "new_test_label_counts": {
+    "phishing": 713,
+    "benign": 384
+  },
+  "new_test_scope": "domain_disjoint_same_added_publisher_source_not_independent_source_or_temporal",
+  "indonesian_sources_reviewed": [
+    {
+      "url": "https://btp.telkomuniversity.ac.id/landing/ip/HCNA2602260302",
+      "status": "catalog_only_no_verified_download_on_inspected_page"
+    },
+    {
+      "url": "https://jurnal.stikes-ibnusina.ac.id/index.php/SABER/article/view/3904",
+      "status": "paper_describes_2054_indonesian_urls_but_downloadable_URL_label_data_and_case_review_protocol_not_verified"
+    },
+    {
+      "url": "https://iieta.org/journals/ijsse/paper/10.18280/ijsse.140613",
+      "status": "related_author_paper_uses_existing_global_datasets_not_a_new_indonesian_gold_release"
+    }
+  ],
+  "indonesian_human_gold_created": false,
+  "new_reviews_created_by_agent": 0,
+  "target_visits": 0,
+  "html_or_screenshot_columns_used": false,
+  "usage_scope": "local_noncommercial_research_no_public_data_redistribution_or_production_promotion"
+}

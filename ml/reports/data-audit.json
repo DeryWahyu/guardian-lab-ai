@@ -1,0 +1,142 @@
+{
+  "source_revision": "eca603e0ecd4f698f8d4d226c088659e72681239",
+  "representation_version": "url-core-redacted-v1",
+  "checked_at_utc": "2026-11-01T05:10:26.867221+00:00",
+  "raw_urls_persisted": false,
+  "live_targets_visited": false,
+  "ingestion": {
+    "train_benign_raw": 276729,
+    "train_benign_accepted": 276317,
+    "train_benign_redacted_rows": 49267,
+    "train_phish_raw": 221526,
+    "train_phish_accepted": 200585,
+    "train_phish_redacted_rows": 28932,
+    "test_benign_raw": 91260,
+    "test_benign_accepted": 91124,
+    "test_benign_redacted_rows": 15911,
+    "test_phish_raw": 76800,
+    "test_phish_accepted": 73694,
+    "test_phish_redacted_rows": 7120,
+    "external_benign_raw": 134850,
+    "external_benign_accepted": 134832,
+    "external_benign_redacted_rows": 0,
+    "external_phish_raw": 100945,
+    "external_phish_accepted": 91898,
+    "external_phish_redacted_rows": 7291
+  },
+  "rejected_by_reason_and_class": {
+    "train_phish_sensitive_host_candidate": 20225,
+    "train_benign_sensitive_host_candidate": 263,
+    "train_phish_ambiguous_nested_encoding": 407,
+    "train_phish_invalid_authority": 196,
+    "train_phish_residual_sensitive_candidate": 46,
+    "train_benign_residual_sensitive_candidate": 130,
+    "train_phish_invalid_or_local_host": 53,
+    "train_phish_too_long": 2,
+    "train_benign_invalid_or_local_host": 5,
+    "train_benign_control_whitespace_or_backslash": 8,
+    "train_phish_control_whitespace_or_backslash": 5,
+    "train_phish_decoded_control_or_backslash": 7,
+    "train_benign_decoded_control_or_backslash": 5,
+    "train_benign_ambiguous_nested_encoding": 1,
+    "test_phish_sensitive_host_candidate": 2883,
+    "test_phish_invalid_or_local_host": 107,
+    "test_benign_sensitive_host_candidate": 85,
+    "test_benign_residual_sensitive_candidate": 46,
+    "test_benign_control_whitespace_or_backslash": 3,
+    "test_phish_decoded_control_or_backslash": 2,
+    "test_phish_invalid_authority": 71,
+    "test_phish_residual_sensitive_candidate": 40,
+    "test_phish_ambiguous_nested_encoding": 3,
+    "test_benign_decoded_control_or_backslash": 1,
+    "test_benign_invalid_or_local_host": 1,
+    "external_phish_sensitive_host_candidate": 9030,
+    "external_phish_invalid_authority": 10,
+    "external_benign_sensitive_host_candidate": 18,
+    "external_phish_residual_sensitive_candidate": 1,
+    "external_phish_decoded_control_or_backslash": 3,
+    "external_phish_ambiguous_nested_encoding": 3
+  },
+  "transferred_bytes": 41660943,
+  "curation": {
+    "canonical_conflicting_hashes": 43,
+    "rows_removed_for_label_conflicts": 7053,
+    "within_source_canonical_duplicate_rows_removed": 51216,
+    "train_rows_overlapping_official_test_canonical_url_removed": 1379,
+    "train_rows_on_or_after_test_boundary_removed": 605,
+    "test_boundary_exclusive_for_train": "2025-09-08",
+    "validation_start_inclusive": "2025-02-23",
+    "validation_rows_with_fit_domain_removed": 69401,
+    "external_rows_overlapping_development_or_official_url_removed": 1522,
+    "partitions": {
+      "calibration": {
+        "rows": 14695,
+        "benign": 7473,
+        "phishing": 7222,
+        "groups": 12178
+      },
+      "external": {
+        "rows": 219036,
+        "benign": 133440,
+        "phishing": 85596,
+        "groups": 190364
+      },
+      "fit": {
+        "rows": 302812,
+        "benign": 162080,
+        "phishing": 140732,
+        "groups": 130998
+      },
+      "test": {
+        "rows": 154953,
+        "benign": 85786,
+        "phishing": 69167,
+        "groups": 77042
+      },
+      "threshold": {
+        "rows": 14430,
+        "benign": 7537,
+        "phishing": 6893,
+        "groups": 12216
+      },
+      "tune": {
+        "rows": 31348,
+        "benign": 15010,
+        "phishing": 16338,
+        "groups": 24477
+      }
+    },
+    "test_novel_domain": {
+      "rows": 80052,
+      "benign": 29146,
+      "phishing": 50906,
+      "groups": 59880
+    },
+    "external_novel_domain": {
+      "rows": 194559,
+      "benign": 120189,
+      "phishing": 74370,
+      "groups": 178603
+    },
+    "campaign_overlap": "Not certified: campaign labels unavailable; domain is a proxy only"
+  },
+  "independent_checks": {
+    "canonical_urls_unique_per_partition": true,
+    "digest_matches_saved_core": true,
+    "no_query_or_fragment": true,
+    "no_screened_pii_or_token": true,
+    "fit_has_two_supported_classes": true,
+    "tune_has_two_supported_classes": true,
+    "calibration_has_two_supported_classes": true,
+    "threshold_has_two_supported_classes": true,
+    "development_groups_pairwise_disjoint": true,
+    "development_urls_pairwise_disjoint": true,
+    "no_development_url_in_test": true,
+    "strict_time_fit_before_validation": true,
+    "strict_time_development_before_test": true,
+    "main_test_domain_disjoint": true,
+    "representation_idempotent_sample_2000": true,
+    "saved_groups_match_offline_psl_sample_2000": true
+  },
+  "curated_sha256": "f1b4cc6f64681eae2b93f9b331b702547d2f128fe0b3539fe1dd8dfb112b9a17"
+}

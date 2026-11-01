@@ -1,0 +1,18 @@
+{
+  "canonical_urls_unique_per_partition": true,
+  "digest_matches_saved_core": true,
+  "no_query_or_fragment": true,
+  "no_screened_pii_or_token": true,
+  "fit_has_two_supported_classes": true,
+  "tune_has_two_supported_classes": true,
+  "calibration_has_two_supported_classes": true,
+  "threshold_has_two_supported_classes": true,
+  "development_groups_pairwise_disjoint": true,
+  "development_urls_pairwise_disjoint": true,
+  "no_development_url_in_test": true,
+  "strict_time_fit_before_validation": true,
+  "strict_time_development_before_test": true,
+  "main_test_domain_disjoint": true,
+  "representation_idempotent_sample_2000": true,
+  "saved_groups_match_offline_psl_sample_2000": true
+}

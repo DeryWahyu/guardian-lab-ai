@@ -1,0 +1,34 @@
+{
+  "repository": "DeryWahyu/guardian_lab_ai",
+  "primary_model": "notebook-url-core-v6",
+  "local_frozen_originals_preserved": true,
+  "datasets_and_model_binaries_published": false,
+  "normalizations": [
+    {
+      "path": "guardian_lab_url_qr_retraining_v4.ipynb",
+      "scope": "one_archived_output_line_local_runtime_path",
+      "field": "cells/12/outputs/0/text/0",
+      "local_original_sha256": "1d67498ec9c5d9752ffc12f93973bebd4943115372d4e9524c4f3877441357ff",
+      "published_sha256": "261ade36da0b3d341db47cd1d1bbaa6baa935beadd210c017e9cb54792c20c09",
+      "code_sha256_unchanged": "bfc75de88eb7d52edeb767f813e4e56b18da44a30c9890a412d581edee498f20",
+      "local_frozen_notebook_modified": false
+    }
+  ],
+  "byte_preservation": "Git attributes disable EOL conversion for checksum-bound research files",
+  "runtime_manifest_sha256": "e04753dc3e47baed89b735f56bccac53bfc88653b81f4c3dc859cfa12cd4c320",
+  "validation": {
+    "full_workspace": {
+      "passed": 89,
+      "skipped": 0,
+      "seconds": 34.22
+    },
+    "clean_publication_checkout": {
+      "passed": 70,
+      "skipped": 19,
+      "seconds": 12.34,
+      "torch_available": true
+    },
+    "ruff": "passed",
+    "format_files": 52
+  }
+}

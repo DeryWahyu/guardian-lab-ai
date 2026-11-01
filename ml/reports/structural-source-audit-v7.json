@@ -1,0 +1,116 @@
+{
+  "audited_at_utc": "2026-11-01T10:57:18.608293+00:00",
+  "protocol": "ai-agent-docs/structural-retraining-v7-plan.md",
+  "accepted_test": {
+    "created_at_utc": "2026-11-01T10:40:28.978636+00:00",
+    "source": "Phish360",
+    "source_repository_commit": "01a0f2d6be31f1e90dedb0775ce2327d870ae638",
+    "source_page": "https://web.cs.hacettepe.edu.tr/~selman/phish360-dataset/",
+    "paper": "https://doi.org/10.3390/app16020751",
+    "label_tier": "published_author_manual_curation_claim_not_two_independent_case_reviews",
+    "usage": "authors_public_academic_research_release_no_redistribution_or_production_rights_claim",
+    "collection_date_evidence": "source_page_2020_to_2023_paper_2020_to_2024_discrepancy_no_row_timestamps",
+    "assets": [
+      {
+        "asset": "legit",
+        "drive_file_id": "1nsiCIAZoBOSs9bEEXq78Nveu6Q90SLzr",
+        "source_url": "https://drive.usercontent.google.com/download?id=1nsiCIAZoBOSs9bEEXq78Nveu6Q90SLzr&export=download&confirm=t",
+        "bytes": 500062998,
+        "parquet_footer_sha256": "eaf5247b46ff1598a4681ef77147a9fb5df776a0df03fba2573646bd96b7eea6",
+        "projected_url_class_language_sha256": "01bfd99de1d81c98a9a911c197d45bc5094a216c5a0fd9e0a3c4ff62928c6fd3",
+        "rows": 6416,
+        "class_counts": {
+          "legit": 6416
+        },
+        "mapped_project_label": 0,
+        "columns_read": ["URL", "Class", "html_text_language"]
+      },
+      {
+        "asset": "phish",
+        "drive_file_id": "1RVVwm0dwBvKzTenV4nnMbBEp60IYeMUO",
+        "source_url": "https://drive.usercontent.google.com/download?id=1RVVwm0dwBvKzTenV4nnMbBEp60IYeMUO&export=download&confirm=t",
+        "bytes": 137932113,
+        "parquet_footer_sha256": "be42bd4d3518bff7444ae280e0a1bbfcb234161eab96a233e2fb11b2f007a1b2",
+        "projected_url_class_language_sha256": "1bf14413cae40ccf86bab04134d2d74b294d47f8e1668a4b6fc24b54fabc1f85",
+        "rows": 4332,
+        "class_counts": {
+          "phish": 4332
+        },
+        "mapped_project_label": 1,
+        "columns_read": ["URL", "Class", "html_text_language"]
+      }
+    ],
+    "registry_before_sha256": "69437e8183c94f85de74000621cd55a2974ea436908ab2fdfd45f127587265e8",
+    "registry_manifest_before_sha256": "ff22075a7df0e3f4204444518a1bbe2a7bca97b10a58f53fdb49c142b68fe440",
+    "audit": {
+      "raw_rows": 10748,
+      "known_domain": 2655,
+      "known_url": 323,
+      "unsupported_privacy_screening": 129,
+      "conflict_hashes": 0,
+      "duplicates_removed": 115,
+      "domain_cap_removed": 10
+    },
+    "rows": 7516,
+    "class_counts": {
+      "0": 4315,
+      "1": 3201
+    },
+    "groups": 7002,
+    "output_path": "ml/data/structural-v7/phish360-new.parquet",
+    "output_sha256": "379974374a8a0d06af8a8e0a51bede1a440df8a2ed564de62019472074feca26",
+    "scope": "new_source_group_disjoint_historical_url_only_not_indonesian_gold",
+    "target_visits": 0,
+    "limitations": [
+      "No per-case adjudication sheets or agreement statistics released.",
+      "Dataset paper and source page collection-period descriptions differ.",
+      "Whole original file SHA256 unavailable under column projection; footer and projected-column hashes recorded.",
+      "Any Indonesian language subset is a language tag, not independent evidence of Indonesian targeting.",
+      "Campaign/time independence beyond domain exclusion is unverified."
+    ]
+  },
+  "source_repository_commit_independently_verified": "01a0f2d6be31f1e90dedb0775ce2327d870ae638",
+  "source_repository_tree": "ff2ff3a207b9ab1b95c0c648430c007547470764",
+  "publisher_independence": "new_publisher_dataset_not_independent_underlying_phishtank_openphish_feed_lineage",
+  "research_only": true,
+  "other_sources_reviewed": [
+    {
+      "source": "Indonesia Phishing URL Dataset Telkom University",
+      "url": "https://btp.telkomuniversity.ac.id/landing/ip/HCNA2602260302",
+      "decision": "not_available_for_verified_intake",
+      "reason": "Catalog page describes Indonesian scope but inspected page has no downloadable URL-label asset or auditable reviewer protocol."
+    },
+    {
+      "source": "LegitPhish",
+      "url": "https://data.mendeley.com/datasets/hx4m73v2sf/2",
+      "decision": "not_selected",
+      "reason": "Description includes URLhaus malware alongside phishing; no released per-case adjudication evidence to resolve binary phishing scope."
+    },
+    {
+      "source": "KnowPhish TR-OP",
+      "url": "https://github.com/imethanlee/KnowPhish",
+      "paper": "https://arxiv.org/html/2403.02253v2",
+      "decision": "not_used_in_v7",
+      "reason": "Paper reports manually validated benchmark; archive metadata inspected only, no URL-text files or model predictions used. Data redistribution/production license not established.",
+      "archive_bytes": 3672983157,
+      "metadata_cases_inspected": 10000,
+      "previously_inspected_metadata_must_be_disclosed_in_future_experiments": true
+    },
+    {
+      "source": "PhishLLM DynaPD",
+      "url": "https://sites.google.com/view/phishllm/experimental-setup-datasets",
+      "decision": "not_selected",
+      "reason": "Kit-based benchmark is distinct from a natural URL-only independent Indonesian gold set."
+    }
+  ],
+  "new_indonesian_human_gold_created": false,
+  "target_urls_visited": 0,
+  "limitations": [
+    "Novel domains do not prove novel phishing campaigns.",
+    "Publisher manual-curation claim is not an independently audited two-reviewer protocol.",
+    "Research data rights are not a blanket production/redistribution license.",
+    "This is a documented review of the listed sources, not a claim to have inspected every dataset on the internet."
+  ],
+  "external_llm_labeling_performed": false,
+  "target_case_rows_in_public_report": false
+}

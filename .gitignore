@@ -1,0 +1,19 @@
+﻿# Local environments and Python caches
+ml/.venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Private/large data and trained binaries
+ml/data/
+ml/artifacts/
+ml/runs/
+
+# Secrets and editor/system files
+.env*
+!.env.example
+.DS_Store
+Thumbs.db

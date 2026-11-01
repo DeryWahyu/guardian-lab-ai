@@ -1,0 +1,97 @@
+{
+  "completed_at_utc": "2026-11-01T10:27:31.430522+00:00",
+  "scope": "local_research_shadow_runtime_validation_not_model_accuracy",
+  "model_version": "notebook-url-core-v6",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "runtime_manifest_sha256": "e04753dc3e47baed89b735f56bccac53bfc88653b81f4c3dc859cfa12cd4c320",
+  "release_policy_sha256": "b64b06ddc920adb96140b14d8c7352a65500e854ad7b997806103cd0af3c6cc6",
+  "source_checksums_verified": 10,
+  "python_tests": {
+    "command": "python -m pytest ml/tests -q",
+    "pytest_version": "8.3.3",
+    "tests": 64,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_seconds": 9.609
+  },
+  "lint": {
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "scope": "ml/src ml/tests ml/run.py guardian_lab_model_hardening.ipynb"
+  },
+  "notebook": {
+    "path": "guardian_lab_model_hardening.ipynb",
+    "sha256": "d83a490d942e440b11322388a394910f4d30621a8120f6cc5402197abc3d16f4",
+    "executed_code_cells": 5,
+    "errors": 0,
+    "dataset_urls_in_outputs": 0
+  },
+  "real_artifact_parity": {
+    "reference": "frozen_v6_notebook_feature_functions",
+    "development_tune_rows": 128,
+    "absolute_probability_error_required_less_than": 1e-12,
+    "passed": true
+  },
+  "api_smoke": {
+    "real_model_available": true,
+    "url_qr_parity": true,
+    "unsupported_never_low": true,
+    "request_validation_without_echo": true,
+    "quality_metrics_not_invented": true,
+    "production_ready": false,
+    "request_count_synthetic_smoke": 4
+  },
+  "release_gate": {
+    "status": "not_ready",
+    "production_ready": false,
+    "shadow_allowed": true,
+    "policy_version": "url-qr-release-gates-v1",
+    "findings": [
+      {
+        "criterion": "vendor_recall_lower95",
+        "status": "failed",
+        "observed": 0.44243618263423096,
+        "target": 0.85
+      },
+      {
+        "criterion": "vendor_fpr_upper95",
+        "status": "failed",
+        "observed": 0.010975052779923177,
+        "target": 0.01
+      },
+      {
+        "criterion": "community_recall_lower95",
+        "status": "failed",
+        "observed": 0.45517655453595646,
+        "target": 0.85
+      }
+    ],
+    "pending_evidence": [
+      "independent_indonesian_human_gold_set",
+      "two_human_reviews_privacy_provenance_and_adjudication",
+      "campaign_time_segment_and_regression_review",
+      "contemporary_benign_traffic_evidence"
+    ],
+    "interpretation": "Research measurements do not replace Indonesian human-validation evidence."
+  },
+  "protected_model_checksums": {
+    "guardian_lab_url_qr.ipynb": "c4a9776c07b87f87580ba38264aef1128c50b171a61b47a4f4e61f083defa317",
+    "guardian_lab_url_qr_data_v6.ipynb": "9fb9cbb24de4e69bcc3212987a1dd304de82e08bcae55a09641dd30c1958783c",
+    "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+    "ml/runs/notebook-tfidf-logistic-v6/reports/frozen-v6.json": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5"
+  },
+  "published_human_cases_audited": 200,
+  "new_human_labels_created": 0,
+  "automatic_relabels_applied": 0,
+  "new_training_performed": false,
+  "thresholds_changed": false,
+  "public_application_activated": false,
+  "redirect_html_collector_implemented": false,
+  "noncommercial_research_only": true,
+  "limitations": [
+    "Tests validate implementation behavior, not phishing accuracy or Indonesian traffic generalization.",
+    "Published human evidence is previously observed Vietnamese evidence, not a new independent Indonesian holdout.",
+    "No deployment benchmark or end-to-end sandbox isolation claim."
+  ]
+}

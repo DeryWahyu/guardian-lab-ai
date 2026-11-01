@@ -1,0 +1,152 @@
+{
+  "protocol": "indonesia-gold-v1",
+  "recorded_at_utc": "2026-11-01T09:29:17.986751+00:00",
+  "protocol_sha256": "c137fd9f9078fc7435357817e29f3da0aa95b181ffc55e601b750dbc4923fda8",
+  "notebook": "guardian_lab_gold_set_indonesia.ipynb",
+  "notebook_code_sha256": "348dbf803276fa1af6036f6c529f0cea974f7834958b26827e82353bbdd5a261",
+  "notebook_cells": 15,
+  "executed_code_cells": 8,
+  "execution_errors": 0,
+  "status": "pending_human_review",
+  "candidate_rows": 0,
+  "valid_review_pairs": 0,
+  "provisional_binary_rows": 0,
+  "classifier_training": "not_run",
+  "classifier_evaluation": "not_run",
+  "acceptance_gates": "not_evaluated",
+  "registry_manifest": {
+    "schema": 1,
+    "protocol": "indonesia-gold-v1",
+    "sources": [
+      {
+        "role": "base_curated",
+        "path": "ml/data/curated.parquet",
+        "sha256": "f1b4cc6f64681eae2b93f9b331b702547d2f128fe0b3539fe1dd8dfb112b9a17",
+        "rows": 737274
+      },
+      {
+        "role": "development_v3",
+        "path": "ml/runs/notebook-tfidf-logistic-v3/data/development-v3.parquet",
+        "sha256": "837a665d0410b68ffd6494ed1ddaa49aa7543f1d19c04acb300810264863b538",
+        "rows": 736901
+      },
+      {
+        "role": "challenge_v3",
+        "path": "ml/runs/notebook-tfidf-logistic-v3/data/urlphish-fresh.parquet",
+        "sha256": "3639a932caaa4e7d195db372020ab513eb0b7108eb9d4aa9d60fb6640ca61390",
+        "rows": 85824
+      },
+      {
+        "role": "audit_staging_optional",
+        "path": "ml/data/sanitized-staging.parquet",
+        "sha256": "d3d770caa01ac1f32b18abdfda251102505f9fcca0008547a4c139ee44c7ebc8",
+        "rows": 868450
+      },
+      {
+        "role": "v5:deepurlbench",
+        "path": "ml/runs/notebook-tfidf-logistic-v5/data/deepurlbench-new.parquet",
+        "sha256": "3829c29a735962b13658cc2599d6d805c1cbe8702b75495dfa088b2d86640c94",
+        "rows": 50000
+      },
+      {
+        "role": "v5:phishvn_human_audit",
+        "path": "ml/runs/notebook-tfidf-logistic-v5/data/phishvn-human-new.parquet",
+        "sha256": "598b4d80836d9164e23945ff49176b59a9cb612801299cc95ccc4be93c3fe783",
+        "rows": 33
+      },
+      {
+        "role": "v6:development",
+        "path": "ml/runs/notebook-tfidf-logistic-v6/data/development-v6.parquet",
+        "sha256": "b0c867f9ab0c813d1498908d1cd43d731b46fffe83f8d5836e0e5f2b319097a8",
+        "rows": 703604
+      },
+      {
+        "role": "v6:new_deepurlbench_holdout",
+        "path": "ml/runs/notebook-tfidf-logistic-v6/data/deepurlbench-holdout-v6.parquet",
+        "sha256": "a9b8002a5734ed4faf63acfda23cd722511a79a192de4cdbcf0dd6bd2c8df3a2",
+        "rows": 20000
+      },
+      {
+        "role": "v6:new_phishtank_positive",
+        "path": "ml/runs/notebook-tfidf-logistic-v6/data/phishtank-2026-v6.parquet",
+        "sha256": "623bb330743d0ccf0969e8427938704d80f4bdc067007a4d18aba3cf4cc96b92",
+        "rows": 9269
+      }
+    ],
+    "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+    "parser_source_sha256": "169f4d17d4ff0e5e039dc5f16fd9cc81bec1b026fde4f891099e30ff3cbc644c",
+    "missing_required_roles": [],
+    "unregistered_runs": [],
+    "unique_url_hashes": 1141417,
+    "unique_domain_hashes": 730794,
+    "fingerprint": "65aa0c6c70d82a02d13ba688f342df12cc01bb584b6012da60075af61d71e37b",
+    "database_sha256": "69437e8183c94f85de74000621cd55a2974ea436908ab2fdfd45f127587265e8",
+    "created_at_utc": "2026-11-01T09:19:24.685341+00:00",
+    "known_v1_v3_scope_available": true,
+    "limitations": [
+      "Only locally persisted known sources; no claim of global campaign independence.",
+      "New runs/sources require registry and protocol review.",
+      "Hash matching does not establish human labels or source correctness."
+    ],
+    "additional_verified_reused_runs": [
+      {
+        "run": "notebook-tfidf-logistic-v4",
+        "spec_sha256": "2a2e302d0080a03d40dfbf7ca822cadfc346ac0659e43c91e56f69be6d4aa8b9",
+        "development_sha256": "837a665d0410b68ffd6494ed1ddaa49aa7543f1d19c04acb300810264863b538",
+        "challenge_sha256": "3639a932caaa4e7d195db372020ab513eb0b7108eb9d4aa9d60fb6640ca61390",
+        "source_scope": "same_persisted_v3_sources_no_new_dataset"
+      }
+    ],
+    "additional_verified_indexed_runs": [
+      {
+        "run": "notebook-tfidf-logistic-v5",
+        "spec_sha256": "1a261a15504c48bcdafcc4ce4c99d2439d4563a73b53b606cd0b13f20de2dc4e",
+        "source_manifest_sha256": "ace9bf862d64e8e17968316d202de1f85b1619a8b2ef359a3688dd2976546206",
+        "source_scope": "all_manifested_persisted_sources_indexed"
+      },
+      {
+        "run": "notebook-tfidf-logistic-v6",
+        "spec_sha256": "15a6385b1ae8a2ba37d3d4372754df52483f0317ed29ad6e721d2ac691bb452a",
+        "source_manifest_sha256": "e5790813a0eb54393a73af199e0d7b787356ffe15b09b64af6dedf09e53b92fd",
+        "source_scope": "all_manifested_persisted_sources_indexed"
+      }
+    ]
+  },
+  "self_checks": {
+    "query_fragment_not_in_core": true,
+    "path_identifier_redacted": true,
+    "private_ip_userinfo_file_rejected": true,
+    "offline_private_tenant_and_public_suffix": true,
+    "scheme_free_proxy_matches_core_policy": true,
+    "privacy_confirmation_query_formula_and_time_guards": true,
+    "stable_placeholder_allowed_unsanitized_sensitive_path_held": true,
+    "registry_source_membership_checks": 9,
+    "empty_input_never_creates_gold_or_metrics": true,
+    "frozen_notebook_model_and_metadata_unchanged": true
+  },
+  "reuse_execution": "passed",
+  "input_csv_hashes_preserved_on_rerun": true,
+  "synthetic_in_memory_review_regression_cases_passed": 12,
+  "synthetic_fixture_files_written": 0,
+  "protected_model_file_hashes": {
+    "guardian_lab_url_qr.ipynb": "c4a9776c07b87f87580ba38264aef1128c50b171a61b47a4f4e61f083defa317",
+    "ml\\runs\\notebook-tfidf-logistic-v3\\artifacts\\url-core-logistic-v3.joblib": "eca8cda98c1f717a77c8fd6b58389868e4c60d21b8515c25fd6a2b903decea36",
+    "ml\\runs\\notebook-tfidf-logistic-v3\\reports\\frozen-v3.json": "266990ee8d225089aff052b5328e3ad637d5aa59db85527ef275a467d538c242"
+  },
+  "limitations": [
+    "Only locally persisted known sources; no claim of global campaign independence.",
+    "New runs/sources require registry and protocol review.",
+    "Hash matching does not establish human labels or source correctness.",
+    "Metadata screening and flags cannot establish human identity or independence.",
+    "License/privacy/Indonesia relevance need evidence and coordinator review.",
+    "Provisional output is not locked gold; no split or model promotion occurs here.",
+    "Regex sanitization is not proof of complete PII removal."
+  ],
+  "blocked_on": [
+    "new_candidates_with_indonesia_evidence_and_rights",
+    "two_independent_human_reviews",
+    "coordinator_batch_privacy_evidence_and_license_qa",
+    "custodian_group_time_split_and_locked_holdout",
+    "freeze_acceptance_policy_before_new_training_and_final_test"
+  ]
+}

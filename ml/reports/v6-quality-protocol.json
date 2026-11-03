@@ -1,0 +1,68 @@
+{
+  "declared_at_utc": "2026-11-03T13:02:26.660314+00:00",
+  "scope": "replay_frozen_v6_on_previously_observed_local_holdouts_not_new_independent_test",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "datasets": {
+    "new_deepurlbench_holdout": {
+      "filename": "deepurlbench-holdout-v6.parquet",
+      "sha256": "a9b8002a5734ed4faf63acfda23cd722511a79a192de4cdbcf0dd6bd2c8df3a2",
+      "rows": 20000,
+      "groups": 19139,
+      "classes": {
+        "0": 17789,
+        "1": 2211
+      }
+    },
+    "new_phishtank_positive": {
+      "filename": "phishtank-2026-v6.parquet",
+      "sha256": "623bb330743d0ccf0969e8427938704d80f4bdc067007a4d18aba3cf4cc96b92",
+      "rows": 9269,
+      "groups": 8237,
+      "classes": {
+        "1": 9269
+      }
+    }
+  },
+  "training_or_threshold_selection_permitted": false,
+  "new_urls_collected": false,
+  "targets_visited": false,
+  "classifier_changes_permitted": false,
+  "checks": [
+    "checksum_and_synthetic_prediction_parity",
+    "local_partition_domain_digest_isolation",
+    "actual_binary_holdout_predictions",
+    "positive_only_sensitivity_without_fpr_precision_accuracy",
+    "wilson_and_domain_bootstrap_uncertainty",
+    "majority_class_reference",
+    "calibration_diagnostic_without_fitting",
+    "warm_in_process_latency",
+    "existing_release_policy_assessment"
+  ],
+  "domain_bootstrap": {
+    "repeats": 1000,
+    "seed": 20261103,
+    "unit": "PSL_registered_domain_or_private_hosting_tenant"
+  },
+  "latency": {
+    "warmup_requests": 16,
+    "measured_requests": 128,
+    "sample_without_model_score_or_label_selection": true,
+    "random_seed": 20261103,
+    "threadpool_limit": 1,
+    "includes": "parser_features_classifier_calibrator_and_shadow_response_not_http_network",
+    "interpretation": "local_warm_sequential_in_process_probe_not_deployment_sla"
+  },
+  "limitations": [
+    "Both holdouts were already observed before this replay.",
+    "Vendor holdout is domain-disjoint from development but shares a source.",
+    "Source labels have not all been independently human verified.",
+    "Community positive feed and historical benign data are separate distributions.",
+    "No Indonesian gold-set claim or production promotion."
+  ]
+}

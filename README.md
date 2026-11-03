@@ -28,6 +28,8 @@ Pada holdout vendor, 1.187 dari 2.211 phishing terlewat. Interval Wilson FPR sek
 
 [Laporan v6 lengkap](ml/reports/data-improvement-v6.json) mempertahankan seluruh metrik, interval, kalibrasi, provenance dan perbandingan historis. Pada kontrol tambahan dengan target false alarm development yang sama, recall PhishTank v6 46,53% dibanding baseline kontrol 26,59%; dibanding kebijakan baseline asli 55,48%, recall v6 menurun. [Kontrol yang dideklarasikan terlambat](ml/reports/v6-low-fpr-control.json) tetap dilaporkan terpisah.
 
+[Pengujian ulang kualitas v6](ml/reports/v6-quality-evaluation.md) memprediksi ulang 29.269 URL yang sudah pernah teramati, memeriksa pemisahan domain/digest, menjalankan 70 tes, serta mengukur interval per domain, kalibrasi dan latency lokal. Hasil menegaskan bahwa recall masih rendah dan release gate belum terpenuhi. [Grafik evaluasi](ml/reports/v6-quality-evaluation.png) serta [laporan numerik](ml/reports/v6-quality-evaluation.json) tersedia; ini bukan holdout independen baru dan tidak mengubah model/threshold.
+
 ## Memakai v6 di Next.js tanpa training ulang
 
 **Bisa. Model v6 sudah dilatih dan tersimpan sebagai `.joblib`.** Pengembang cukup mengunduh artifact beserta metadata aslinya, lalu menjalankan inferensi. Tidak perlu training ulang, mengunduh dataset atau menjalankan notebook terlebih dahulu.
@@ -67,6 +69,13 @@ ml/.venv/Scripts/python.exe -m pip install -e "./ml[evaluation]"
 ml/.venv/Scripts/python.exe scripts/validate_v6.py --evaluate-local --output ml/reports/v6-only-validation.json
 ml/.venv/Scripts/python.exe -m ruff check --no-cache ml/src ml/tests scripts guardian_lab_url_qr_v6.ipynb
 ml/.venv/Scripts/python.exe -m ruff format --check --no-cache ml/src ml/tests scripts guardian_lab_url_qr_v6.ipynb
+```
+
+Untuk mereproduksi pemeriksaan kualitas dan grafik dengan cache v6 asli yang tersedia lokal, pasang extra `quality`, lalu gunakan nama output baru agar laporan yang sudah selesai tetap tersimpan:
+
+```powershell
+ml/.venv/Scripts/python.exe -m pip install -e "./ml[quality]"
+ml/.venv/Scripts/python.exe scripts/evaluate_v6_quality.py --plot --output-stem ml/reports/v6-quality-replay-local
 ```
 
 ## Bukti dan pemeliharaan

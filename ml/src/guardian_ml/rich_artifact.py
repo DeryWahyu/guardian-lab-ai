@@ -14,6 +14,19 @@ from .metadata import checksum, psl_identity
 from .paths import ROOT
 from .rich_features import NUMERIC_COLUMNS, SCHEMA_VERSION, probabilities
 
+INFERENCE_DEPENDENCIES = frozenset(
+    {
+        "joblib",
+        "numpy",
+        "pandas",
+        "requests",
+        "scikit-learn",
+        "scipy",
+        "tldextract",
+        "threadpoolctl",
+    }
+)
+
 
 class ArtifactRejected(ValueError):
     """Fixed reason codes only; paths or input values are not included."""
@@ -51,7 +64,16 @@ class RichArtifact:
             raise ArtifactRejected("model_checksum_mismatch")
         if frozen["bundle_sha256"] != manifest["bundle_sha256"]:
             raise ArtifactRejected("model_manifest_mismatch")
-        expected_versions = frozen["metadata"]["versions"]
+        training_versions = frozen["metadata"]["versions"]
+        expected_versions = manifest.get("inference_dependencies")
+        if (
+            not isinstance(expected_versions, dict)
+            or set(expected_versions) != INFERENCE_DEPENDENCIES
+            or any(
+                training_versions.get(name) != value for name, value in expected_versions.items()
+            )
+        ):
+            raise ArtifactRejected("inference_dependency_schema_mismatch")
         if {name: version(name) for name in expected_versions} != expected_versions:
             raise ArtifactRejected("dependency_versions_mismatch")
         if psl_identity() != manifest["psl"]:

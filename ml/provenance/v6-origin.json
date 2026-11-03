@@ -1,0 +1,18 @@
+{
+  "schema_version": "v6-origin-v1",
+  "created_at_utc": "2026-11-03T12:00:27.334438+00:00",
+  "training_notebook_original_name": "guardian_lab_url_qr_data_v6.ipynb",
+  "training_notebook_sha256": "9fb9cbb24de4e69bcc3212987a1dd304de82e08bcae55a09641dd30c1958783c",
+  "training_notebook_code_sha256": "a0e93a120ee6421394418fbbf967e867df830e582527f8fc115fa19068c7480c",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "local_frozen_training_notebook": "ml/data/local-research-archive/v6-only-20261103/frozen-training-v6.ipynb",
+  "synthetic_reference_cases": 62,
+  "reference_matches_frozen_notebook_absolute_tolerance": 1e-12,
+  "training_performed_during_cleanup": false,
+  "baseline_hashes_in_original_metadata_are_historical_references_not_runtime_dependencies": true
+}

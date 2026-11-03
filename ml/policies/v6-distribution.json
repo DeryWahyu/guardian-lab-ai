@@ -1,0 +1,23 @@
+{
+  "schema_version": "v6-release-distribution-v1",
+  "repository": "DeryWahyu/guardian-lab-ai",
+  "release_tag": "v6-shadow-20261103",
+  "asset_name": "guardian-lab-v6-shadow.zip",
+  "download_url": "https://github.com/DeryWahyu/guardian-lab-ai/releases/download/v6-shadow-20261103/guardian-lab-v6-shadow.zip",
+  "archive_bytes": 2025749,
+  "archive_sha256": "135fc35534fa7613f0b0088fe6df38d3d2ad9e70792cb6779b3ba48dc990a48d",
+  "members": {
+    "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib": {
+      "bytes": 2020988,
+      "sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319"
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/reports/frozen-v6.json": {
+      "bytes": 34923,
+      "sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5"
+    }
+  },
+  "datasets_included": false,
+  "noncommercial_research_only": true,
+  "serving_mode": "shadow_only",
+  "production_ready": false
+}

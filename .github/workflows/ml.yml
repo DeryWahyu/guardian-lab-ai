@@ -1,17 +1,16 @@
-name: ML checks
+name: Frozen v6 checks
 
 on:
   pull_request:
     branches: [main]
   push:
-    branches: [main]
 
 permissions:
   contents: read
 
 jobs:
   python:
-    name: Python 3.12 checks
+    name: Python 3.12 v6 checks
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -25,19 +24,11 @@ jobs:
           python-version: "3.12"
           cache: pip
           cache-dependency-path: ml/pyproject.toml
-      - name: Install core and serving dependencies
+      - name: Install v6 and serving dependencies
         run: python -m pip install -e "./ml[test,dev,serve]"
-      - name: Lint Python and current research notebooks
-        run: >-
-          python -m ruff check --no-cache
-          ml/src ml/tests ml/run.py scripts/research/validate_family_comparison_v9.py
-          guardian_lab_url_qr_comparison_v9.ipynb guardian_lab_url_qr_recall_cnn_v10.ipynb
-          guardian_lab_gold_set_indonesia.ipynb
+      - name: Lint v6 source and notebook
+        run: python -m ruff check --no-cache ml/src ml/tests scripts guardian_lab_url_qr_v6.ipynb
       - name: Verify formatting
-        run: >-
-          python -m ruff format --check --no-cache
-          ml/src ml/tests ml/run.py scripts/research/validate_family_comparison_v9.py
-          guardian_lab_url_qr_comparison_v9.ipynb guardian_lab_url_qr_recall_cnn_v10.ipynb
-          guardian_lab_gold_set_indonesia.ipynb
-      - name: Run tests without private datasets or model binaries
+        run: python -m ruff format --check --no-cache ml/src ml/tests scripts guardian_lab_url_qr_v6.ipynb
+      - name: Run v6 tests without private datasets or model binaries
         run: python -m pytest -p no:cacheprovider ml/tests -q

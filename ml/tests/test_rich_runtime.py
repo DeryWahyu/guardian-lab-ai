@@ -1,20 +1,12 @@
 """Real frozen-v6 parity, source/schema rejection, and offline abstention."""
 
-import ast
-from collections import Counter
-import hashlib
 import json
-import math
 import shutil
 import socket
 
 import joblib
 import numpy as np
-import pandas as pd
 import pytest
-from scipy.sparse import csr_matrix, hstack
-from scipy.special import logit
-from sklearn.preprocessing import normalize
 
 from guardian_ml.metadata import checksum
 from guardian_ml.paths import ROOT
@@ -44,40 +36,16 @@ def trusted_copy(tmp_path):
     return manifest
 
 
-def test_real_runtime_matches_notebook_on_development_sample(artifact):
-    document = json.loads((ROOT / "guardian_lab_url_qr_data_v6.ipynb").read_text())
-    cells = ["".join(c["source"]) for c in document["cells"]]
-    namespace = {
-        "__name__": __name__,
-        "hashlib": hashlib,
-        "np": np,
-        "pd": pd,
-        "math": math,
-        "Counter": Counter,
-        "csr_matrix": csr_matrix,
-        "hstack": hstack,
-        "normalize": normalize,
-        "logit": logit,
-        "CONFIG": artifact.metadata["config"],
-    }
-    exec(compile(cells[3], "frozen_notebook_parser", "exec"), namespace)
-    tree = ast.parse(cells[4])
-    nodes = [
-        node
-        for node in tree.body
-        if isinstance(node, ast.FunctionDef)
-        or isinstance(node, ast.Assign)
-        and all(isinstance(target, ast.Name) and target.id.isupper() for target in node.targets)
-    ]
-    exec(
-        compile(ast.Module(body=nodes, type_ignores=[]), "frozen_notebook_features", "exec"),
-        namespace,
-    )
-    data = pd.read_parquet(ROOT / "ml/runs/notebook-tfidf-logistic-v6/data/development-v6.parquet")
-    cores = data.loc[data.partition.eq("tune"), "core"].sample(128, random_state=20261101).tolist()
-    expected = namespace["new_probability"](artifact.bundle, cores)
-    actual = artifact.predict_cores(cores)
-    assert float(np.max(np.abs(actual - expected))) < 1e-12
+def test_real_runtime_matches_frozen_notebook_synthetic_reference(artifact):
+    from guardian_ml.preprocessing import prepare_url
+
+    reference = json.loads((ROOT / "ml/provenance/v6-runtime-reference.json").read_text())
+    assert reference["artifact_sha256"] == artifact.manifest["bundle_sha256"]
+    assert reference["training_notebook_code_sha256"] == artifact.metadata["code_sha256"]
+    cores = [prepare_url(case["url"]).core for case in reference["cases"]]
+    assert cores == [case["core"] for case in reference["cases"]]
+    expected = np.array([case["probability"] for case in reference["cases"]])
+    assert float(np.max(np.abs(artifact.predict_cores(cores) - expected))) < 1e-12
 
 
 def test_checksum_rejected_before_deserialization(artifact, tmp_path, monkeypatch):
@@ -127,6 +95,35 @@ def test_dependency_version_rejected(artifact, monkeypatch):
     monkeypatch.setattr("guardian_ml.rich_artifact.version", lambda _: "incompatible")
     with pytest.raises(ArtifactRejected, match="dependency_versions_mismatch"):
         RichArtifact()
+
+
+@pytest.mark.parametrize("change", ["empty", "missing", "extra", "version"])
+def test_inference_dependency_subset_cannot_weaken_training_binding(artifact, tmp_path, change):
+    manifest = trusted_copy(tmp_path)
+    dependencies = manifest["inference_dependencies"]
+    if change == "empty":
+        dependencies.clear()
+    elif change == "missing":
+        dependencies.pop("numpy")
+    elif change == "extra":
+        dependencies["unrelated"] = "0"
+    else:
+        dependencies["numpy"] = "incompatible"
+    (tmp_path / "ml/policies/shadow-runtime-manifest.json").write_text(json.dumps(manifest))
+    with pytest.raises(ArtifactRejected, match="inference_dependency_schema_mismatch"):
+        RichArtifact(tmp_path)
+
+
+def test_inference_does_not_require_training_only_packages(artifact, monkeypatch):
+    from importlib.metadata import version
+
+    def runtime_version(name):
+        assert name not in {"pyarrow", "matplotlib", "catboost", "xgboost", "torch"}
+        return version(name)
+
+    monkeypatch.setattr("guardian_ml.rich_artifact.version", runtime_version)
+    restored = RichArtifact()
+    assert restored.metadata["thresholds"] == artifact.metadata["thresholds"]
 
 
 def test_workspace_path_cannot_escape(tmp_path):

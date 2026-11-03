@@ -1,0 +1,37 @@
+{
+  "prepared_at_utc": "2026-11-03T12:28:44.143171+00:00",
+  "scope": "v6_code_results_and_checksum_bound_model_release",
+  "repository": "DeryWahyu/guardian-lab-ai",
+  "release_tag": "v6-shadow-20261103",
+  "publication_mode": "source_and_aggregate_results_in_git_model_and_frozen_metadata_in_release_asset",
+  "archive_sha256": "135fc35534fa7613f0b0088fe6df38d3d2ad9e70792cb6779b3ba48dc990a48d",
+  "original_model_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "original_frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "archive_members": [
+    "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib",
+    "ml/runs/notebook-tfidf-logistic-v6/reports/frozen-v6.json"
+  ],
+  "datasets_or_credentials_in_release": false,
+  "private_local_directories_excluded_from_git": true,
+  "candidate_files_credential_pattern_scan_passed": true,
+  "fresh_checkout_model_install_verified": true,
+  "fresh_checkout_synthetic_reference_cases": 62,
+  "fresh_checkout_api_url_qr_parity": true,
+  "python_tests": {
+    "passed": 67,
+    "skipped": 0,
+    "failed": 0
+  },
+  "lint": {
+    "ruff_check": "passed",
+    "ruff_format_check": "passed"
+  },
+  "training_performed": false,
+  "public_deployment_activated": false,
+  "production_ready": false,
+  "noncommercial_research_only": true
+}

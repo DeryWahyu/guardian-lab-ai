@@ -1,0 +1,323 @@
+{
+  "schema_version": "v6-synthetic-reference-v1",
+  "scope": "synthetic_inputs_only_no_dataset_rows",
+  "training_notebook_code_sha256": "a0e93a120ee6421394418fbbf967e867df830e582527f8fc115fa19068c7480c",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "absolute_tolerance": 1e-12,
+  "cases": [
+    {
+      "url": "http://example.org/",
+      "core": "http://example.org/",
+      "probability": 0.07475369987204768
+    },
+    {
+      "url": "https://example.org/",
+      "core": "https://example.org/",
+      "probability": 0.07475369987204768
+    },
+    {
+      "url": "http://example.org/login",
+      "core": "http://example.org/login",
+      "probability": 0.09766971666627103
+    },
+    {
+      "url": "https://example.org/login",
+      "core": "https://example.org/login",
+      "probability": 0.09766971666627103
+    },
+    {
+      "url": "http://example.org/account/verify",
+      "core": "http://example.org/account/REDACTED",
+      "probability": 0.0867189646191681
+    },
+    {
+      "url": "https://example.org/account/verify",
+      "core": "https://example.org/account/REDACTED",
+      "probability": 0.0867189646191681
+    },
+    {
+      "url": "http://example.org/a%20b",
+      "core": "http://example.org/a%20b",
+      "probability": 0.15081660335585034
+    },
+    {
+      "url": "https://example.org/a%20b",
+      "core": "https://example.org/a%20b",
+      "probability": 0.15081660335585034
+    },
+    {
+      "url": "http://example.org/email/person%40example.net",
+      "core": "http://example.org/email/REDACTED",
+      "probability": 0.06639604355083555
+    },
+    {
+      "url": "https://example.org/email/person%40example.net",
+      "core": "https://example.org/email/REDACTED",
+      "probability": 0.06639604355083555
+    },
+    {
+      "url": "http://example.org/token/SYNTHETICSHORT",
+      "core": "http://example.org/token/REDACTED",
+      "probability": 0.22181942949369485
+    },
+    {
+      "url": "https://example.org/token/SYNTHETICSHORT",
+      "core": "https://example.org/token/REDACTED",
+      "probability": 0.22181942949369485
+    },
+    {
+      "url": "http://example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "http://example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.26685371281399517
+    },
+    {
+      "url": "https://example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "https://example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.26685371281399517
+    },
+    {
+      "url": "http://login.example.org/",
+      "core": "http://login.example.org/",
+      "probability": 0.1935390159101415
+    },
+    {
+      "url": "https://login.example.org/",
+      "core": "https://login.example.org/",
+      "probability": 0.1935390159101415
+    },
+    {
+      "url": "http://login.example.org/login",
+      "core": "http://login.example.org/login",
+      "probability": 0.16088696280956244
+    },
+    {
+      "url": "https://login.example.org/login",
+      "core": "https://login.example.org/login",
+      "probability": 0.16088696280956244
+    },
+    {
+      "url": "http://login.example.org/account/verify",
+      "core": "http://login.example.org/account/REDACTED",
+      "probability": 0.15159231751660698
+    },
+    {
+      "url": "https://login.example.org/account/verify",
+      "core": "https://login.example.org/account/REDACTED",
+      "probability": 0.15159231751660698
+    },
+    {
+      "url": "http://login.example.org/a%20b",
+      "core": "http://login.example.org/a%20b",
+      "probability": 0.28104421347059305
+    },
+    {
+      "url": "https://login.example.org/a%20b",
+      "core": "https://login.example.org/a%20b",
+      "probability": 0.28104421347059305
+    },
+    {
+      "url": "http://login.example.org/email/person%40example.net",
+      "core": "http://login.example.org/email/REDACTED",
+      "probability": 0.13106671487285132
+    },
+    {
+      "url": "https://login.example.org/email/person%40example.net",
+      "core": "https://login.example.org/email/REDACTED",
+      "probability": 0.13106671487285132
+    },
+    {
+      "url": "http://login.example.org/token/SYNTHETICSHORT",
+      "core": "http://login.example.org/token/REDACTED",
+      "probability": 0.3567058533174387
+    },
+    {
+      "url": "https://login.example.org/token/SYNTHETICSHORT",
+      "core": "https://login.example.org/token/REDACTED",
+      "probability": 0.3567058533174387
+    },
+    {
+      "url": "http://login.example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "http://login.example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.35032001533169793
+    },
+    {
+      "url": "https://login.example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "https://login.example.org/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.35032001533169793
+    },
+    {
+      "url": "http://example.net/",
+      "core": "http://example.net/",
+      "probability": 0.12832835603144915
+    },
+    {
+      "url": "https://example.net/",
+      "core": "https://example.net/",
+      "probability": 0.12832835603144915
+    },
+    {
+      "url": "http://example.net/login",
+      "core": "http://example.net/login",
+      "probability": 0.0940868055844416
+    },
+    {
+      "url": "https://example.net/login",
+      "core": "https://example.net/login",
+      "probability": 0.0940868055844416
+    },
+    {
+      "url": "http://example.net/account/verify",
+      "core": "http://example.net/account/REDACTED",
+      "probability": 0.09282481017971615
+    },
+    {
+      "url": "https://example.net/account/verify",
+      "core": "https://example.net/account/REDACTED",
+      "probability": 0.09282481017971615
+    },
+    {
+      "url": "http://example.net/a%20b",
+      "core": "http://example.net/a%20b",
+      "probability": 0.2213381007217336
+    },
+    {
+      "url": "https://example.net/a%20b",
+      "core": "https://example.net/a%20b",
+      "probability": 0.2213381007217336
+    },
+    {
+      "url": "http://example.net/email/person%40example.net",
+      "core": "http://example.net/email/REDACTED",
+      "probability": 0.06741741481778313
+    },
+    {
+      "url": "https://example.net/email/person%40example.net",
+      "core": "https://example.net/email/REDACTED",
+      "probability": 0.06741741481778313
+    },
+    {
+      "url": "http://example.net/token/SYNTHETICSHORT",
+      "core": "http://example.net/token/REDACTED",
+      "probability": 0.24578176866868823
+    },
+    {
+      "url": "https://example.net/token/SYNTHETICSHORT",
+      "core": "https://example.net/token/REDACTED",
+      "probability": 0.24578176866868823
+    },
+    {
+      "url": "http://example.net/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "http://example.net/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.2194389608573843
+    },
+    {
+      "url": "https://example.net/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "https://example.net/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.2194389608573843
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/",
+      "core": "http://synthetic-fixture.github.io/",
+      "probability": 0.894549197808382
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/",
+      "core": "https://synthetic-fixture.github.io/",
+      "probability": 0.894549197808382
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/login",
+      "core": "http://synthetic-fixture.github.io/login",
+      "probability": 0.9166073198974589
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/login",
+      "core": "https://synthetic-fixture.github.io/login",
+      "probability": 0.9166073198974589
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/account/verify",
+      "core": "http://synthetic-fixture.github.io/account/REDACTED",
+      "probability": 0.8325743413505199
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/account/verify",
+      "core": "https://synthetic-fixture.github.io/account/REDACTED",
+      "probability": 0.8325743413505199
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/a%20b",
+      "core": "http://synthetic-fixture.github.io/a%20b",
+      "probability": 0.90232612846866
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/a%20b",
+      "core": "https://synthetic-fixture.github.io/a%20b",
+      "probability": 0.90232612846866
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/email/person%40example.net",
+      "core": "http://synthetic-fixture.github.io/email/REDACTED",
+      "probability": 0.8512796969275207
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/email/person%40example.net",
+      "core": "https://synthetic-fixture.github.io/email/REDACTED",
+      "probability": 0.8512796969275207
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/token/SYNTHETICSHORT",
+      "core": "http://synthetic-fixture.github.io/token/REDACTED",
+      "probability": 0.9156408077610012
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/token/SYNTHETICSHORT",
+      "core": "https://synthetic-fixture.github.io/token/REDACTED",
+      "probability": 0.9156408077610012
+    },
+    {
+      "url": "http://synthetic-fixture.github.io/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "http://synthetic-fixture.github.io/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.7992330528605333
+    },
+    {
+      "url": "https://synthetic-fixture.github.io/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "core": "https://synthetic-fixture.github.io/section//section//section//section//section//section//section//section//section//section//section//section/",
+      "probability": 0.7992330528605333
+    },
+    {
+      "url": "https://example.org/login?token=SYNTHETIC-PRIVATE#fragment",
+      "core": "https://example.org/login",
+      "probability": 0.09766971666627103
+    },
+    {
+      "url": "example.org/login",
+      "core": "https://example.org/login",
+      "probability": 0.09766971666627103
+    },
+    {
+      "url": "https://xn--bcher-kva.de/page",
+      "core": "https://xn--bcher-kva.de/page",
+      "probability": 0.11762822789364921
+    },
+    {
+      "url": "https://[2606:4700:4700::1111]/page",
+      "core": "https://[2606:4700:4700::1111]/page",
+      "probability": 0.8734873154376586
+    },
+    {
+      "url": "https://example.org:8443/page",
+      "core": "https://example.org:8443/page",
+      "probability": 0.05330175153869558
+    },
+    {
+      "url": "https://example.org/%2520page",
+      "core": "https://example.org/%20page",
+      "probability": 0.23689966457312847
+    }
+  ]
+}

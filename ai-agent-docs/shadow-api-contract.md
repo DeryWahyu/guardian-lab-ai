@@ -65,9 +65,9 @@ Kesalahan tidak menjadi skor nol atau LOW. Traceback/debug/body error framework 
 
 Monitoring in-memory menyimpan jumlah request per status/input type/risk band dan histogram durasi. Tidak ada event individu, URL/domain/hash target, IP, user ID, body, atau credential yang dipersistensikan. Metrics online precision/recall/FPR bernilai `null` sampai ada proses ground truth manusia yang benar-benar selesai; skor dan feedback otomatis tidak menjadi label.
 
-Audit kualitas offline ada di [notebook keandalan](../guardian_lab_model_hardening.ipynb). Audit manusia PhishVN adalah bukti penerbit, bukan anotasi baru oleh agent dan bukan dataset Indonesia.
+Audit kualitas offline ada di [laporan audit v6](../ml/reports/model-hardening-audit.json). Audit manusia PhishVN adalah bukti penerbit, bukan anotasi baru oleh agent dan bukan dataset Indonesia.
 
-[Laporan validasi layanan](../ml/reports/shadow-service-validation.json) mencatat 64 tes lulus tanpa skip, lima sel kode notebook selesai, parity dengan artifact asli, serta checksum yang diverifikasi. Smoke test memakai empat request sintetis; bukan benchmark latency deployment atau uji accuracy trafik.
+[Validasi v6](../ml/reports/v6-only-validation.json) memeriksa artifact asli dan replay dua holdout v6. [Referensi sintetis](../ml/provenance/v6-runtime-reference.json) berasal dari notebook training asli sebelum cleanup; tes tidak memerlukan notebook atau model lama. Smoke test TestClient bukan benchmark latency deployment atau accuracy trafik.
 
 ## Batas integrasi aplikasi Guardian Lab
 
@@ -80,3 +80,6 @@ Audit kualitas offline ada di [notebook keandalan](../guardian_lab_model_hardeni
 7. Sebelum aktivasi publik, selesaikan release gate, autentikasi/quota gateway, privacy logging, dan pengujian integrasi nyata. Tidak ada rute/frontend aplikasi yang diaktifkan oleh tahap shadow ini.
 
 Sinyal redirect/HTML memerlukan desain worker dan uji isolasi terpisah. Saat ini kolektor tersebut tidak diimplementasikan dan agent tidak mengunjungi target dataset. Panduan keamanan jaringan: [OWASP SSRF prevention](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html). Implementasi request/schema memakai [FastAPI](https://fastapi.tiangolo.com/tutorial/handling-errors/) dan [Pydantic](https://pydantic.dev/docs/validation/latest/concepts/models/).
+
+
+Notebook utama mandiri: [guardian_lab_url_qr_v6.ipynb](../guardian_lab_url_qr_v6.ipynb). Loader memeriksa subset dependency inferensi lengkap yang versinya cocok dengan metadata training asli; tooling training/evaluasi yang tidak dipakai layanan tidak wajib dipasang. Metadata, binary dan kedua threshold tetap utuh.

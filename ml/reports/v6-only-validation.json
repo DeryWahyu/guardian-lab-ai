@@ -1,0 +1,267 @@
+{
+  "validated_at_utc": "2026-11-03T12:10:22.969559+00:00",
+  "scope": "frozen_v6_only_no_training_or_threshold_selection",
+  "model_version": "notebook-url-core-v6",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "synthetic_reference_cases": 62,
+  "maximum_probability_delta_from_original_notebook": 0.0,
+  "url_qr_parity": true,
+  "production_ready": false,
+  "replayed_original_v6_holdouts": {
+    "new_deepurlbench_holdout": {
+      "warning": {
+        "rows": 20000,
+        "benign": 17789,
+        "phishing": 2211,
+        "threshold": 0.904713285827399,
+        "confusion_matrix": {
+          "tn": 17621,
+          "fp": 168,
+          "fn": 1187,
+          "tp": 1024
+        },
+        "accuracy": 0.93225,
+        "precision": 0.8590604026845637,
+        "recall": 0.4631388511985527,
+        "fpr": 0.009444038450727978,
+        "f1": 0.6018219218336762,
+        "brier_score": 0.09023893488134134,
+        "log_loss": 0.3000431959531236,
+        "fpr_wilson95_rows_iid_assumption": [
+          0.008124845322761243,
+          0.010975052779923177
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.44243618263423096,
+          0.4839693849738495
+        ],
+        "average_precision": 0.7431532435714683,
+        "roc_auc": 0.9403577475436408,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 8290,
+            "mean_probability": 0.038024127498498816,
+            "phishing_fraction": 0.0026537997587454767
+          },
+          {
+            "lower": 0.1,
+            "rows": 3197,
+            "mean_probability": 0.14562191819905396,
+            "phishing_fraction": 0.021269940569283705
+          },
+          {
+            "lower": 0.2,
+            "rows": 2087,
+            "mean_probability": 0.24773884403793525,
+            "phishing_fraction": 0.02731193100143747
+          },
+          {
+            "lower": 0.3,
+            "rows": 1404,
+            "mean_probability": 0.3480193999124627,
+            "phishing_fraction": 0.06766381766381767
+          },
+          {
+            "lower": 0.4,
+            "rows": 1124,
+            "mean_probability": 0.4467603430327603,
+            "phishing_fraction": 0.09875444839857651
+          },
+          {
+            "lower": 0.5,
+            "rows": 822,
+            "mean_probability": 0.5494641494460762,
+            "phishing_fraction": 0.13746958637469586
+          },
+          {
+            "lower": 0.6,
+            "rows": 650,
+            "mean_probability": 0.650559511046922,
+            "phishing_fraction": 0.23384615384615384
+          },
+          {
+            "lower": 0.7,
+            "rows": 607,
+            "mean_probability": 0.7493791950952703,
+            "phishing_fraction": 0.34761120263591433
+          },
+          {
+            "lower": 0.8,
+            "rows": 591,
+            "mean_probability": 0.8537590044078281,
+            "phishing_fraction": 0.5651438240270727
+          },
+          {
+            "lower": 0.9,
+            "rows": 1228,
+            "mean_probability": 0.9596589388911153,
+            "phishing_fraction": 0.8534201954397395
+          }
+        ]
+      },
+      "high": {
+        "rows": 20000,
+        "benign": 17789,
+        "phishing": 2211,
+        "threshold": 0.9884744926236343,
+        "confusion_matrix": {
+          "tn": 17773,
+          "fp": 16,
+          "fn": 1991,
+          "tp": 220
+        },
+        "accuracy": 0.89965,
+        "precision": 0.9322033898305084,
+        "recall": 0.09950248756218906,
+        "fpr": 0.0008994322334026645,
+        "f1": 0.17981201471189212,
+        "brier_score": 0.09023893488134134,
+        "log_loss": 0.3000431959531236,
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0005537306730966499,
+          0.0014606445408704221
+        ],
+        "recall_wilson95_rows_iid_assumption": [
+          0.08771155355111618,
+          0.112682681012752
+        ],
+        "average_precision": 0.7431532435714683,
+        "roc_auc": 0.9403577475436408,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 8290,
+            "mean_probability": 0.038024127498498816,
+            "phishing_fraction": 0.0026537997587454767
+          },
+          {
+            "lower": 0.1,
+            "rows": 3197,
+            "mean_probability": 0.14562191819905396,
+            "phishing_fraction": 0.021269940569283705
+          },
+          {
+            "lower": 0.2,
+            "rows": 2087,
+            "mean_probability": 0.24773884403793525,
+            "phishing_fraction": 0.02731193100143747
+          },
+          {
+            "lower": 0.3,
+            "rows": 1404,
+            "mean_probability": 0.3480193999124627,
+            "phishing_fraction": 0.06766381766381767
+          },
+          {
+            "lower": 0.4,
+            "rows": 1124,
+            "mean_probability": 0.4467603430327603,
+            "phishing_fraction": 0.09875444839857651
+          },
+          {
+            "lower": 0.5,
+            "rows": 822,
+            "mean_probability": 0.5494641494460762,
+            "phishing_fraction": 0.13746958637469586
+          },
+          {
+            "lower": 0.6,
+            "rows": 650,
+            "mean_probability": 0.650559511046922,
+            "phishing_fraction": 0.23384615384615384
+          },
+          {
+            "lower": 0.7,
+            "rows": 607,
+            "mean_probability": 0.7493791950952703,
+            "phishing_fraction": 0.34761120263591433
+          },
+          {
+            "lower": 0.8,
+            "rows": 591,
+            "mean_probability": 0.8537590044078281,
+            "phishing_fraction": 0.5651438240270727
+          },
+          {
+            "lower": 0.9,
+            "rows": 1228,
+            "mean_probability": 0.9596589388911153,
+            "phishing_fraction": 0.8534201954397395
+          }
+        ]
+      }
+    },
+    "new_phishtank_positive": {
+      "warning": {
+        "rows": 9269,
+        "tp": 4313,
+        "fn": 4956,
+        "recall": 0.4653144891574064,
+        "recall_wilson95_rows_iid_assumption": [
+          0.45517655453595646,
+          0.4754811621029544
+        ],
+        "accuracy": null,
+        "precision": null,
+        "fpr": null
+      },
+      "high": {
+        "rows": 9269,
+        "tp": 1794,
+        "fn": 7475,
+        "recall": 0.1935483870967742,
+        "recall_wilson95_rows_iid_assumption": [
+          0.1856330508087108,
+          0.2017176307241857
+        ],
+        "accuracy": null,
+        "precision": null,
+        "fpr": null
+      }
+    }
+  },
+  "python_tests": {
+    "command": "python -m pytest -p no:cacheprovider ml/tests -q",
+    "passed": 60,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 21.71
+  },
+  "lint": {
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "files_checked": 20
+  },
+  "notebook_and_isolation": {
+    "main_notebook_executed_code_cells": 5,
+    "main_notebook_errors": 0,
+    "isolated_source_files": 52,
+    "source_only_api_unavailable_without_score": true,
+    "source_only_pytest_summary": "43 passed, 17 skipped in 8.04s",
+    "isolated_notebook_without_artifact_executed_code_cells": 5,
+    "isolated_notebook_with_artifact_executed_code_cells": 5,
+    "isolated_available_models": [
+      "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib"
+    ],
+    "requires_other_model_artifacts_or_project_modules": false,
+    "training_only_imports_and_version_queries_blocked": true,
+    "blocked_training_only_packages": [
+      "catboost",
+      "xgboost",
+      "torch",
+      "matplotlib",
+      "pyarrow"
+    ]
+  },
+  "notebook_sha256": "f70f25fff04dbfbffb92e14ec51cadf7ea6c394984da176cfb1aeb6f9902dbd0",
+  "finalized_at_utc": "2026-11-03T12:17:04.586003+00:00",
+  "source_manifest_verified": true,
+  "git_diff_whitespace_check": "passed"
+}

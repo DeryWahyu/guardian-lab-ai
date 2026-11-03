@@ -94,4 +94,9 @@ Pada operasi false alarm sekitar 1%, peningkatan recall v6 terhadap baseline kon
 
 **Keputusan:** v6 adalah kandidat riset yang memperbaiki kemampuan pada batas false alarm rendah dibanding baseline kontrol. Ia tidak menggantikan baseline secara otomatis karena recall mentah serta audit manusia memburuk dan target recall 85% belum tercapai. Tidak ada promosi produksi atau klaim gold set Indonesia. Peningkatan keandalan menyeluruh tetap memerlukan evaluasi/label lokal dan sumber benign kontemporer yang lebih kuat.
 
-Bukti: [notebook model v6](../guardian_lab_url_qr_data_v6.ipynb), [notebook kontrol yang dapat dijalankan](../guardian_lab_url_qr_v6_control.ipynb), [laporan utama](../ml/reports/data-improvement-v6.json), [laporan kontrol tambahan](../ml/reports/v6-low-fpr-control.json). Dataset tersanitasi berada lokal pada `ml/runs/notebook-tfidf-logistic-v6/data/`; raw feed dan URL ber-PII tidak disimpan.
+Bukti: [notebook model v6](../guardian_lab_url_qr_v6.ipynb), snapshot lokal notebook kontrol historis (lihat [cleanup](v6-only-cleanup.md)), [laporan utama](../ml/reports/data-improvement-v6.json), [laporan kontrol tambahan](../ml/reports/v6-low-fpr-control.json). Dataset tersanitasi berada lokal pada `ml/runs/notebook-tfidf-logistic-v6/data/`; raw feed dan URL ber-PII tidak disimpan.
+
+
+## Cleanup 3 November 2026
+
+Notebook utama kini hanya memuat/memeriksa v6; kode training asli tetap byte-identik dalam snapshot lokal. Model lain dihapus atas instruksi pengguna. Protokol/hasil historis di atas tetap berlaku dan tidak menyatakan training ulang atau readiness baru.

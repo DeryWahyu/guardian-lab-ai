@@ -20,13 +20,17 @@
     "ml/src/guardian_ml/preprocessing.py": "169f4d17d4ff0e5e039dc5f16fd9cc81bec1b026fde4f891099e30ff3cbc644c",
     "ml/src/guardian_ml/features.py": "969b68cc6e2d3513654a8c0a7dbdfb2c78e7fb3742465317faee6d768096ad51",
     "ml/src/guardian_ml/rich_features.py": "86edd294ee3daee0bb88a90ae289cf1bc26529c5a26da7cf05e01c5518b28542",
-    "ml/src/guardian_ml/rich_artifact.py": "655255fab93ae53175a21f164fd0fbb9bb64a20d9f87e47cef2129c429f039b2",
+    "ml/src/guardian_ml/rich_artifact.py": "a3290e3c8051e660d8173c965f69d3bcb3e1dc429540233b7fcd0018417e7750",
     "ml/src/guardian_ml/release_gates.py": "01448a73ddd8687795a879af6cb02a49889600cf72370a0bd9fe0755e7a20563",
     "ml/src/guardian_ml/shadow_contracts.py": "83b69c3d501da9cc1615c0f5186b674c41af567906b45d5b40603368b822e397",
     "ml/src/guardian_ml/shadow_predictor.py": "804a0caa45042340e7068cfb3f1bb7ffbdb8ec958e54a9b9d8cf918cb1616c20",
     "ml/src/guardian_ml/shadow_metrics.py": "8cebe561b0a3c45f996a85ab6925d1aab406e3fb6f17a77355dcb01f63142b3b",
     "ml/src/guardian_ml/shadow_service.py": "b42c40a010536376f682eecf59090b5d691ec67afbca73484d076fc0e7b72d73",
-    "ml/policies/url-qr-release-gates.json": "b64b06ddc920adb96140b14d8c7352a65500e854ad7b997806103cd0af3c6cc6"
+    "ml/policies/url-qr-release-gates.json": "b64b06ddc920adb96140b14d8c7352a65500e854ad7b997806103cd0af3c6cc6",
+    "ml/src/guardian_ml/metadata.py": "0e641ac010f52949ea91a0a671cdd752c3d2ec946f51e32cf1224e678dd6f827",
+    "ml/src/guardian_ml/paths.py": "44f238b2a68039a092862823f1555c21bedcf6ec9ea17ecaf4bd999066831d7e",
+    "ml/provenance/v6-runtime-reference.json": "ce0aa10d7b1907428666f74b981de452362be5b6012f1ebcc3b166f1bd99a23e",
+    "ml/provenance/v6-origin.json": "05822ad29c7155ec498f63d07e36428ff4da2e3a394b2122d83c5b06d6ddff92"
   },
   "serving_mode": "shadow_only",
   "noncommercial_research_only": true,
@@ -36,5 +40,15 @@
     "starlette": "1.0.0",
     "uvicorn": "0.47.0",
     "pydantic": "2.13.4"
+  },
+  "inference_dependencies": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.3",
+    "pandas": "2.2.3",
+    "requests": "2.32.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0",
+    "tldextract": "5.3.0"
   }
 }

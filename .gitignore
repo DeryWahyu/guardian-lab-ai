@@ -11,6 +11,13 @@ __pycache__/
 ml/data/
 ml/artifacts/
 ml/runs/
+*.joblib
+*.cbm
+*.pt
+*.pth
+*.parquet
+*.sqlite
+*.zip
 
 # Secrets and editor/system files
 .env*

@@ -28,6 +28,21 @@ Pada holdout vendor, 1.187 dari 2.211 phishing terlewat. Interval Wilson FPR sek
 
 [Laporan v6 lengkap](ml/reports/data-improvement-v6.json) mempertahankan seluruh metrik, interval, kalibrasi, provenance dan perbandingan historis. Pada kontrol tambahan dengan target false alarm development yang sama, recall PhishTank v6 46,53% dibanding baseline kontrol 26,59%; dibanding kebijakan baseline asli 55,48%, recall v6 menurun. [Kontrol yang dideklarasikan terlambat](ml/reports/v6-low-fpr-control.json) tetap dilaporkan terpisah.
 
+## Memakai v6 di Next.js tanpa training ulang
+
+**Bisa. Model v6 sudah dilatih dan tersimpan sebagai `.joblib`.** Pengembang cukup mengunduh artifact beserta metadata aslinya, lalu menjalankan inferensi. Tidak perlu training ulang, mengunduh dataset atau menjalankan notebook terlebih dahulu.
+
+Alurnya: **frontend Next.js → backend Next.js → API Python v6 → hasil prediksi JSON**.
+
+1. Siapkan Python 3.12 dan dependency sesuai bagian [Menjalankan v6](#menjalankan-v6).
+2. Jalankan `python scripts/install_v6_model.py` menggunakan Python environment proyek untuk mengunduh serta memverifikasi model beku.
+3. Jalankan layanan `guardian_ml.shadow_service:create_app` sesuai perintah Uvicorn di bawah.
+4. Atur `GUARDIAN_ML_URL=http://127.0.0.1:8001` pada konfigurasi server Next.js. Backend Next.js mengirim `POST /predict` dengan body JSON, misalnya `{"url":"https://example.org/login","input_type":"URL"}`.
+
+Jika Next.js dan API Python berada pada server berbeda, gunakan alamat layanan yang dapat dijangkau backend Next.js melalui jaringan privat. Alamat localhost hanya sesuai jika keduanya berjalan pada host yang sama. Tampilan web memakai `human` dan `risk_band` dari respons; timeout, unsupported atau unavailable tetap perlu verifikasi dan tidak menjadi SAFE.
+
+[Panduan integrasi backend](ai-agent-docs/web-integration-v6.md) menyediakan langkah pemasangan lengkap, contoh pemanggilan JavaScript dan makna hasil. Penggunaan tetap untuk riset nonkomersial/internal shadow dengan `production_ready=false`.
+
 ## Menjalankan v6
 
 Python 3.12 diperlukan. Dari root repository:

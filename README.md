@@ -4,6 +4,8 @@ Repository ini mempertahankan **satu model: frozen Logistic Regression v6**, ses
 
 **Untuk pengembang web:** ikuti [panduan integrasi backend](ai-agent-docs/web-integration-v6.md). [GitHub Release v6](https://github.com/DeryWahyu/guardian-lab-ai/releases/tag/v6-shadow-20261103) menyediakan binary model dan metadata asli; laporan hasil serta notebook tersedia langsung di repository.
 
+Guardian Lab memakai API ini untuk URL dan tautan hasil QR, termasuk hasil, riwayat, Share Card, dan snapshot komunitas. [Dockerfile](Dockerfile) memasang artifact terverifikasi saat build; Compose di repo web menghubungkan backend ke model melalui jaringan privat. Integrasi fitur tidak mengubah status riset atau menyelesaikan validasi sebelum rilis.
+
 ## Model dan batas penggunaan
 
 - TF-IDF karakter/kata dan fitur numerik URL, dilatih pada **532.793 URL** dari lima sumber.

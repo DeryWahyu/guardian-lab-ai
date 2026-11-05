@@ -71,6 +71,8 @@ Audit kualitas offline ada di [laporan audit v6](../ml/reports/model-hardening-a
 
 ## Batas integrasi aplikasi Guardian Lab
 
+Backend Guardian Lab telah menyediakan integrasi penuh URL/QR untuk akun terverifikasi, hasil tersimpan, riwayat, Share Card, dan snapshot komunitas. Python tetap memakai kontrak shadow ini tanpa perubahan source, metadata, atau threshold. Konfigurasi lokal/Docker dan pemetaan lifecycle aplikasi dijelaskan pada [panduan integrasi backend](web-integration-v6.md). Implementasi fitur tidak meluncurkan situs publik atau menyelesaikan validasi sebelum rilis.
+
 1. Caller frontend tetap memakai backend aplikasi; alamat model internal berasal dari konfigurasi server tepercaya dan tidak boleh berasal dari URL pengguna.
 2. Pertahankan provenance URL/QR. QR non-URL harus dihentikan sebagai unsupported, dan QRIS merchant tidak diberi klaim autentik.
 3. Sanitasi dan privacy policy berlaku sebelum pencatatan riwayat/forensic log atau pengiriman narasi ke LLM. Respons API ini tidak mengandung target yang perlu diteruskan ke LLM.

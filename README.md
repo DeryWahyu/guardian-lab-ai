@@ -80,6 +80,14 @@ ml/.venv/Scripts/python.exe -m pip install -e "./ml[quality]"
 ml/.venv/Scripts/python.exe scripts/evaluate_v6_quality.py --plot --output-stem ml/reports/v6-quality-replay-local
 ```
 
+## Deployment melalui Ansible
+
+Workflow `ml.yml` mempertahankan pemeriksaan Python v6 yang ada, lalu pada branch `main` membangun image `ghcr.io/derywahyu/guardian-lab-ai` dengan tag commit dan `latest`. Dockerfile tetap memasang binary/metadata asli melalui installer terverifikasi; perubahan workflow tidak mengubah source manifest, dependency inferensi, threshold atau status shadow.
+
+Setelah stack Guardian di-bootstrap dan `ENABLE_VPS_DEPLOY=true`, push `main` memanggil helper Ansible dengan kelompok `ml`. Helper memakai lock bersama dengan repository web, memeriksa readiness model dan hanya mengganti image ML. `workflow_dispatch` mempublikasikan image tanpa deployment kecuali input `deploy=true`. SSH memerlukan host key tepercaya; API 8001 tetap privat tanpa port host atau proxy publik.
+
+[Runbook infrastruktur Guardian Lab](https://github.com/Alfian57/server-infrastructure#guardian-lab) menjadi sumber bootstrap, mapping GitHub, Vault dan pemulihan. Checklist build/integrasi yang masih tertunda berada pada [TEST_PLAN.md repository web](https://github.com/DeryWahyu/guardian-lab/blob/main/TEST_PLAN.md#deployment-produksi-dengan-ansible-pemeriksaan-tertunda). Publikasi workflow dan penyiapan konfigurasi tidak membuktikan model memenuhi release gate.
+
 ## Bukti dan pemeliharaan
 
 - [Identitas v6](ai-agent-docs/selected-model-v6.md), [kontrak API](ai-agent-docs/shadow-api-contract.md), [model card](ml/reports/model-card.md).

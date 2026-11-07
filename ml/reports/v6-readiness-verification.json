@@ -1,0 +1,163 @@
+{
+  "verified_at_utc": "2026-11-07T06:22:18.792877+00:00",
+  "verification_source_sha256": "69a5f4c59248a4546d3da82c36aab97e1bb784824b55807df4f826752ef3e6d1",
+  "model_report_sha256": "8bfc0948ac52025359220a22064bb4fd51efb4a682107e8d0e0ded7d24f01ff5",
+  "tests": {
+    "tests": 274,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_report_sha256": "130e278f27e9fc05416bb25bcb2526395c95f5c87e079a4d33a2c2c9eaa06a7d",
+  "chronology_verified": true,
+  "all_filtered_partitions_separated": true,
+  "excluded_sources_absent_from_fitting_and_all_development": [
+    "deepurlbench",
+    "iscx2016_replica"
+  ],
+  "sidecars_unchanged": 8,
+  "original_model_and_metadata_unchanged": true,
+  "prediction_recounts_and_real_artifact_parity": {
+    "observed_vendor": {
+      "recounted_rows": 20000,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_phishtank_positive": {
+      "recounted_rows": 9269,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_expanded": {
+      "recounted_rows": 11636,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_pwd2021": {
+      "recounted_rows": 3544,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_zenodo": {
+      "recounted_rows": 12587,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_legitphish": {
+      "recounted_rows": 42716,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_stealth": {
+      "recounted_rows": 34895,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_phishbench": {
+      "recounted_rows": 272,
+      "base_replay_cases": 128,
+      "private_replay_cases": 55,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_ebbu": {
+      "recounted_rows": 8849,
+      "base_replay_cases": 128,
+      "private_replay_cases": 38,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_iscx": {
+      "recounted_rows": 2066,
+      "base_replay_cases": 128,
+      "private_replay_cases": 71,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    },
+    "observed_global": {
+      "recounted_rows": 50000,
+      "base_replay_cases": 128,
+      "private_replay_cases": 128,
+      "base_max_delta": 0.0,
+      "expert_max_delta": 0.0
+    }
+  },
+  "gateway_manifest_sha256": "a41fa95f6c71c92d4770ca93ff5c2eb7d83d6169822f7b3c398ed3e6a89080dd",
+  "parent_runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+  "gateway_load_report_sha256": "cecd3a7646206ba8b2ecd4270009837777f54444aa0aac218c16b4071f5cb9aa",
+  "license_audit_sha256": "f15567bed5a3279488f329ebc58e2d36ac7e0f59b64b1a6fcfa4d8ce94efc6de",
+  "indonesia_inputs": {
+    "indonesia-candidates.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "c53dd77ffd36f22371e7e101e009875dc12560e02165cb4420a5668ad06b7b54"
+    },
+    "indonesia-reviewer-a.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+      "syntactically_complete_attested_reviews": 0
+    },
+    "indonesia-reviewer-b.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+      "syntactically_complete_attested_reviews": 0
+    },
+    "indonesia-adjudication.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "c025a51dab6963168a74acd92a85aa28e5730170db928439ba87e59caa7b5946"
+    },
+    "indonesia-error-review.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "b3ac920539c90d2c9f9d4329b3e5495b1df8c22827889d9d9591d0cf46b0349d"
+    }
+  },
+  "development_human_review": {
+    "files": {
+      "conflict-reviewer-a.csv": {
+        "rows": 170,
+        "complete_attested_reviews": 0,
+        "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+      },
+      "conflict-reviewer-b.csv": {
+        "rows": 170,
+        "complete_attested_reviews": 0,
+        "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+      }
+    },
+    "cases": 170,
+    "complete_attested_pairs": 0,
+    "same_reviewer_id_pairs_rejected": 0,
+    "label_disagreements": 0,
+    "independence_established": false,
+    "identity_evidence_and_coordinator_independence_check_required": true,
+    "automatic_label_changes": 0,
+    "human_gold_established": false
+  },
+  "available_reviewers_user_reported": false,
+  "commercial_clearance": false,
+  "release_blockers": [
+    "independent_indonesia_gold_and_two_reviewers_missing",
+    "private_host_model_regressions_and_recall_target_unresolved",
+    "upstream_rights_and_attribution_review_pending",
+    "deployed_network_TLS_multiworker_load_and_shared_quota_not_tested"
+  ],
+  "production_ready": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "v6-indonesia-external-20261106-1",
+  "purpose": "External publisher benchmark and prespecified .id suffix sensitivity audit; not Indonesian human gold",
+  "source": {
+    "id": "mendeley_vfszbj9b36_v1",
+    "landing": "https://data.mendeley.com/datasets/vfszbj9b36/1",
+    "license": "CC-BY-4.0",
+    "published": "2024-04-02",
+    "filename": "URL dataset.csv",
+    "download_url": "https://data.mendeley.com/public-files/datasets/vfszbj9b36/files/f0de314f-ea72-4385-9faa-f06593bb0a2d/file_downloaded",
+    "bytes": 32312600,
+    "sha256": "accb2dfbfd3329a8b5cb1b85dcad90314a660c272be755cb45d0f6865014b466",
+    "publisher_rows": 450176,
+    "publisher_benign": 345738,
+    "publisher_phishing": 104438,
+    "label_provenance": "Publisher labels; PhishTank, Majestic Million and other sources. No independent per-case human review or observation dates established.",
+    "schema_mapping": "Require separate schema audit and explicit amendment before intake/scoring"
+  },
+  "models": {
+    "active_v6": {
+      "artifact": "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib",
+      "sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+      "threshold": 0.904713285827399
+    },
+    "retained_weighted_research": {
+      "artifact": "ml/runs/v6-weighted-20261105/source_equal_domain_sqrt__source_equal_sigmoid.joblib",
+      "sha256": "98679baed60460de38497e1c6d65caa1f78a1ab9da0a219c0bb7011d72961938",
+      "threshold": 0.9526437239175372
+    }
+  },
+  "curation": {
+    "all_supported_inputs_registered_as_exposed": true,
+    "exclude_conflicting_scheme_free_representations": true,
+    "deduplicate_scheme_free_representations": true,
+    "exclude_all_prior_url_representation_and_domain_tenant_exposure": true,
+    "audit_every_sidecar_original_v6_cache_and_current_development_and_test_identities": true,
+    "max_rows_per_domain": 5,
+    "order": "ascending sanitized URL digest; no score or class balancing",
+    "all_novel_rows_reserved_for_testing": true,
+    "global_max_rows": 50000,
+    "regional_cohort": "All novel capped rows whose parsed hostname ends with .id, independent of model score; overlap with global cohort is reported",
+    "regional_interpretation": ".id is a suffix proxy, not proof of Indonesian user relevance, contemporary traffic or independently verified labels"
+  },
+  "subgroups": ["long_url_over_120", "deep_path_at_least_4", "private_hosting", "non_private_hosting"],
+  "seed": 20261106,
+  "bootstrap_repeats": 1000,
+  "fitting_permitted": false,
+  "calibration_or_threshold_selection_permitted": false,
+  "model_selection_from_this_test_permitted": false,
+  "target_url_fetching_permitted": false,
+  "raw_url_persistence_permitted": false,
+  "human_gold": false,
+  "indonesia_gold": false,
+  "contemporary_temporal_holdout": false,
+  "production_ready": false
+}

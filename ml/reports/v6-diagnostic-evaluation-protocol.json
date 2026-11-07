@@ -1,0 +1,32 @@
+{
+  "schema": "v6-diagnostic-evaluation-20261105-1",
+  "declared_date": "2026-11-05",
+  "scope": "descriptive_error_label_and_development_threshold_audit_of_previously_exposed_data",
+  "training_permitted": false,
+  "serving_threshold_changes_permitted": false,
+  "new_independent_test": false,
+  "development_protocol": "ml/reports/v6-development-experiment-protocol.json",
+  "candidate_freeze": "ml/runs/v6-development-20261105-run1/frozen-experiment.json",
+  "candidate_artifact": "ml/runs/v6-development-20261105-run1/selected-candidate.joblib",
+  "candidate_report": "ml/reports/v6-development-experiment.json",
+  "error_cohorts": ["tune", "vendor", "community_positive"],
+  "segment_flags": ["private_hosting", "long_url", "punycode", "root_path", "keyword_present", "redaction_placeholder", "word_vector_empty", "char_vector_empty", "suffix_id"],
+  "length_bins": [30, 60, 120],
+  "score_bins": [0.0, 0.1, 0.5, 0.904713285827399, 0.9884744926236343, 1.0000000000000002],
+  "diagnostic_fpr_budgets_per_source": [0.001, 0.005, 0.01, 0.02, 0.05],
+  "diagnostic_threshold_selection_partition": "threshold",
+  "diagnostic_threshold_evaluation_partition": "tune",
+  "diagnostic_thresholds_selected_for_serving": false,
+  "domain_bootstrap_repeats": 1000,
+  "seed": 20261105,
+  "conflict_audit": "All development scheme-free cached representations; fit-only conflicts are distinguished. Export hash-only blind review queues locally; never infer corrected labels.",
+  "indonesia_audit": "Inspect actual candidate/review/adjudication counts and metadata completeness. Empty inputs cannot establish gold labels, reviewer independence or a holdout.",
+  "limitations": [
+    "This is an exploratory post-experiment audit; segments and previously exposed tune cannot establish fresh generalization.",
+    "Source labels remain publisher labels unless real independent human evidence is supplied.",
+    "Positive-only feeds cannot supply FPR, traffic precision or binary accuracy.",
+    "Short URLs, root paths, missing vocabulary coverage or hosting flags are associations, not verified causes or labels.",
+    "Original query/fragment content is unavailable; no claim about whether discarded context caused an error.",
+    "No target visits, automatic relabeling, invented reviewers, model promotion or Indonesia validation claim."
+  ]
+}

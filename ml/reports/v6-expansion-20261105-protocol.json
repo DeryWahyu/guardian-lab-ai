@@ -1,0 +1,113 @@
+{
+  "schema": "v6-expanded-data-20261105-1",
+  "declared_before_source_predictions_and_training": true,
+  "seed": 20261105,
+  "sources": {
+    "compphish": {
+      "filename": "Mapping_File.xlsx",
+      "download_url": "https://data.mendeley.com/public-files/datasets/fmbs4kp9wz/files/867c433a-8cf3-459e-bb07-54f0f83fea60/file_downloaded",
+      "bytes": 635936,
+      "sha256": "e6dda6a21d925f8aba36090f295b08e9808a5dfe8dd3276bf8cd82022855f14a"
+    },
+    "wangchuk": {
+      "filename": "dataset2.csv",
+      "download_url": "https://data.mendeley.com/public-files/datasets/3jddhy2f6s/files/575f34ca-98c8-42cd-affe-7dad6aaf17a2/file_downloaded",
+      "bytes": 11234312,
+      "sha256": "fccce1a99282b3cd8a1fe08fa83350fe44f7afc4c8889a6d0a94ef9c4d7897e3"
+    },
+    "phishbd": {
+      "filename": "PhishBD_2026_73_features.csv",
+      "download_url": "https://data.mendeley.com/public-files/datasets/8d6zsfwc7z/files/43117a90-29fb-43b6-8f22-b88cd1a84bee/file_downloaded",
+      "bytes": 38120166,
+      "sha256": "87691a98dbd860ab44c65c3405e8f7f6aa682068d7184a58cabe1f8026f2a332"
+    }
+  },
+  "source_scope": "publisher_labels_global_not_Indonesia_gold",
+  "representation": "url-core-path-assignment-redacted-experiment-1",
+  "foundation": "original_v6_development_partitions_unchanged",
+  "novelty": "historical_registry_all_exposure_sidecars_and_current_v6_caches",
+  "split_salt": "v6-expand-20261105:",
+  "group_buckets": {
+    "fit": 60,
+    "tune": 75,
+    "calibration": 82,
+    "threshold": 90,
+    "new_test": 100
+  },
+  "max_rows_per_domain": 5,
+  "merge": "quarantine conflicting scheme-free labels, deterministic dedup before split; never use predictions for curation",
+  "training_candidates": [
+    {
+      "name": "expanded_C2",
+      "C": 2,
+      "weights": "source_sqrt"
+    },
+    {
+      "name": "expanded_C8",
+      "C": 8,
+      "weights": "source_sqrt"
+    },
+    {
+      "name": "expanded_domain_C2",
+      "C": 2,
+      "weights": "source_domain"
+    }
+  ],
+  "encoder": {
+    "char_ngram": [
+      2,
+      5
+    ],
+    "char_max_features": 150000,
+    "word_max_features": 30000,
+    "min_df": 4,
+    "vocabulary_source_cap": 60000,
+    "vocabulary_total_cap": 180000,
+    "word_weight": 0.7,
+    "numeric_weight": 0.2
+  },
+  "classifier": {
+    "solver": "liblinear",
+    "max_iter": 300,
+    "tol": 0.0001
+  },
+  "selection": "tune only: maximum macro source recall at global threshold constrained to empirical FPR <=1% for every source with both classes; tie min-source-recall then AP. Report source-support caveats. Baseline frozen control is scored identically on tune.",
+  "development_improvement_gate": "macro recall gain >=0.02 and no supported-source recall loss >0.05 vs frozen v6 tune control",
+  "calibration": "selected candidate only, sigmoid C1000 max_iter200 on calibration partition, positive slope required",
+  "thresholds": "selected candidate only, per-source empirical FPR warning1%, high0.1% on threshold partition, sources without benign reported as positive-only",
+  "evaluation": "Freeze selected candidate and policies before scoring new_test and all observed vendor/PhishTank/LegitPhish benchmarks. No further selection on benchmark outcomes.",
+  "domain_bootstrap_repeats": 1000,
+  "active_model": "original_frozen_v6_unchanged",
+  "production_ready": false,
+  "limits": [
+    "No claim of new Indonesian labels or human reviewers.",
+    "No training on previously observed benchmark rows; they remain observed regressions.",
+    "Domain disjointness does not establish campaign or temporal independence.",
+    "More data can worsen the model; improvements must be evidenced on the same evaluation cohorts.",
+    "Use public URL-label files only; never download or execute page HTML or visit targets.",
+    "No automatic production promotion."
+  ],
+  "min_benign_per_source_for_threshold": 100,
+  "min_phishing_per_source_for_macro_recall": 20,
+  "positive_only_or_small_sources": "Report separately; never invent a source FPR, and sources with fewer than 100 benign cannot independently constrain threshold selection.",
+  "expected_source_label_counts": {
+    "compphish": {
+      "0": 8154,
+      "1": 7204
+    },
+    "wangchuk": {
+      "0": 94919,
+      "1": 54807
+    },
+    "phishbd": {
+      "0": 39350,
+      "1": 91817
+    }
+  },
+  "source_documentation": {
+    "compphish": "https://data.mendeley.com/datasets/fmbs4kp9wz/4",
+    "wangchuk": "https://data.mendeley.com/datasets/3jddhy2f6s/1",
+    "phishbd": "https://data.mendeley.com/datasets/8d6zsfwc7z/2"
+  },
+  "mapping_basis": "CompPhish states 0 legitimate/1 phishing; Wangchuk and PhishBD mappings corroborated by exact release class counts matching publisher-described legitimate/phishing totals. No per-case labels changed."
+}

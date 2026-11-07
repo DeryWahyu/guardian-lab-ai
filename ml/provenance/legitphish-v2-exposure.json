@@ -1,0 +1,14 @@
+{
+  "created_at_utc": "2026-11-05T04:56:40.438216+00:00",
+  "source": "10.17632/hx4m73v2sf.2",
+  "intake_manifest": "ml/data/legitphish-v2-v6-qa/frozen-intake.json",
+  "intake_manifest_sha256": "e2c1b3e40d2f5588318520dd8f21dfb6b53329a36e4743f95d47222f369a23a2",
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/legitphish-v2-20261105.sqlite",
+    "sha256": "45d1d8906f3cd540909715c6f5dbb3bed19259f57b411c99d291969d502cc8f2",
+    "url_hashes": 194961,
+    "domain_hashes": 62843,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "require_union_with_historical_registry_for_future_novelty_claims": true
+}

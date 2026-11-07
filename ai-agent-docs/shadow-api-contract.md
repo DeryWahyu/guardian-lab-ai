@@ -1,9 +1,9 @@
 # Kontrak API Internal Shadow URL/QR
 
-> Versi: `shadow-v6-1`. Runtime: frozen Logistic Regression v6.
-> Status: implementasi lokal riset; tidak mengaktifkan aplikasi publik atau mengubah model/threshold.
+> Versi: `shadow-v6-1`. Runtime: frozen Logistic Regression v6, kebijakan layanan `v6-user-warning-0.5-20261107`.
+> Status: implementasi lokal riset; warning layanan 0,5 sesuai instruksi pengguna 7 November 2026, tanpa aktivasi publik atau perubahan model.
 
-[Keputusan model utama sementara](./selected-model-v6.md) menetapkan v6 sebagai fokus saat ini. Runtime ini sudah memakai artifact v6 asli; gunakan threshold warning `0.904713285827399` dan high `0.9884744926236343` dari manifest, bukan threshold kontrol v6 pada eksperimen v9/v10.
+[Keputusan model utama sementara](./selected-model-v6.md) menetapkan v6 sebagai fokus saat ini. Runtime memakai artifact v6 asli, dengan warning layanan **`0.5`** dan high **`0.9884744926236343`** dari `decision_policy` dalam `shadow-serving-manifest.json`. Metadata training dan field `thresholds` historis manifest tetap warning `0.904713285827399`. [Perubahan kebijakan](v6-serving-threshold-0p5.md) mengikuti pilihan pengguna setelah diagnosis benchmark teramati; ini belum menjadi validasi independen.
 
 ## Menjalankan dan memeriksa
 
@@ -17,7 +17,7 @@ ml/.venv/Scripts/python.exe -m uvicorn guardian_ml.shadow_service:create_app --f
 
 Binding localhost dan access log dinonaktifkan untuk jalur pengujian internal ini. Jangan meneruskan URL pada query/path endpoint layanan. Mode selain `shadow` ditolak; environment flag tidak memberikan bukti bahwa release gate terpenuhi. Tidak ada proses server publik yang diluncurkan oleh pengerjaan ini; smoke test memakai ASGI TestClient dalam proses.
 
-Artifact lokal diperlukan. Manifest `ml/policies/shadow-runtime-manifest.json` mengikat checksum binary, metadata pembekuan, kode training, source runtime, feature schema, serta PSL offline. Perubahan runtime yang disengaja harus memperbarui manifest dan menjalankan tes parity; jangan menonaktifkan guard karena checksum berbeda. Joblib hanya berasal dari training lokal tepercaya.
+Artifact lokal diperlukan. Manifest `ml/policies/shadow-serving-manifest.json` mengikat checksum binary, metadata pembekuan, kode training, source runtime, feature schema, PSL offline dan hash manifest runtime historis yang tetap utuh. Perubahan runtime yang disengaja harus memperbarui manifest dan menjalankan tes parity; jangan menonaktifkan guard karena checksum berbeda. Joblib hanya berasal dari training lokal tepercaya.
 
 ## Endpoint
 
@@ -44,9 +44,9 @@ Layanan tidak menyediakan lookup reputasi, pengambilan halaman, redirect, DNS, d
 ### Makna respons
 
 - `mode=shadow`, `decision=needs_review`, `needs_further_review=true`, `production_ready=false` pada semua respons analisis.
-- `status=complete` hanya berarti classifier menyelesaikan perhitungan. `risk_band=LOW|MEDIUM|HIGH` berasal dari threshold v6 yang dibekukan; LOW bukan SAFE.
+- `status=complete` hanya berarti classifier menyelesaikan perhitungan. `risk_band=LOW|MEDIUM|HIGH` memakai kebijakan layanan aktif: LOW jika skor <0,5; MEDIUM jika 0,5 <= skor <0,9884744926236343; HIGH mulai 0,9884744926236343. LOW bukan SAFE.
 - `model_score` adalah keluaran kalibrasi pada campuran data riset. Ia tidak diklaim sebagai probability trafik Indonesia atau jaminan bahwa target aman/berbahaya.
-- `human` berisi penjelasan Bahasa Manusia dan aksi perlu verifikasi. `geek` memuat scope, versi, hash artifact, schema fitur, threshold, serta context flags.
+- `human` berisi penjelasan Bahasa Manusia dan aksi perlu verifikasi. `geek` memuat scope, versi, hash artifact, schema fitur dan context flags. `thresholds` adalah ambang layanan aktif; `frozen_thresholds` adalah ambang training historis; `decision_policy_version` membedakan keduanya.
 - Context flags untuk query/fragment yang dikeluarkan, placeholder redaksi, private hosting tenant, punycode, dan URL panjang mendeskripsikan kebutuhan konteks. Flag tidak mengubah skor atau menetapkan label phishing.
 - Respons tidak menggemakan URL, host, path, hash target, query, fragment, credential, maupun body request. Metadata hash yang ditampilkan adalah hash artifact model, bukan hash input.
 
@@ -82,4 +82,4 @@ Audit kualitas offline ada di [laporan audit v6](../ml/reports/model-hardening-a
 Sinyal redirect/HTML memerlukan desain worker dan uji isolasi terpisah. Saat ini kolektor tersebut tidak diimplementasikan dan agent tidak mengunjungi target dataset. Panduan keamanan jaringan: [OWASP SSRF prevention](https://cheatsheetseries.owasp.org/cheatsheets/Server_Side_Request_Forgery_Prevention_Cheat_Sheet.html). Implementasi request/schema memakai [FastAPI](https://fastapi.tiangolo.com/tutorial/handling-errors/) dan [Pydantic](https://pydantic.dev/docs/validation/latest/concepts/models/).
 
 
-Notebook utama mandiri: [guardian_lab_url_qr_v6.ipynb](../guardian_lab_url_qr_v6.ipynb). Loader memeriksa subset dependency inferensi lengkap yang versinya cocok dengan metadata training asli; tooling training/evaluasi yang tidak dipakai layanan tidak wajib dipasang. Metadata, binary dan kedua threshold tetap utuh.
+Notebook utama mandiri: [guardian_lab_url_qr_v6.ipynb](../guardian_lab_url_qr_v6.ipynb). Loader memeriksa subset dependency inferensi lengkap yang versinya cocok dengan metadata training asli; tooling training/evaluasi yang tidak dipakai layanan tidak wajib dipasang. Binary, metadata training dan threshold historis tetap utuh; warning layanan aktif 0,5 dicatat terpisah.

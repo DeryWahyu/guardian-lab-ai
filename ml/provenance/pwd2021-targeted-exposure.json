@@ -1,0 +1,12 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/pwd2021-targeted-20261105.sqlite",
+    "sha256": "9a242c34c48aab7d3ed2420a12f99b99e603a97f107caf0478e5ee53ad5b5af2",
+    "url_hashes": 144750,
+    "domain_hashes": 42828,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "data_freeze_sha256": "03c930fbe99f8e31f978a9661aec6e369d9aaa13b13997cce02f1fe0ab2117c6",
+  "scope": "all sanitized publisher intake, including excluded and reserved holdout rows",
+  "future_novelty_audits_must_include": true
+}

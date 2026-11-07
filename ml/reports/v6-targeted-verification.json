@@ -1,0 +1,33 @@
+{
+  "verified_at_utc": "2026-11-05T12:30:08.309540+00:00",
+  "main_report_sha256": "6e86bce7c181fe135ef328c4e5e2218886505d51917437b56c9216467aa6e74e",
+  "previous_control_report_sha256": "e0fb174408da33c2f561920ec9f1978352dd9eb0ee834b2b7789459b591699b1",
+  "selected_model_sha256": "79e313b2deebd1bb0eff4c7cc28f8ca0694daa5e5aafabff8a47e4cccc65c025",
+  "frozen_v6_model_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "frozen_v6_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "runtime_versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.3",
+    "pandas": "2.2.3",
+    "requests": "2.32.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0",
+    "tldextract": "5.3.0"
+  },
+  "tests": {
+    "tests": 132,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_report_sha256": "1d0c5f09840c6b57b2660f110ee628acdd2ece63ee076b616a3545f51713afe5",
+  "domain_digest_representation_isolation": true,
+  "all_exposure_hashes_unchanged": true,
+  "control_and_selection_frozen_before_test_scoring": true,
+  "real_artifact_parity_cases": 130,
+  "max_saved_model_prediction_delta": 0.0,
+  "production_ready": false,
+  "Indonesia_gold_established": false,
+  "technical_checks_do_not_establish_label_truth_or_detection_quality": true
+}

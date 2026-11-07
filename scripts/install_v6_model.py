@@ -137,7 +137,9 @@ def main():
                 "status": "verified",
                 "model": artifact.metadata["version"],
                 "artifact_sha256": artifact.manifest["bundle_sha256"],
-                "thresholds": artifact.metadata["thresholds"],
+                "thresholds": artifact.decision_thresholds,
+                "frozen_thresholds": artifact.metadata["thresholds"],
+                "decision_policy_version": artifact.decision_policy_version,
                 "mode": "shadow",
                 "production_ready": False,
             }

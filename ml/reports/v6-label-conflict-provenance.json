@@ -1,0 +1,23 @@
+{
+  "development_sha256": "b0c867f9ab0c813d1498908d1cd43d731b46fffe83f8d5836e0e5f2b319097a8",
+  "diagnostic_report_sha256": "c38ba774108829f176c7d7531a0872054db41718dedc83b59da26688b878189d",
+  "conflicting_representations": 33,
+  "conflicting_rows": 66,
+  "all_pairs_differ_only_by_http_https": true,
+  "source_label_scheme_counts": [
+    {
+      "source": "phiusiil",
+      "scheme": "http",
+      "label": 1,
+      "rows": 33
+    },
+    {
+      "source": "phiusiil",
+      "scheme": "https",
+      "label": 0,
+      "rows": 33
+    }
+  ],
+  "interpretation": "Frozen v6 intentionally excludes scheme; these publisher labels cannot all be predicted correctly from the frozen representation. Source-label truth and omitted query/time context remain unresolved.",
+  "automatic_label_changes": 0
+}

@@ -1,0 +1,33 @@
+{
+  "protocol_sha256": "983a5a7fee27e41ca0f9aeeacb387da8d594078591d5c0f922a0455844891f80",
+  "raw_rows": 60000,
+  "columns": [
+    "url",
+    "entropy",
+    "url_length",
+    "num_www",
+    "ratio_digits_url",
+    "num_subdomains",
+    "length_hostname",
+    "random_domain",
+    "num_dots",
+    "num_hyphens",
+    "ratio_digits_host",
+    "prefix_suffix",
+    "num_question_mark",
+    "num_eq",
+    "domain_age",
+    "dns_resolvable",
+    "num_ips",
+    "ttl",
+    "num_name_servers",
+    "label"
+  ],
+  "recognized_label_counts": {
+    "legitimate": 28359,
+    "phishing": 31641
+  },
+  "unknown_nonmissing_labels": 0,
+  "missing_labels": 0,
+  "predictions_performed": false
+}

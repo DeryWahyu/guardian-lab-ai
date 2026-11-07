@@ -1,0 +1,12 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/zenodo-websites-v2-20261105.sqlite",
+    "sha256": "1044261e1e768dc08767dceab440afbc5a1ebe43d9e88fa1faeea5df9a5b6fde",
+    "url_hashes": 101940,
+    "domain_hashes": 33947,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "holdout_freeze_sha256": "486bd7b61969157786da5a27aebbb5a76da5c7914131b12bcaee2f4a9e08dfdb",
+  "scope": "all sanitized intake, including excluded and held-out cases",
+  "future_novelty_audits_must_include": true
+}

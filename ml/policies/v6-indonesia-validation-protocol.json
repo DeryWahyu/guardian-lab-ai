@@ -1,0 +1,41 @@
+{
+  "schema": "v6-indonesia-validation-preparation-20261105-1",
+  "status": "prepared_not_collected_not_locked_not_evaluated",
+  "target": "URL-only phishing classification relevant to Indonesia; decoded QR URLs share the same scope",
+  "planned_observation_window_utc": {"start": "2026-10-07T00:00:00+00:00", "end": "2026-11-05T23:59:59+00:00"},
+  "window_interpretation": "planned publisher observation/verification window for both classes, not proof of creation date or current safety",
+  "minimum_phishing": 1000,
+  "minimum_benign": 3000,
+  "minimum_independent_human_reviewers": 2,
+  "sampling_seed": 20261105,
+  "sampling": "Freeze eligible public-source frames and their hashes before deterministic domain/tenant sampling. Do not sample by model score. Cap five URLs per domain/tenant; report domain support and source/structure coverage. Human audit error queues are not a sampling frame for final holdout.",
+  "source_roles": {
+    "phishing_candidates": "Public publisher/community evidence with case identifier and verification timestamp, followed by independent review of phishing scope and Indonesia relevance. A feed label alone is not local human gold.",
+    "benign_candidates": "Contemporaneous public evidence of legitimate URL purpose and ownership, independently reviewed. Include normal deep paths and hosted tenants; popularity, a .id suffix, an official-looking name or lack of a feed hit does not establish benign status.",
+    "ranking_frame": "A pinned public ranking may help form a candidate frame only; it supplies neither URL-level benign labels nor Indonesia relevance. Rights must be checked per source."
+  },
+  "review_labels": ["benign", "phishing", "uncertain", "out_of_scope"],
+  "require_real_human_identity_and_independence_evidence": true,
+  "require_evidence_reference_per_review": true,
+  "require_coordinator_privacy_rights_and_indonesia_relevance_qa": true,
+  "require_real_adjudication_for_disagreement": true,
+  "automatic_labeling_permitted": false,
+  "targets_may_be_visited_by_agent": false,
+  "raw_personal_urls_may_be_persisted": false,
+  "privacy": "Use versioned redaction and manual privacy QA before storing URLs. Quarantine ambiguous sensitive inputs. Heuristic redaction is not full anonymization; record upstream representation changes and exclusions for both classes.",
+  "exposure": {
+    "registry": "ml/data/indonesia-gold/registry/known-exposure.sqlite",
+    "require_actual_registry_and_new_run_coverage_audit": true,
+    "exclude_previous_url_and_scheme_free_representation_exposure": true,
+    "exclude_previous_registered_domain_or_private_tenant_exposure": true,
+    "require_publisher_time_and_campaign_review": true,
+    "offline_psl_only": true
+  },
+  "freeze": "A custodian locks immutable candidate, review, adjudication, exposure and split manifests before any future fitting or policy selection. Keep final holdout labels out of development. This preparation file is not a locked dataset manifest.",
+  "metrics": ["class and domain counts", "precision on sampled cohort with prevalence caveat", "recall", "FPR", "Wilson intervals", "domain/campaign uncertainty", "calibration", "coverage and exclusions", "source and structural regressions"],
+  "acceptance_policy": "ml/policies/url-qr-release-gates.json",
+  "minimum_counts_alone_establish_readiness": false,
+  "production_ready": false,
+  "source_documentation_checked": ["https://phishtank.org/developer_info.php", "https://tranco-list.eu/"],
+  "evidence_not_yet_available": ["eligible two-class Indonesia candidates", "completed independent reviews", "adjudication and coordinator QA", "campaign/exposure audit", "immutable locked final holdout"]
+}

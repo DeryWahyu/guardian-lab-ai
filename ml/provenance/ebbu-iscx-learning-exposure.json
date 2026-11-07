@@ -1,0 +1,12 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/ebbu-iscx-learning-20261106.sqlite",
+    "sha256": "0de9d8d796663583ecda33668a34f04fc135d7e7f847328381ada260f1cc25b5",
+    "url_hashes": 155598,
+    "domain_hashes": 25744,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "intake_freeze_sha256": "3b3866842a716b59cab46d279c11a49b5c988443c6133a7ff36738f05e6c0a97",
+  "scope": "all sanitized supported inputs, including exclusions, fitting and both external reserves",
+  "future_novelty_audits_must_include": true
+}

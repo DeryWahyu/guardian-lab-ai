@@ -1,0 +1,10 @@
+{
+  "parent_protocol": "ml/reports/v6-indonesia-external-20261106-protocol.json",
+  "parent_sha256": "7760a08b5025e52ad3ab59e146b28ef8ffd3ca69a92ca7909c05f40fa2c1c44e",
+  "reason": "Pinned publisher CSV has literal legitimate/phishing labels and exactly the published class counts. Schema inspected before intake or predictions.",
+  "url_column": "url",
+  "label_column": "type",
+  "label_mapping": {"legitimate": 0, "phishing": 1},
+  "label_counts": {"legitimate": 345738, "phishing": 104438},
+  "model_predictions_used": false
+}

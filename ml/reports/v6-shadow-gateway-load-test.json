@@ -1,0 +1,118 @@
+{
+  "completed_at_utc": "2026-11-07T06:15:19.443586+00:00",
+  "script_sha256": "492dffe75e6a390e5cb087c69ea7655b5b02b6a43a7743a11b56f1827bb785cd",
+  "gateway_manifest_sha256": "a41fa95f6c71c92d4770ca93ff5c2eb7d83d6169822f7b3c398ed3e6a89080dd",
+  "parent_runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+  "model_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "phases": [
+    {
+      "name": "steady",
+      "requests": 100,
+      "client_concurrency": 2,
+      "statuses": {
+        "200": 100
+      },
+      "latency_ms": {
+        "p50": 13.30995000898838,
+        "p95": 17.817190018831752,
+        "p99": 139.21435796946756,
+        "max": 142.99199997913092
+      },
+      "real_prediction_parity_cases": 100,
+      "successful_latency_ms": {
+        "p50": 13.30995000898838,
+        "p95": 17.817190018831752,
+        "p99": 139.21435796946756
+      },
+      "prediction_parity_max_delta": 0.0,
+      "gateway_counters": {
+        "mode": "shadow",
+        "production_ready": false,
+        "inflight": 0,
+        "peak_inflight": 2,
+        "capacity": 2,
+        "counts": {
+          "forwarded_200": 100
+        },
+        "latency_bucket_upper_ms": [
+          10,
+          50,
+          100,
+          500,
+          1000,
+          null
+        ],
+        "latency_bucket_counts": [
+          69,
+          29,
+          0,
+          2,
+          0,
+          0
+        ],
+        "latency_sum_ms": 1247.565800207667,
+        "online_precision": null,
+        "online_recall": null,
+        "online_fpr": null
+      }
+    },
+    {
+      "name": "saturation",
+      "requests": 160,
+      "client_concurrency": 16,
+      "statuses": {
+        "200": 2,
+        "503": 158
+      },
+      "latency_ms": {
+        "p50": 0.8616000122856349,
+        "p95": 1.359419981599785,
+        "p99": 66.04416597983746,
+        "max": 163.4106999845244
+      },
+      "real_prediction_parity_cases": 2,
+      "successful_latency_ms": {
+        "p50": 161.13169997697696,
+        "p95": 163.18279998376966,
+        "p99": 163.36511998437345
+      },
+      "prediction_parity_max_delta": 0.0,
+      "gateway_counters": {
+        "mode": "shadow",
+        "production_ready": false,
+        "inflight": 0,
+        "peak_inflight": 2,
+        "capacity": 2,
+        "counts": {
+          "inference_capacity_exceeded": 158,
+          "forwarded_200": 2
+        },
+        "latency_bucket_upper_ms": [
+          10,
+          50,
+          100,
+          500,
+          1000,
+          null
+        ],
+        "latency_bucket_counts": [
+          158,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "latency_sum_ms": 327.9870999394916,
+        "online_precision": null,
+        "online_recall": null,
+        "online_fpr": null
+      }
+    }
+  ],
+  "synthetic_only": true,
+  "network_server_started": false,
+  "live_targets_visited": false,
+  "scope": "in-process ASGI on this workstation, not deployed network/TLS/cross-worker load evidence",
+  "production_ready": false
+}

@@ -1,0 +1,85 @@
+{
+  "completed_at_utc": "2026-11-05T17:24:06.931128+00:00",
+  "model_scores_used": false,
+  "publisher_labels_only": true,
+  "data": {
+    "original_fit": {
+      "rows": 616050,
+      "groups": 424123,
+      "classes": {
+        "0": 362725,
+        "1": 253325
+      },
+      "structure": {
+        "long_url_over_120": {
+          "benign": 3141,
+          "phishing": 411
+        },
+        "deep_path_at_least_4": {
+          "benign": 47961,
+          "phishing": 9442
+        },
+        "private_hosting": {
+          "benign": 5090,
+          "phishing": 59665
+        },
+        "punycode": {
+          "benign": 210,
+          "phishing": 210
+        }
+      }
+    },
+    "additional_fit": {
+      "rows": 52334,
+      "groups": 50466,
+      "classes": {
+        "0": 39992,
+        "1": 12342
+      },
+      "structure": {
+        "long_url_over_120": {
+          "benign": 0,
+          "phishing": 14
+        },
+        "deep_path_at_least_4": {
+          "benign": 0,
+          "phishing": 455
+        },
+        "private_hosting": {
+          "benign": 43,
+          "phishing": 3008
+        },
+        "punycode": {
+          "benign": 0,
+          "phishing": 9
+        }
+      }
+    },
+    "new_stealth_holdout": {
+      "rows": 34895,
+      "groups": 33620,
+      "classes": {
+        "0": 26578,
+        "1": 8317
+      },
+      "structure": {
+        "long_url_over_120": {
+          "benign": 0,
+          "phishing": 0
+        },
+        "deep_path_at_least_4": {
+          "benign": 0,
+          "phishing": 281
+        },
+        "private_hosting": {
+          "benign": 9,
+          "phishing": 1967
+        },
+        "punycode": {
+          "benign": 0,
+          "phishing": 2
+        }
+      }
+    }
+  }
+}

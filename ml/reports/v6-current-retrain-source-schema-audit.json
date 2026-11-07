@@ -1,0 +1,15 @@
+{
+  "stage": "preflight_before_any_model_fitting",
+  "reason": "Original frozen metadata identifies the fifth source as mendeley2020; legacy descriptive aliases must not omit its rows from the matched control.",
+  "previous_protocol_sha256": "86eecca1c8fb8a2ab806d22ae71ccfca1f92558b65b51486a64f4040efcb6acf",
+  "corrected_protocol_sha256": "23ef0292d065cc07610ad14618b9ec2784dc6d11a0b6e7c0fc4dc236a1fb63a3",
+  "original_five_source_keys": [
+    "phresh",
+    "phiusiil",
+    "deepurlbench",
+    "phishvn_core",
+    "mendeley2020"
+  ],
+  "models_fitted_before_correction": 0,
+  "test_predictions_before_correction": 0
+}

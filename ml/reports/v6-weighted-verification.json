@@ -1,0 +1,95 @@
+{
+  "verified_at_utc": "2026-11-05T16:43:26.449772+00:00",
+  "main_report_sha256": "b60e9625705f42ff3b554270e327c778cdde5e7059e14513d26c751931776d4c",
+  "audit_sha256": "fc50d0fed89a5cf441b95ce7aa2f89daabe7291ad166357015aec4037647a1df",
+  "test_totals": {
+    "tests": 158,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_report_sha256": "2cc91fbdfc77c1d2846e044cbaf688db3990e6f5bf13d6db76cf3346f5a79001",
+  "model_selection": {
+    "selected": "source_equal_domain_sqrt__source_equal_sigmoid",
+    "evaluated_candidate": "source_equal_domain_sqrt__source_equal_sigmoid",
+    "detection_eligible": [
+      "source_equal_domain_sqrt__row_sigmoid",
+      "source_equal_domain_sqrt__source_equal_sigmoid",
+      "source_sqrt_domain_class_soft__row_sigmoid",
+      "source_sqrt_domain_class_soft__source_equal_sigmoid"
+    ],
+    "calibration_eligible": [],
+    "development_gate_passed": true,
+    "details": {
+      "control_equal_calibration__source_equal_sigmoid": {
+        "macro_recall_delta": 0.0,
+        "worst_source_recall_delta": 0.0,
+        "macro_brier_reduction": 5.169241422242621e-05,
+        "worst_source_brier_increase": 0.0015789131616123636,
+        "detection_gate": false,
+        "calibration_gate": false
+      },
+      "source_sqrt_domain_sqrt__row_sigmoid": {
+        "macro_recall_delta": 0.015637571829913877,
+        "worst_source_recall_delta": 0.004590525156077829,
+        "macro_brier_reduction": 0.0006822806947899412,
+        "worst_source_brier_increase": 0.0004456527838279656,
+        "detection_gate": false,
+        "calibration_gate": false
+      },
+      "source_sqrt_domain_sqrt__source_equal_sigmoid": {
+        "macro_recall_delta": 0.015637571829913877,
+        "worst_source_recall_delta": 0.004590525156077829,
+        "macro_brier_reduction": 0.0007922548594032769,
+        "worst_source_brier_increase": 0.000988955052775492,
+        "detection_gate": false,
+        "calibration_gate": false
+      },
+      "source_equal_domain_sqrt__row_sigmoid": {
+        "macro_recall_delta": 0.04347355060508801,
+        "worst_source_recall_delta": 9.04159132007476e-05,
+        "macro_brier_reduction": 0.002441985475034339,
+        "worst_source_brier_increase": 0.005935121595771489,
+        "detection_gate": true,
+        "calibration_gate": false
+      },
+      "source_equal_domain_sqrt__source_equal_sigmoid": {
+        "macro_recall_delta": 0.04347355060508801,
+        "worst_source_recall_delta": 9.04159132007476e-05,
+        "macro_brier_reduction": 0.0025481195156228653,
+        "worst_source_brier_increase": 0.007962569619715879,
+        "detection_gate": true,
+        "calibration_gate": false
+      },
+      "source_sqrt_domain_class_soft__row_sigmoid": {
+        "macro_recall_delta": 0.03644877390832074,
+        "worst_source_recall_delta": 0.01136950904392764,
+        "macro_brier_reduction": 0.0013987261799196793,
+        "worst_source_brier_increase": 0.001749061910518518,
+        "detection_gate": true,
+        "calibration_gate": false
+      },
+      "source_sqrt_domain_class_soft__source_equal_sigmoid": {
+        "macro_recall_delta": 0.03644877390832074,
+        "worst_source_recall_delta": 0.01136950904392764,
+        "macro_brier_reduction": 0.0015167854744180254,
+        "worst_source_brier_increase": 0.0033877154658732284,
+        "detection_gate": true,
+        "calibration_gate": false
+      }
+    },
+    "selection_data": "tune_only",
+    "production_ready": false
+  },
+  "new_holdout_isolation_audited_files": 9,
+  "fit_calibration_threshold_tune_and_observed_benchmarks_disjoint_from_new_holdout": true,
+  "encoder_refit_on_holdouts": false,
+  "model_selected_from_test": false,
+  "saved_model_parity_cases": 130,
+  "max_saved_model_delta": 0.0,
+  "max_cached_inference_delta": 0.0,
+  "original_v6_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "original_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "human_gold_or_Indonesia_validation_established": false,
+  "production_ready": false
+}

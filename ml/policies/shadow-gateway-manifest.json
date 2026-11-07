@@ -1,0 +1,26 @@
+{
+  "schema_version": "shadow-gateway-v1",
+  "created_at_utc": "2026-11-07T08:45:22.372400+00:00",
+  "parent_manifest_sha256": "296ab772b708d56df65cf1c96bd0e0aa6ccf3f79aa2e21e9b3236d82ffedb20e",
+  "source_hashes": {
+    "ml/src/guardian_ml/gateway_controls.py": "42ada72c2e5a61ed134e786a6fba80d4b0c80f76b32073b66e2caf2864885fab",
+    "ml/src/guardian_ml/shadow_gateway.py": "18ebc6d42807162d769dfdf3650aa0da5adcc9fe32b1ca8302557bd89161ab44"
+  },
+  "inference_dependencies": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.3",
+    "pandas": "2.2.3",
+    "requests": "2.32.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0",
+    "tldextract": "5.3.0"
+  },
+  "gateway_dependencies": {
+    "fastapi": "0.136.1",
+    "pydantic": "2.13.4",
+    "starlette": "1.0.0",
+    "uvicorn": "0.47.0"
+  },
+  "production_ready": false
+}

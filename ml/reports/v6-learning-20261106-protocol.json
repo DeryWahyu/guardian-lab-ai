@@ -1,0 +1,63 @@
+{
+  "experiment": "v6-learning-20261106",
+  "declared_before_fitting_and_new_holdout_scoring": true,
+  "seed": 20261105,
+  "control": "ml/runs/v6-weighted-20261105/source_equal_domain_sqrt__source_equal_sigmoid.joblib",
+  "control_sha256": "98679baed60460de38497e1c6d65caa1f78a1ab9da0a219c0bb7011d72961938",
+  "control_threshold": 0.9526437239175372,
+  "base_cache": "ml/runs/v6-weighted-20261105/cache-frozen.json",
+  "fit_rows": 616050,
+  "encoder": {"char_ngram": [2, 5], "char_max_features": 150000, "word_max_features": 30000, "min_df": 4, "vocabulary_source_cap": 60000, "vocabulary_total_cap": 180000},
+  "learning_curve": {
+    "fractions": [0.25, 0.5, 0.75, 1.0],
+    "sampling": "nested hash-ranked domain/private tenant groups; all rows of selected groups; row fractions approximate; fixed seed; no label-based sampling",
+    "salt": "v6-learning-nested-20261106:",
+    "fit_transformations": "refit vocabulary, IDF and numeric scaler on each reduced fitting subset; full-data endpoint is the verified frozen control with the same recipe",
+    "selection_eligible": false,
+    "limitations": "single nested seed, fixed calibration/threshold/tune corpus; no repeated-training uncertainty or extrapolation to infinite data"
+  },
+  "classifier": {"C": 2, "solver": "liblinear", "max_iter": 300, "tol": 0.0001},
+  "candidates": [
+    {"name": "regularization_c05", "C": 0.5, "weights": "base"},
+    {"name": "regularization_c8", "C": 8, "weights": "base"},
+    {"name": "private_phishing_x2", "C": 2, "weights": "private_phishing_x2"},
+    {"name": "hard_benign_x2", "C": 2, "weights": "hard_benign_x2"},
+    {"name": "plus_iscx_fit", "C": 2, "weights": "base", "condition": "new fitting rows include >=100 hard benign (scheme-free length >120 or path slash count >=4) or >=100 private-host phishing; otherwise report data gap, no ineffective augmentation"}
+  ],
+  "weights": "base inverse-sqrt domain counts, equal total mass per source; each optional factor applied before renormalization to equal source mass and mean one; no class relabeling",
+  "representation": "existing versioned experiment sanitizer; original runtime representation untouched",
+  "calibration": "separate unchanged calibration corpus; source-equal sigmoid C=1000/max_iter=200; positive slope; every new classifier calibrated independently",
+  "min_benign_per_source_for_threshold": 100,
+  "min_phishing_per_source_for_macro_recall": 20,
+  "threshold_budgets": [0.005, 0.01, 0.02],
+  "primary_budget": 0.01,
+  "threshold_rule": "maximum of per-source empirical FPR-bound cutoffs on threshold partition only; primary budget fixed before scoring; secondary budgets descriptive, never selected by test",
+  "selection": {
+    "data": "unchanged tune only; curve models ineligible",
+    "detection_gate": "macro source recall gain >=0.02; no supported-source recall loss >0.03; macro Brier increase <=0.001; no source Brier increase >0.005; no source FPR increase >0.0025",
+    "calibration_gate": "macro Brier reduction >=0.002; macro recall loss <=0.005; no supported-source recall loss >0.005; no source Brier increase >0.005; no source FPR increase >0.0025",
+    "structure_guard": "private and non-private slices with >=20 positives must lose <=0.005 recall; slices with >=100 benign must increase FPR <=0.0025",
+    "ranking": "eligible detection first by macro recall, minimum source recall, lower macro Brier; then eligible calibration by lower Brier; otherwise retain control",
+    "failed_gate_diagnostic": "freeze best new candidate by macro recall then minimum recall and lower Brier; explicitly ineligible if control retained; no selection revisions after test"
+  },
+  "intake": {
+    "sources": [
+      {"name": "ebbu2017", "purpose": "external_only", "publication": "https://doi.org/10.1016/j.eswa.2018.09.029", "release": "https://github.com/ebubekirbbr/pdd", "license": "no explicit dataset license found; public author research release, no redistribution/commercial-clearance claim", "files": [
+        {"download_url": "https://raw.githubusercontent.com/ebubekirbbr/pdd/90b394d8f9fb5d5dc48400e8bf46b001ce42999f/input/data_legitimate_36400.json", "bytes": 2306392, "sha256": "5e8fbcc88d6ba25f46bd85ed48d8aed9f56e2afc9deb712d13496112b8158ab4", "rows": 36400, "label": 0, "format": "json_list"},
+        {"download_url": "https://raw.githubusercontent.com/ebubekirbbr/pdd/90b394d8f9fb5d5dc48400e8bf46b001ce42999f/input/data_phishing_37175.json", "bytes": 3067244, "sha256": "c513d1f11b0ce159d43a23b465af2a65f752c6f65a816c2a8084f2a2adf2ebf6", "rows": 37175, "label": 1, "format": "json_list"}
+      ]},
+      {"name": "iscx2016_replica", "purpose": "fit_and_domain_holdout", "publication": "https://www.unb.ca/cic/datasets/url-2016.html", "release": "https://github.com/fcdalgic/GramBeddings/tree/222157e1a61a01783383d1632269ad13a7542d96/data/ISCXURL2016", "license": "research-author benchmark replica in MIT repository; original data rights not established by code license; no redistribution/commercial-clearance claim", "provenance_limit": "replica bytes pinned; original publisher download currently form-gated, cannot independently establish byte equality", "files": [
+        {"download_url": "https://raw.githubusercontent.com/fcdalgic/GramBeddings/222157e1a61a01783383d1632269ad13a7542d96/data/ISCXURL2016/Benign_list_big_final.csv", "bytes": 4104096, "sha256": "7e0892425caa258918ce5532c7f1249c14273ad817890350dfa9d645c4377650", "rows": 35378, "label": 0, "format": "csv_no_header"},
+        {"download_url": "https://raw.githubusercontent.com/fcdalgic/GramBeddings/222157e1a61a01783383d1632269ad13a7542d96/data/ISCXURL2016/phishing_dataset.csv", "bytes": 850205, "sha256": "52f7918af584f71da7f43a5cc09a5e4b612da8f8c06e34ddbd11a3736c421136", "rows": 9965, "label": 1, "format": "csv_no_header"}
+      ]}
+    ],
+    "curation": {"split_salt": "v6-learning-new-domain:", "group_buckets": {"fit": 60, "new_test": 100}, "max_rows_per_domain": 5},
+    "exposure": "historical registry, every sidecar, original caches, actual development and prior tests including ALL 169393 latest reserved rows; deduplicate/conflict-screen jointly then prohibit shared domains across the two new sources; all Ebbu rows reserved as external only; no score-based exclusions",
+    "screening_order": "remove cross-publisher domain overlap from ISCX eligibility, preserving Ebbu external-only; register all supported inputs including exclusions in new sidecar",
+    "privacy": "raw bytes memory only; persist sanitized URL cache in ignored local storage; heuristic redaction is not full anonymization; no target URL visits"
+  },
+  "external_evaluation": "freeze selected and diagnostic artifacts, thresholds and hashes before scoring either new cohort; compare original v6, retained research control and frozen challenger; previously observed 50000 global test is regression only; no publisher labels become Indonesian gold",
+  "bootstrap_repeats": 1000,
+  "production_ready": false,
+  "promotion_authorized": false
+}

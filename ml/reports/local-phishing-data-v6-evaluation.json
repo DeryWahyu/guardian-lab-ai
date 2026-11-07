@@ -1,0 +1,753 @@
+{
+  "completed_at_utc": "2026-11-07T08:28:55.382676+00:00",
+  "protocol": {
+    "declared_at_utc": "2026-11-07T08:26:07.933013+00:00",
+    "input_filename": "phishing_data.csv",
+    "input_sha256": "d0cae5023a83e8325b4c5829e5556d5a7bcc149a9ed75555a972964b1360ccdf",
+    "model_version": "notebook-url-core-v6",
+    "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+    "metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+    "thresholds": {
+      "warning": 0.904713285827399,
+      "high": 0.9884744926236343
+    },
+    "primary_operating_point": "warning_MEDIUM_or_HIGH_positive_LOW_negative_not_SAFE",
+    "model_or_threshold_fitting": false,
+    "label_mapping": {
+      "phishing": 1,
+      "legitimate": 0
+    },
+    "inputs_used": [
+      "url"
+    ],
+    "label_column": "status",
+    "primary_population": "all_rows_supported_by_frozen_parser_including_duplicates_and_conflicts",
+    "secondary_populations": [
+      "unique_scheme_free_representations_with_no_internal_label_conflicts",
+      "same_unique_population_excluding_prior_URL_or_domain_tenant_exposure"
+    ],
+    "domain_cap": null,
+    "bootstrap_repeats": 1000,
+    "bootstrap_seed": 20261107,
+    "unsupported_policy": "excluded_from_scored_denominator_no_score_or_band",
+    "target_network_access": false,
+    "raw_or_core_URL_persistence": false,
+    "source_hashes": {
+      "local_evaluation_script": "ef8f04348495fcce96aaa031224757b46579fe107a65d1008db5a334a417ccf0"
+    },
+    "runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a"
+  },
+  "intake": {
+    "raw_rows": 11481,
+    "raw_label_1": 5741,
+    "redacted_supported_rows": 1166,
+    "unsupported_sensitive_host_candidate": 233,
+    "unsupported_label_1": 233,
+    "raw_label_0": 5740,
+    "unsupported_invalid_or_local_host": 5,
+    "unsupported_label_0": 7,
+    "unsupported_control_whitespace_or_backslash": 2,
+    "raw_unique_url_strings": 8000,
+    "raw_duplicate_url_rows": 3481
+  },
+  "csv_columns": [
+    "url",
+    "length_url",
+    "length_hostname",
+    "ip",
+    "nb_dots",
+    "nb_hyphens",
+    "nb_at",
+    "nb_qm",
+    "nb_and",
+    "nb_or",
+    "nb_eq",
+    "nb_underscore",
+    "nb_tilde",
+    "nb_percent",
+    "nb_slash",
+    "nb_star",
+    "nb_colon",
+    "nb_comma",
+    "nb_semicolumn",
+    "nb_dollar",
+    "nb_space",
+    "nb_www",
+    "nb_com",
+    "nb_dslash",
+    "http_in_path",
+    "https_token",
+    "ratio_digits_url",
+    "ratio_digits_host",
+    "punycode",
+    "port",
+    "tld_in_path",
+    "tld_in_subdomain",
+    "abnormal_subdomain",
+    "nb_subdomains",
+    "prefix_suffix",
+    "random_domain",
+    "shortening_service",
+    "path_extension",
+    "nb_redirection",
+    "nb_external_redirection",
+    "length_words_raw",
+    "char_repeat",
+    "shortest_words_raw",
+    "shortest_word_host",
+    "shortest_word_path",
+    "longest_words_raw",
+    "longest_word_host",
+    "longest_word_path",
+    "avg_words_raw",
+    "avg_word_host",
+    "avg_word_path",
+    "phish_hints",
+    "domain_in_brand",
+    "brand_in_subdomain",
+    "brand_in_path",
+    "suspecious_tld",
+    "statistical_report",
+    "nb_hyperlinks",
+    "ratio_intHyperlinks",
+    "ratio_extHyperlinks",
+    "ratio_nullHyperlinks",
+    "nb_extCSS",
+    "ratio_intRedirection",
+    "ratio_extRedirection",
+    "ratio_intErrors",
+    "ratio_extErrors",
+    "login_form",
+    "external_favicon",
+    "links_in_tags",
+    "submit_email",
+    "ratio_intMedia",
+    "ratio_extMedia",
+    "sfh",
+    "iframe",
+    "popup_window",
+    "safe_anchor",
+    "onmouseover",
+    "right_clic",
+    "empty_title",
+    "domain_in_title",
+    "domain_with_copyright",
+    "whois_registered_domain",
+    "domain_registration_length",
+    "domain_age",
+    "web_traffic",
+    "dns_record",
+    "google_index",
+    "page_rank",
+    "status"
+  ],
+  "ignored_precomputed_feature_columns": 87,
+  "scoring_coverage": 0.9790958975698981,
+  "overlap_audit": {
+    "supported_rows": 11241,
+    "supported_groups": 5256,
+    "supported_unique_representations": 7414,
+    "conflicting_representations": 1,
+    "conflicting_rows": 6,
+    "consistent_duplicate_rows_removed": 3822,
+    "unique_nonconflicting_rows": 7413,
+    "novel_unique_rows": 0,
+    "prior_url_overlap_supported_rows": 10427,
+    "prior_domain_overlap_supported_rows": 11241,
+    "prior_url_or_domain_overlap_supported_rows": 11241,
+    "audited_sources": {
+      "ml/data/indonesia-gold/registry/known-exposure.sqlite": {
+        "sha256": "462f644545d68b38b5ca5d9403c8cad085c4c01c520fb5c63b120b43410ff052",
+        "matched_url_hashes": 5251,
+        "matched_domain_hashes": 5256
+      },
+      "ml/data/exposure-sidecars/ebbu-iscx-learning-20261106.sqlite": {
+        "sha256": "0de9d8d796663583ecda33668a34f04fc135d7e7f847328381ada260f1cc25b5",
+        "matched_url_hashes": 5487,
+        "matched_domain_hashes": 1836
+      },
+      "ml/data/exposure-sidecars/legitphish-v2-20261105.sqlite": {
+        "sha256": "45d1d8906f3cd540909715c6f5dbb3bed19259f57b411c99d291969d502cc8f2",
+        "matched_url_hashes": 62,
+        "matched_domain_hashes": 208
+      },
+      "ml/data/exposure-sidecars/mendeley-vfs-indonesia-external-20261106.sqlite": {
+        "sha256": "748aa50929756a0a8c6884b00a01d264f321c984a27d73bf30da2ec232661298",
+        "matched_url_hashes": 1425,
+        "matched_domain_hashes": 1166
+      },
+      "ml/data/exposure-sidecars/phishbench-segmented-20261105.sqlite": {
+        "sha256": "c9b0308c9f897da0674abf32bb63e1d820e9145e655c1f3c5385a30873e4819c",
+        "matched_url_hashes": 0,
+        "matched_domain_hashes": 74
+      },
+      "ml/data/exposure-sidecars/pwd2021-targeted-20261105.sqlite": {
+        "sha256": "9a242c34c48aab7d3ed2420a12f99b99e603a97f107caf0478e5ee53ad5b5af2",
+        "matched_url_hashes": 3232,
+        "matched_domain_hashes": 1941
+      },
+      "ml/data/exposure-sidecars/stealthphisher-segmented-20261105.sqlite": {
+        "sha256": "7693973bd6f89d25189131e60f297e411c0b4a8cd73a0617dce876af2b4db610",
+        "matched_url_hashes": 253,
+        "matched_domain_hashes": 456
+      },
+      "ml/data/exposure-sidecars/v6-expanded-sources-20261105.sqlite": {
+        "sha256": "1e77526b42db43ebf1f0e80f2e4fa6aacfe482c65fc99353e8b6cc81317041d1",
+        "matched_url_hashes": 127,
+        "matched_domain_hashes": 602
+      },
+      "ml/data/exposure-sidecars/zenodo-websites-v2-20261105.sqlite": {
+        "sha256": "1044261e1e768dc08767dceab440afbc5a1ebe43d9e88fa1faeea5df9a5b6fde",
+        "matched_url_hashes": 57,
+        "matched_domain_hashes": 510
+      },
+      "ml/runs/notebook-tfidf-logistic-v6/data/development-v6.parquet": {
+        "sha256": "b0c867f9ab0c813d1498908d1cd43d731b46fffe83f8d5836e0e5f2b319097a8",
+        "matched_url_hashes": 8967,
+        "matched_domain_hashes": 4754
+      },
+      "ml/runs/notebook-tfidf-logistic-v6/data/deepurlbench-holdout-v6.parquet": {
+        "sha256": "a9b8002a5734ed4faf63acfda23cd722511a79a192de4cdbcf0dd6bd2c8df3a2",
+        "matched_url_hashes": 0,
+        "matched_domain_hashes": 0
+      },
+      "ml/runs/notebook-tfidf-logistic-v6/data/phishtank-2026-v6.parquet": {
+        "sha256": "623bb330743d0ccf0969e8427938704d80f4bdc067007a4d18aba3cf4cc96b92",
+        "matched_url_hashes": 0,
+        "matched_domain_hashes": 0
+      }
+    },
+    "campaign_overlap_fully_excluded": false,
+    "original_training_only_overlap_not_separately_estimated": true
+  },
+  "results": {
+    "all_supported_rows": {
+      "warning": {
+        "rows": 11241,
+        "groups": 5256,
+        "benign": 5733,
+        "phishing": 5508,
+        "confusion_matrix": {
+          "tn": 5712,
+          "fp": 21,
+          "fn": 2791,
+          "tp": 2717
+        },
+        "threshold": 0.904713285827399,
+        "accuracy": 0.7498443199003647,
+        "precision": 0.9923301680058437,
+        "recall": 0.49328249818445896,
+        "fpr": 0.003663003663003663,
+        "balanced_accuracy": 0.7448097472607277,
+        "brier_score": 0.06141893318596005,
+        "log_loss": 0.22379854329216958,
+        "recall_wilson95_rows_iid_assumption": [
+          0.4800884979167134,
+          0.5064858619314684
+        ],
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0023971498538606175,
+          0.0055935640519961475
+        ],
+        "f1": 0.6589861751152074,
+        "average_precision": 0.9737497175467605,
+        "roc_auc": 0.9751270087015497,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 3521,
+            "mean_probability": 0.03410483751201533,
+            "phishing_fraction": 0.024424879295654643
+          },
+          {
+            "lower": 0.1,
+            "rows": 1271,
+            "mean_probability": 0.14466582018904742,
+            "phishing_fraction": 0.1007081038552321
+          },
+          {
+            "lower": 0.2,
+            "rows": 703,
+            "mean_probability": 0.2445327163180784,
+            "phishing_fraction": 0.14793741109530584
+          },
+          {
+            "lower": 0.3,
+            "rows": 382,
+            "mean_probability": 0.34498950263353834,
+            "phishing_fraction": 0.2905759162303665
+          },
+          {
+            "lower": 0.4,
+            "rows": 289,
+            "mean_probability": 0.4508783150543475,
+            "phishing_fraction": 0.5743944636678201
+          },
+          {
+            "lower": 0.5,
+            "rows": 294,
+            "mean_probability": 0.5500925365151417,
+            "phishing_fraction": 0.7721088435374149
+          },
+          {
+            "lower": 0.6,
+            "rows": 558,
+            "mean_probability": 0.6515946400934203,
+            "phishing_fraction": 0.9283154121863799
+          },
+          {
+            "lower": 0.7,
+            "rows": 548,
+            "mean_probability": 0.7532801973836711,
+            "phishing_fraction": 0.9507299270072993
+          },
+          {
+            "lower": 0.8,
+            "rows": 870,
+            "mean_probability": 0.8566545142073615,
+            "phishing_fraction": 0.9919540229885058
+          },
+          {
+            "lower": 0.9,
+            "rows": 2805,
+            "mean_probability": 0.964288062498097,
+            "phishing_fraction": 0.9925133689839573
+          }
+        ],
+        "ece_10_fixed_bins": 0.06575127133934715,
+        "accuracy_wilson95_rows_iid_assumption": [
+          0.7417534979791089,
+          0.7577644383626174
+        ],
+        "domain_bootstrap95": {
+          "unit": "PSL registered domain/private hosting tenant",
+          "repeats": 1000,
+          "valid_repeats": 1000,
+          "discarded_class_absent_repeats": 0,
+          "seed": 20261107,
+          "recall95": [
+            0.42798115596603603,
+            0.5669630910945189
+          ],
+          "fpr95": [
+            0.0006953103136383074,
+            0.008064264309637125
+          ],
+          "precision95": [
+            0.9825512523835532,
+            0.9984643188462403
+          ]
+        }
+      },
+      "high": {
+        "rows": 11241,
+        "groups": 5256,
+        "benign": 5733,
+        "phishing": 5508,
+        "confusion_matrix": {
+          "tn": 5726,
+          "fp": 7,
+          "fn": 4864,
+          "tp": 644
+        },
+        "threshold": 0.9884744926236343,
+        "accuracy": 0.5666755626723601,
+        "precision": 0.989247311827957,
+        "recall": 0.11692084241103849,
+        "fpr": 0.001221001221001221,
+        "balanced_accuracy": 0.5578499205950186,
+        "brier_score": 0.06141893318596005,
+        "log_loss": 0.22379854329216958,
+        "recall_wilson95_rows_iid_assumption": [
+          0.10870070482244798,
+          0.1256749513846692
+        ],
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0005915856938069575,
+          0.0025183937171216727
+        ],
+        "f1": 0.2091248579314824,
+        "average_precision": 0.9737497175467605,
+        "roc_auc": 0.9751270087015497,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 3521,
+            "mean_probability": 0.03410483751201533,
+            "phishing_fraction": 0.024424879295654643
+          },
+          {
+            "lower": 0.1,
+            "rows": 1271,
+            "mean_probability": 0.14466582018904742,
+            "phishing_fraction": 0.1007081038552321
+          },
+          {
+            "lower": 0.2,
+            "rows": 703,
+            "mean_probability": 0.2445327163180784,
+            "phishing_fraction": 0.14793741109530584
+          },
+          {
+            "lower": 0.3,
+            "rows": 382,
+            "mean_probability": 0.34498950263353834,
+            "phishing_fraction": 0.2905759162303665
+          },
+          {
+            "lower": 0.4,
+            "rows": 289,
+            "mean_probability": 0.4508783150543475,
+            "phishing_fraction": 0.5743944636678201
+          },
+          {
+            "lower": 0.5,
+            "rows": 294,
+            "mean_probability": 0.5500925365151417,
+            "phishing_fraction": 0.7721088435374149
+          },
+          {
+            "lower": 0.6,
+            "rows": 558,
+            "mean_probability": 0.6515946400934203,
+            "phishing_fraction": 0.9283154121863799
+          },
+          {
+            "lower": 0.7,
+            "rows": 548,
+            "mean_probability": 0.7532801973836711,
+            "phishing_fraction": 0.9507299270072993
+          },
+          {
+            "lower": 0.8,
+            "rows": 870,
+            "mean_probability": 0.8566545142073615,
+            "phishing_fraction": 0.9919540229885058
+          },
+          {
+            "lower": 0.9,
+            "rows": 2805,
+            "mean_probability": 0.964288062498097,
+            "phishing_fraction": 0.9925133689839573
+          }
+        ],
+        "ece_10_fixed_bins": 0.06575127133934715,
+        "accuracy_wilson95_rows_iid_assumption": [
+          0.5574938157842438,
+          0.5758117541955047
+        ],
+        "domain_bootstrap95": {
+          "unit": "PSL registered domain/private hosting tenant",
+          "repeats": 1000,
+          "valid_repeats": 1000,
+          "discarded_class_absent_repeats": 0,
+          "seed": 20261107,
+          "recall95": [
+            0.08010644649164925,
+            0.16598670068241658
+          ],
+          "fpr95": [
+            0.0,
+            0.003550096681528534
+          ],
+          "precision95": [
+            0.9632457693048884,
+            1.0
+          ]
+        }
+      }
+    },
+    "unique_nonconflicting_representations": {
+      "warning": {
+        "rows": 7413,
+        "groups": 5256,
+        "benign": 3934,
+        "phishing": 3479,
+        "confusion_matrix": {
+          "tn": 3922,
+          "fp": 12,
+          "fn": 1713,
+          "tp": 1766
+        },
+        "threshold": 0.904713285827399,
+        "accuracy": 0.7673006879805747,
+        "precision": 0.9932508436445444,
+        "recall": 0.5076171313595861,
+        "fpr": 0.003050330452465684,
+        "balanced_accuracy": 0.7522834004535602,
+        "brier_score": 0.058446517516328886,
+        "log_loss": 0.2150014560301808,
+        "recall_wilson95_rows_iid_assumption": [
+          0.49100518213856065,
+          0.5242122776932016
+        ],
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0017458120126032882,
+          0.005324421543481037
+        ],
+        "f1": 0.6718660833174814,
+        "average_precision": 0.9740316565533472,
+        "roc_auc": 0.9766058037527219,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 2387,
+            "mean_probability": 0.03395902953556649,
+            "phishing_fraction": 0.02094679514034353
+          },
+          {
+            "lower": 0.1,
+            "rows": 850,
+            "mean_probability": 0.14396892342332204,
+            "phishing_fraction": 0.07529411764705882
+          },
+          {
+            "lower": 0.2,
+            "rows": 475,
+            "mean_probability": 0.24392542791876864,
+            "phishing_fraction": 0.14105263157894737
+          },
+          {
+            "lower": 0.3,
+            "rows": 271,
+            "mean_probability": 0.3453033178291327,
+            "phishing_fraction": 0.28044280442804426
+          },
+          {
+            "lower": 0.4,
+            "rows": 195,
+            "mean_probability": 0.4509121321764129,
+            "phishing_fraction": 0.5384615384615384
+          },
+          {
+            "lower": 0.5,
+            "rows": 197,
+            "mean_probability": 0.5485966939423081,
+            "phishing_fraction": 0.7563451776649747
+          },
+          {
+            "lower": 0.6,
+            "rows": 293,
+            "mean_probability": 0.6517998223806637,
+            "phishing_fraction": 0.8907849829351536
+          },
+          {
+            "lower": 0.7,
+            "rows": 361,
+            "mean_probability": 0.7536415973594061,
+            "phishing_fraction": 0.9418282548476454
+          },
+          {
+            "lower": 0.8,
+            "rows": 563,
+            "mean_probability": 0.8561697011009829,
+            "phishing_fraction": 0.9911190053285968
+          },
+          {
+            "lower": 0.9,
+            "rows": 1821,
+            "mean_probability": 0.9641836279161916,
+            "phishing_fraction": 0.9934102141680395
+          }
+        ],
+        "ece_10_fixed_bins": 0.06489009288598105,
+        "accuracy_wilson95_rows_iid_assumption": [
+          0.7575447043850329,
+          0.7767797815842455
+        ],
+        "domain_bootstrap95": {
+          "unit": "PSL registered domain/private hosting tenant",
+          "repeats": 1000,
+          "valid_repeats": 1000,
+          "discarded_class_absent_repeats": 0,
+          "seed": 20261107,
+          "recall95": [
+            0.44664977346872076,
+            0.5814324272466403
+          ],
+          "fpr95": [
+            0.0005160693718253607,
+            0.006947581732557664
+          ],
+          "precision95": [
+            0.9842157915610198,
+            0.9986831611915875
+          ]
+        }
+      },
+      "high": {
+        "rows": 7413,
+        "groups": 5256,
+        "benign": 3934,
+        "phishing": 3479,
+        "confusion_matrix": {
+          "tn": 3930,
+          "fp": 4,
+          "fn": 3066,
+          "tp": 413
+        },
+        "threshold": 0.9884744926236343,
+        "accuracy": 0.5858626736813706,
+        "precision": 0.9904076738609112,
+        "recall": 0.11871227364185111,
+        "fpr": 0.0010167768174885613,
+        "balanced_accuracy": 0.5588477484121813,
+        "brier_score": 0.058446517516328886,
+        "log_loss": 0.2150014560301808,
+        "recall_wilson95_rows_iid_assumption": [
+          0.1083825240632751,
+          0.1298831186977601
+        ],
+        "fpr_wilson95_rows_iid_assumption": [
+          0.0003954734667896984,
+          0.002611620380061213
+        ],
+        "f1": 0.2120123203285421,
+        "average_precision": 0.9740316565533472,
+        "roc_auc": 0.9766058037527219,
+        "reliability_bins": [
+          {
+            "lower": 0.0,
+            "rows": 2387,
+            "mean_probability": 0.03395902953556649,
+            "phishing_fraction": 0.02094679514034353
+          },
+          {
+            "lower": 0.1,
+            "rows": 850,
+            "mean_probability": 0.14396892342332204,
+            "phishing_fraction": 0.07529411764705882
+          },
+          {
+            "lower": 0.2,
+            "rows": 475,
+            "mean_probability": 0.24392542791876864,
+            "phishing_fraction": 0.14105263157894737
+          },
+          {
+            "lower": 0.3,
+            "rows": 271,
+            "mean_probability": 0.3453033178291327,
+            "phishing_fraction": 0.28044280442804426
+          },
+          {
+            "lower": 0.4,
+            "rows": 195,
+            "mean_probability": 0.4509121321764129,
+            "phishing_fraction": 0.5384615384615384
+          },
+          {
+            "lower": 0.5,
+            "rows": 197,
+            "mean_probability": 0.5485966939423081,
+            "phishing_fraction": 0.7563451776649747
+          },
+          {
+            "lower": 0.6,
+            "rows": 293,
+            "mean_probability": 0.6517998223806637,
+            "phishing_fraction": 0.8907849829351536
+          },
+          {
+            "lower": 0.7,
+            "rows": 361,
+            "mean_probability": 0.7536415973594061,
+            "phishing_fraction": 0.9418282548476454
+          },
+          {
+            "lower": 0.8,
+            "rows": 563,
+            "mean_probability": 0.8561697011009829,
+            "phishing_fraction": 0.9911190053285968
+          },
+          {
+            "lower": 0.9,
+            "rows": 1821,
+            "mean_probability": 0.9641836279161916,
+            "phishing_fraction": 0.9934102141680395
+          }
+        ],
+        "ece_10_fixed_bins": 0.06489009288598105,
+        "accuracy_wilson95_rows_iid_assumption": [
+          0.5746080344139154,
+          0.5970283699865114
+        ],
+        "domain_bootstrap95": {
+          "unit": "PSL registered domain/private hosting tenant",
+          "repeats": 1000,
+          "valid_repeats": 1000,
+          "discarded_class_absent_repeats": 0,
+          "seed": 20261107,
+          "recall95": [
+            0.07980214084685948,
+            0.171936669930189
+          ],
+          "fpr95": [
+            0.0,
+            0.00284041470844387
+          ],
+          "precision95": [
+            0.9681890743412905,
+            1.0
+          ]
+        }
+      }
+    },
+    "prior_exposure_disjoint_unique_representations": {
+      "rows": 0,
+      "metrics": null,
+      "reason": "no_eligible_rows"
+    }
+  },
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/local-phishing-csv-v6-20261107.sqlite",
+    "sha256": "87828d519067c1f4affcaa097cccfd75b0267d8b03f044c72eb2cc86ac794e3c",
+    "url_hashes": 14873,
+    "domain_hashes": 5256,
+    "scope": "all_frozen_parser_supported_inputs_including_duplicates_conflicts_prior_overlap_and_scored_rows_hashes_only"
+  },
+  "verification": {
+    "validated_at_utc": "2026-11-07T08:28:45.489373+00:00",
+    "scope": "frozen_v6_only_no_training_or_threshold_selection",
+    "model_version": "notebook-url-core-v6",
+    "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+    "frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+    "runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+    "thresholds": {
+      "warning": 0.904713285827399,
+      "high": 0.9884744926236343
+    },
+    "synthetic_reference_cases": 62,
+    "maximum_probability_delta_from_original_notebook": 0.0,
+    "url_qr_parity": true,
+    "production_ready": false,
+    "real_input_scalar_batch_parity_cases": 32,
+    "real_input_scalar_batch_maximum_delta": 4.651904705887944e-08,
+    "real_input_scalar_batch_absolute_tolerance": 1e-07,
+    "real_input_scalar_batch_threshold_decisions_identical": true,
+    "all_rows_within_1e_6_of_either_threshold_checked_scalar": 0
+  },
+  "qa_replay_amendment": {
+    "declared_at_utc": "2026-11-07T08:28:29.386611+00:00",
+    "first_attempt_status": "scoring_complete_report_not_finalized_due_to_scalar_batch_tolerance_assertion",
+    "cause": "float32_feature_rounding_single_vs_batch_not_a_parser_or_model_change",
+    "diagnostic_32_case_scalar_batch_maximum_delta": 4.651904705887944e-08,
+    "scalar_batch_absolute_tolerance": 1e-07,
+    "additional_requirement": "identical_warning_and_high_decisions_on_probes_and_every_row_within_1e-6_of_either_threshold",
+    "original_notebook_reference_tolerance_unchanged": 1e-12,
+    "current_evaluation_script_sha256": "78a3e6e79854c2a42ec06b69dd8700f86d0d259e503c69526ba1af38f9c22221",
+    "threshold_model_data_or_population_changes": false
+  },
+  "limitations": [
+    "Local file labels are used as supplied; publisher provenance, dates, license and independent human review are not established by the file.",
+    "All-row diagnostic includes duplicate and conflicting representations and may overlap development or historical benchmarks; it is not an independent test accuracy.",
+    "Unique domain-disjoint subset is relative to all available prior local exposure; unknown campaign overlap remains possible.",
+    "Only URL text is used; the other 87 supplied feature columns including page/DNS/WHOIS attributes are ignored.",
+    "Accuracy excludes unsupported rows. Unsupported rows have no score or risk band.",
+    "Frozen sanitizer is heuristic; raw URLs and sanitized cores exist only in memory and are never persisted by this evaluation.",
+    "Confidence intervals depend on row/domain assumptions and do not resolve source label bias or unknown campaigns.",
+    "Calibration and precision describe this file's class mix; they are not guarantees for Indonesian traffic.",
+    "LOW never means SAFE; shadow production_ready=false; no training, threshold selection or promotion."
+  ],
+  "production_ready": false
+}

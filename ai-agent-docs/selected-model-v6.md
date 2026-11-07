@@ -2,6 +2,8 @@
 
 > Instruksi pengguna, 3 November 2026: hapus model lain dan pertahankan v6 saja. Penggunaan tetap riset/internal shadow.
 
+Instruksi terbaru, 7 November 2026: ambang warning layanan menjadi **0,5**, HIGH tetap **0,9884744926236343**. [Kebijakan layanan](v6-serving-threshold-0p5.md) terpisah dari metadata training asli; model, kalibrasi dan skor tetap frozen v6. Angka threshold asli pada tabel adalah referensi historis.
+
 | Komponen | Identitas |
 | --- | --- |
 | Model | Logistic Regression + TF-IDF karakter/kata + fitur numerik URL |
@@ -13,9 +15,11 @@
 | SHA-256 metadata | `4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5` |
 | Fitting | 532.793 URL, 118.689 fitur, classifier konvergen |
 | Threshold warning asli | `0.904713285827399` |
+| Threshold warning layanan aktif | `0.5` (`v6-user-warning-0.5-20261107`) |
 | Threshold high asli | `0.9884744926236343` |
 | API | `guardian_ml.shadow_service:create_app`, `POST /predict` |
-| Manifest runtime | [shadow-runtime-manifest.json](../ml/policies/shadow-runtime-manifest.json) |
+| Manifest layanan aktif | [shadow-serving-manifest.json](../ml/policies/shadow-serving-manifest.json) |
+| Manifest runtime historis | [shadow-runtime-manifest.json](../ml/policies/shadow-runtime-manifest.json) |
 
 Binary, metadata training dan threshold asli tidak diganti. Notebook utama baru hanya memuat/memeriksa artifact dan laporan v6. Notebook training asli yang dahulu bernama `guardian_lab_url_qr_data_v6.ipynb` tetap utuh dalam snapshot lokal; [v6-origin.json](../ml/provenance/v6-origin.json) mencatat hash byte dan hash kode training. Referensi sintetis dibuat dari fungsi notebook asli sebelum dependensi model lama dihapus.
 

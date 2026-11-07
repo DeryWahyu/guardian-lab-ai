@@ -22,9 +22,9 @@ def artifact():
 
 
 def trusted_copy(tmp_path):
-    manifest = json.loads((ROOT / "ml/policies/shadow-runtime-manifest.json").read_text())
+    manifest = json.loads((ROOT / "ml/policies/shadow-serving-manifest.json").read_text())
     paths = [
-        "ml/policies/shadow-runtime-manifest.json",
+        "ml/policies/shadow-serving-manifest.json",
         *manifest["source_hashes"],
         manifest["artifact_path"],
         manifest["frozen_metadata_path"],
@@ -69,7 +69,7 @@ def test_source_change_rejected(artifact, tmp_path):
 def test_schema_rejected(artifact, tmp_path):
     manifest = trusted_copy(tmp_path)
     manifest["schema_version"] = "unknown"
-    (tmp_path / "ml/policies/shadow-runtime-manifest.json").write_text(json.dumps(manifest))
+    (tmp_path / "ml/policies/shadow-serving-manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ArtifactRejected, match="unsupported_feature_schema"):
         RichArtifact(tmp_path)
 
@@ -86,7 +86,7 @@ def test_incompatible_numeric_schema_rejected(artifact, tmp_path):
     frozen_path.write_text(json.dumps(frozen))
     manifest["bundle_sha256"] = frozen["bundle_sha256"]
     manifest["frozen_metadata_sha256"] = checksum(frozen_path)
-    (tmp_path / "ml/policies/shadow-runtime-manifest.json").write_text(json.dumps(manifest))
+    (tmp_path / "ml/policies/shadow-serving-manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ArtifactRejected, match="numeric_feature_schema_mismatch"):
         RichArtifact(tmp_path)
 
@@ -109,7 +109,7 @@ def test_inference_dependency_subset_cannot_weaken_training_binding(artifact, tm
         dependencies["unrelated"] = "0"
     else:
         dependencies["numpy"] = "incompatible"
-    (tmp_path / "ml/policies/shadow-runtime-manifest.json").write_text(json.dumps(manifest))
+    (tmp_path / "ml/policies/shadow-serving-manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ArtifactRejected, match="inference_dependency_schema_mismatch"):
         RichArtifact(tmp_path)
 
@@ -124,6 +124,34 @@ def test_inference_does_not_require_training_only_packages(artifact, monkeypatch
     monkeypatch.setattr("guardian_ml.rich_artifact.version", runtime_version)
     restored = RichArtifact()
     assert restored.metadata["thresholds"] == artifact.metadata["thresholds"]
+
+
+@pytest.mark.parametrize(
+    "change", ["missing", "null", "empty", "warning", "high", "partial", "production", "selection"]
+)
+def test_user_decision_policy_cannot_silently_fall_back_or_change_high(artifact, tmp_path, change):
+    manifest = trusted_copy(tmp_path)
+    if change == "missing":
+        manifest.pop("decision_policy")
+    elif change == "null":
+        manifest["decision_policy"] = None
+    elif change == "empty":
+        manifest["decision_policy"] = {}
+    else:
+        policy = manifest["decision_policy"]
+        if change == "warning":
+            policy["thresholds"]["warning"] = 0.0
+        elif change == "high":
+            policy["thresholds"]["high"] = 0.5
+        elif change == "partial":
+            policy["thresholds"].pop("high")
+        elif change == "production":
+            policy["production_ready"] = True
+        else:
+            policy["selection"] = "optimized_on_test"
+    (tmp_path / "ml/policies/shadow-serving-manifest.json").write_text(json.dumps(manifest))
+    with pytest.raises(ArtifactRejected, match="decision_policy_mismatch"):
+        RichArtifact(tmp_path)
 
 
 def test_workspace_path_cannot_escape(tmp_path):

@@ -1,0 +1,22 @@
+{
+  "scope": "publisher metadata screening, not legal/commercial clearance",
+  "checked_date": "2026-11-07",
+  "retained_publisher_license": "CC BY 4.0",
+  "sources": {
+    "phresh": {"evidence": "https://huggingface.co/datasets/phreshphish/phreshphish", "declared_license": "CC BY 4.0", "action": "retain"},
+    "phiusiil": {"evidence": "https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+dataset", "declared_license": "CC BY 4.0", "action": "retain"},
+    "mendeley2020": {"evidence": "https://data.mendeley.com/datasets/c2gw7fy2j4/3", "declared_license": "CC BY 4.0", "action": "retain", "review": "confirm mapping of historical cached source to publisher release and attribution"},
+    "phishvn_core": {"evidence": "https://data.mendeley.com/datasets/b97hxbxtpd/4", "declared_license": "CC BY 4.0", "action": "retain", "review": "confirm historical release linkage; credit upstream feeds and ranking data"},
+    "pwd2021": {"evidence": "https://data.mendeley.com/datasets/n96ncsr5g4/1", "declared_license": "CC BY 4.0", "action": "retain", "review": "publisher describes upstream Ebbu2017; upstream rights remain unresolved"},
+    "compphish": {"evidence": "https://data.mendeley.com/datasets/fmbs4kp9wz/4", "declared_license": "CC BY 4.0", "action": "retain", "review": "upstream DataForSEO/PhishTank/OpenPhish terms and attribution"},
+    "wangchuk": {"evidence": "https://data.mendeley.com/datasets/3jddhy2f6s/1", "declared_license": "CC BY 4.0", "action": "retain", "review": "upstream Common Crawl/PhishTank terms and attribution"},
+    "phishbd": {"evidence": "https://data.mendeley.com/datasets/8d6zsfwc7z/2", "declared_license": "CC BY 4.0", "action": "retain", "review": "publisher includes upstream ISCX and unnamed feeds; direct source filtering does not resolve upstream rights"},
+    "stealthphisher": {"evidence": "https://data.mendeley.com/datasets/m2479kmybx/1", "declared_license": "CC BY 4.0", "action": "retain", "review": "upstream feeds/submissions, attribution and privacy review"},
+    "deepurlbench": {"evidence": "ai-agent-docs/url-qr-dataset-research.md", "declared_license": "CC BY-NC 4.0 recorded by project", "action": "exclude from fitting, vocabulary, scaler, calibration, threshold and tune"},
+    "iscx2016_replica": {"evidence": "ai-agent-docs/research/v6-learning-source-audit-20261106.md", "declared_license": "original data rights unresolved; repository MIT code license is insufficient", "action": "exclude from fitting, vocabulary, scaler, calibration, threshold and tune"}
+  },
+  "historical_test_use": "research diagnostics only; no winner or policy chosen from tests",
+  "upstream_and_third_party_rights_review_pending": true,
+  "commercial_clearance": false,
+  "production_ready": false
+}

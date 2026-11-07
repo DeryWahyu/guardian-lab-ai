@@ -27,6 +27,8 @@ class GeekView(BaseModel):
     feature_schema: str | None = None
     score_reference: str = "research_calibration_not_traffic_probability"
     thresholds: dict[str, float] | None = None
+    frozen_thresholds: dict[str, float] | None = None
+    decision_policy_version: str | None = None
     context_flags: list[str] = Field(default_factory=list)
     content_inspected: Literal[False] = False
     qr_image_decoded_by_service: Literal[False] = False

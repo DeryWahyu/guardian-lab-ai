@@ -43,7 +43,12 @@ def validate(*, evaluate_local=False):
         "runtime_manifest_sha256": checksum(
             ROOT / "ml/policies/shadow-runtime-manifest.json"
         ),
+        "serving_manifest_sha256": checksum(
+            ROOT / "ml/policies/shadow-serving-manifest.json"
+        ),
         "thresholds": artifact.metadata["thresholds"],
+        "serving_thresholds": artifact.decision_thresholds,
+        "decision_policy_version": artifact.decision_policy_version,
         "synthetic_reference_cases": len(cores),
         "maximum_probability_delta_from_original_notebook": delta,
         "url_qr_parity": True,

@@ -1,0 +1,63 @@
+{
+  "audited_at_utc": "2026-11-06T04:20:29.296501+00:00",
+  "source_sha256": "656599b59b4ebc5e9e7bfea41a416248d036c054c8fd799feed46ddb84ea169e",
+  "supersedes_human_input_census_in": "ml/reports/v6-indonesia-external-evaluation.json",
+  "external_report_sha256": "0d200dce9065ef48f2135d3eef010559982b9a27b2d17012b8b05714531cf6ee",
+  "correction": "Frozen external evaluator checked unprefixed filenames. This supplemental census checks the actual indonesia-*.csv filenames and template schemas. Frozen metrics, model artifacts, code and original report remain unchanged.",
+  "indonesia_inputs": {
+    "indonesia-candidates.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "c53dd77ffd36f22371e7e101e009875dc12560e02165cb4420a5668ad06b7b54"
+    },
+    "indonesia-reviewer-a.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+      "syntactically_complete_attested_reviews": 0
+    },
+    "indonesia-reviewer-b.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+      "syntactically_complete_attested_reviews": 0
+    },
+    "indonesia-adjudication.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "c025a51dab6963168a74acd92a85aa28e5730170db928439ba87e59caa7b5946"
+    },
+    "indonesia-error-review.csv": {
+      "exists": true,
+      "rows": 0,
+      "sha256": "b3ac920539c90d2c9f9d4329b3e5495b1df8c22827889d9d9591d0cf46b0349d"
+    }
+  },
+  "development_review": {
+    "files": {
+      "conflict-reviewer-a.csv": {
+        "rows": 170,
+        "complete_attested_reviews": 0,
+        "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+      },
+      "conflict-reviewer-b.csv": {
+        "rows": 170,
+        "complete_attested_reviews": 0,
+        "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+      }
+    },
+    "cases": 170,
+    "complete_attested_pairs": 0,
+    "same_reviewer_id_pairs_rejected": 0,
+    "label_disagreements": 0,
+    "independence_established": false,
+    "identity_evidence_and_coordinator_independence_check_required": true,
+    "automatic_label_changes": 0,
+    "human_gold_established": false
+  },
+  "user_reported_reviewers_available": false,
+  "independent_human_identity_established": false,
+  "independent_indonesia_gold_evaluation_completed": false,
+  "indonesia_gold_metrics": null,
+  "production_ready": false
+}

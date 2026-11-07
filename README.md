@@ -6,9 +6,13 @@ Repository ini mempertahankan **satu model aktif: frozen Logistic Regression v6*
 
 **Untuk pengembang web:** ikuti [panduan integrasi backend](ai-agent-docs/web-integration-v6.md). [GitHub Release v6](https://github.com/DeryWahyu/guardian-lab-ai/releases/tag/v6-shadow-20261103) menyediakan binary model dan metadata asli; laporan hasil serta notebook tersedia langsung di repository.
 
+Paket pembaruan API tersedia pada branch `feat/v6-api-handoff-20261107`. Selama belum digabungkan ke `main`, gunakan branch tersebut sesuai perintah clone pada panduan integrasi. Kebijakan warning 0,5 telah diperiksa dengan **290 tes Python lulus**; model tidak perlu dilatih ulang. Menyalin kode dari GitHub belum menjalankan server API: pengembang tetap memasang artifact resmi dan menjalankan layanan Python atau image Docker.
+
 **Perbaikan operasional terbaru:** [gateway internal terautentikasi](ai-agent-docs/v6-shadow-gateway.md) menambahkan key backend wajib, kuota per proses, batas konkurensi/ukuran, deadline, perlindungan path sensitif dan monitoring agregat. Uji model asli memperoleh 100/100 sukses pada konkurensi 2, p95 lokal sekitar 17,8 ms; burst berlebih ditolak tanpa score/band dan peak inference tetap 2. Ini ASGI in-process dengan kuota benchmark yang dilonggarkan, bukan bukti SLA deployment. Manifest gateway baru mengikat source/dependency dan manifest v6 asli; prediksi yang didukung tetap identik. **274 tes lulus**.
 
 [Eksperimen kesiapan model](ml/reports/v6-readiness-improvements.md) juga melatih ulang 568.431 URL dengan sumber direct NC/tidak jelas dikeluarkan dari fitting dan seluruh development, serta menguji dua expert Logistic Regression private hosting. Expert gagal guard dan filter sumber menurunkan recall global menjadi 27,17% dari kandidat 11 sumber sebelumnya 32,28%; FPR vendor meningkat menjadi 2,51%. Kandidat tidak dipromosikan. Deklarasi CC BY penerbit belum menyelesaikan hak sumber hulu atau commercial clearance. Input Indonesia dan pasangan review manusia tetap kosong. Layanan tetap shadow dengan `production_ready=false`; [verifikasi lengkap](ml/reports/v6-readiness-verification.json) mempertahankan semua regresi dan hambatan produksi.
+
+Guardian Lab memakai API ini untuk URL dan tautan hasil QR, termasuk hasil, riwayat, Share Card, dan snapshot komunitas. [Dockerfile](Dockerfile) memasang artifact terverifikasi saat build; Compose di repo web menghubungkan backend ke model melalui jaringan privat. Integrasi fitur tidak mengubah status riset atau menyelesaikan validasi sebelum rilis.
 
 ## Model dan batas penggunaan
 
@@ -124,6 +128,14 @@ Untuk mereproduksi pemeriksaan kualitas dan grafik dengan cache v6 asli yang ter
 ml/.venv/Scripts/python.exe -m pip install -e "./ml[quality]"
 ml/.venv/Scripts/python.exe scripts/evaluate_v6_quality.py --plot --output-stem ml/reports/v6-quality-replay-local
 ```
+
+## Deployment melalui Ansible
+
+Workflow `ml.yml` mempertahankan pemeriksaan Python v6 yang ada, lalu pada branch `main` membangun image `ghcr.io/derywahyu/guardian-lab-ai` dengan tag commit dan `latest`. Dockerfile tetap memasang binary/metadata asli melalui installer terverifikasi; perubahan workflow tidak mengubah source manifest, dependency inferensi, threshold atau status shadow.
+
+Setelah stack Guardian di-bootstrap dan `ENABLE_VPS_DEPLOY=true`, push `main` memanggil helper Ansible dengan kelompok `ml`. Helper memakai lock bersama dengan repository web, memeriksa readiness model dan hanya mengganti image ML. `workflow_dispatch` mempublikasikan image tanpa deployment kecuali input `deploy=true`. SSH memerlukan host key tepercaya; API 8001 tetap privat tanpa port host atau proxy publik.
+
+[Runbook infrastruktur Guardian Lab](https://github.com/Alfian57/server-infrastructure#guardian-lab) menjadi sumber bootstrap, mapping GitHub, Vault dan pemulihan. Checklist build/integrasi yang masih tertunda berada pada [TEST_PLAN.md repository web](https://github.com/DeryWahyu/guardian-lab/blob/main/TEST_PLAN.md#deployment-produksi-dengan-ansible-pemeriksaan-tertunda). Publikasi workflow dan penyiapan konfigurasi tidak membuktikan model memenuhi release gate.
 
 ## Bukti dan pemeliharaan
 

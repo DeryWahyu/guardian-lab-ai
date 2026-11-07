@@ -4,9 +4,22 @@ on:
   pull_request:
     branches: [main]
   push:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: Update only ML in the Ansible-managed Guardian stack
+        type: boolean
+        default: false
 
 permissions:
   contents: read
+
+concurrency:
+  group: guardian-ml-release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  IMAGE_NAME: derywahyu/guardian-lab-ai
 
 jobs:
   python:
@@ -32,3 +45,67 @@ jobs:
         run: python -m ruff format --check --no-cache ml/src ml/tests scripts guardian_lab_url_qr_v6.ipynb
       - name: Run v6 tests without private datasets or model binaries
         run: python -m pytest -p no:cacheprovider ml/tests -q
+
+  image:
+    needs: python
+    if: github.ref == 'refs/heads/main' && github.repository == 'DeryWahyu/guardian-lab-ai'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: docker/setup-buildx-action@v4
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish checksum-verified frozen v6 image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/derywahyu/guardian-lab-ai:sha-${{ github.sha }}
+            ghcr.io/derywahyu/guardian-lab-ai:latest
+          labels: org.opencontainers.image.source=https://github.com/DeryWahyu/guardian-lab-ai
+          cache-from: type=gha,scope=guardian-ml
+          cache-to: type=gha,mode=max,scope=guardian-ml
+
+  deploy:
+    needs: image
+    if: vars.ENABLE_VPS_DEPLOY == 'true' && (github.event_name == 'push' || inputs.deploy)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VPS_HOST: ${{ secrets.VPS_HOST }}
+      VPS_USER: ${{ secrets.VPS_USER }}
+      VPS_SSH_PORT: ${{ secrets.VPS_SSH_PORT }}
+      VPS_KEY: ${{ secrets.VPS_KEY }}
+      VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+    steps:
+      - name: Update ML under the shared server deployment lock
+        shell: bash
+        run: |
+          set -euo pipefail
+          : "${VPS_HOST:?Missing VPS_HOST}" "${VPS_USER:?Missing VPS_USER}"
+          : "${VPS_KEY:?Missing VPS_KEY}" "${VPS_KNOWN_HOSTS:?Missing trusted host keys}"
+          umask 077
+          ssh_dir=$(mktemp -d "${RUNNER_TEMP}/guardian-ssh.XXXXXX")
+          trap 'rm -rf "$ssh_dir"' EXIT
+          printf '%s\n' "$VPS_KEY" > "$ssh_dir/key"
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > "$ssh_dir/known_hosts"
+          ssh -i "$ssh_dir/key" -p "${VPS_SSH_PORT:-22}" \
+            -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$ssh_dir/known_hosts" \
+            "${VPS_USER}@${VPS_HOST}" bash -s -- ml "sha-${GITHUB_SHA}" <<'REMOTE'
+          set -euo pipefail
+          cd /opt/docker-stack/applications/guardian-lab
+          ./update.sh "$1" "$2"
+          REMOTE

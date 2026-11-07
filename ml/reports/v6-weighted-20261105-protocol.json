@@ -1,0 +1,41 @@
+{
+  "experiment": "v6-weighted-20261105",
+  "declared_before_candidate_fitting": true,
+  "motivation": "Audit remaining development errors and test domain/source weighting on the fixed nine-source fitting corpus. Previous tests are already observed and may only diagnose regressions.",
+  "seed": 20261105,
+  "previous_run": "ml/runs/v6-targeted-20261105",
+  "control_artifact_sha256": "79e313b2deebd1bb0eff4c7cc28f8ca0694daa5e5aafabff8a47e4cccc65c025",
+  "fitting_rows": 616050,
+  "encoder": "reuse exact frozen encoder fitted only on the identical 616050 fitting rows; verify data/artifact hashes and real-score parity; do not fit any transformation on holdouts",
+  "feature_cache": "fit and calibration retain original fitting representation; tune and threshold use the versioned inference sanitizer exactly as predict_bundle; hashes bind matrices, ordered source tables and encoder",
+  "classifier": {"C": 2, "solver": "liblinear", "max_iter": 300, "tol": 0.0001},
+  "classifier_candidates": ["source_sqrt_domain_sqrt", "source_equal_domain_sqrt", "source_sqrt_domain_class_soft"],
+  "weight_definitions": {
+    "source_sqrt_domain_sqrt": "sqrt(max_source_rows/source_rows) / sqrt(rows_per_domain)",
+    "source_equal_domain_sqrt": "inverse sqrt domain count, normalized to equal total weight per source",
+    "source_sqrt_domain_class_soft": "source_sqrt_domain_sqrt multiplied by sqrt(source_rows/(2*source_class_rows))"
+  },
+  "all_weights_normalized_to_mean_one": true,
+  "calibrators": ["row_sigmoid", "source_equal_sigmoid"],
+  "calibration": "sigmoid C=1000/max_iter=200 on separate calibration only; source_equal weights equalize total mass per source without using labels; positive slope required; monotonic calibration alone is not evidence of better discrimination",
+  "control_calibration_variant": "also test source_equal_sigmoid on the existing control classifier without refitting its encoder/classifier",
+  "min_benign_per_source_for_threshold": 100,
+  "min_phishing_per_source_for_macro_recall": 20,
+  "policies": "primary strict empirical 1% FPR per supported source; secondary pooled 1% FPR for descriptive tradeoffs only; choose all thresholds on threshold partition only",
+  "selection": {
+    "inputs": "tune only; compare against frozen previous research control, same development corpus",
+    "detection_gate": "macro source recall gain >=0.02; no supported-source recall loss >0.05; macro source Brier increase <=0.01",
+    "calibration_gate": "macro recall loss <=0.005; no supported-source recall loss >0.005; macro source Brier reduction >=0.005; no source Brier increase >0.02",
+    "priority": "eligible detection candidates first by macro recall, minimum source recall, then lower macro Brier; otherwise eligible calibration candidates by lower macro Brier then recall; otherwise retain control",
+    "failed_gate_diagnostic": "if control retained, freeze best new tune challenger by macro recall/minimum recall/lower macro Brier for failed-gate evaluation; never select from final tests"
+  },
+  "development_audit": "source/structure confusion counts, within-representation publisher conflicts, calibration and deterministic development error review queues; no automatic relabeling; score-selected error queues are never final gold sampling frames",
+  "new_holdout": "a separately pinned public publisher intake must be exposure-audited and frozen before candidate fitting; no URLs from that intake enter fitting/tuning/calibration/threshold. Global historical publisher labels never establish Indonesia gold or a contemporary temporal holdout",
+  "new_holdout_freeze": "ml/data/v6-weighted-new-holdout/frozen.json",
+  "if_new_holdout_unavailable": "require an explicit recorded source audit, report unavailable and do not claim an independent new test",
+  "observed_regression_cohorts": ["PWD2021", "expanded sources", "vendor", "PhishTank positive only", "LegitPhish"],
+  "bootstrap_repeats": 1000,
+  "production_ready": false,
+  "original_v6_unchanged": true,
+  "limitations": ["publisher labels can be wrong", "no fabricated reviewers or Indonesia labels", "all historical/exposure-sidecar/current-v6-cache novelty checks required", "domain separation does not establish independent campaigns", "positive-only feeds cannot estimate FPR or traffic precision", "LOW is not SAFE", "noncommercial research restriction inherited from the foundation"]
+}

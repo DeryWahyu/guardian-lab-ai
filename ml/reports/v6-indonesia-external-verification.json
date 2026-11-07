@@ -1,0 +1,181 @@
+{
+  "verified_at_utc": "2026-11-06T04:23:33.891940+00:00",
+  "report_sha256": "0d200dce9065ef48f2135d3eef010559982b9a27b2d17012b8b05714531cf6ee",
+  "source_sha256": "ad916f98ce2065b25956f9047a51f14bbab29de6d3e6bb9dc151a9896fb07a2f",
+  "test_report_sha256": "543b7c866fed7ab8c378e7a5e7cc8e1d48ceee69a9eab93b0b9101d3c6d4df81",
+  "tests": {
+    "tests": 202,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "chronology_verified": true,
+  "reserved_rows": 169393,
+  "reserved_domains": 119683,
+  "isolation": {
+    "ml/data/indonesia-gold/registry/known-exposure.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/legitphish-v2-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/phishbench-segmented-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/pwd2021-targeted-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/stealthphisher-segmented-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/v6-expanded-sources-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/zenodo-websites-v2-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/development-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/deepurlbench-holdout-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/phishtank-2026-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-weighted-new-holdout/holdout.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-expanded-data-20261105/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/legitphish-v2-v6-qa/sanitized-domain-disjoint.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/fit.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/calibration.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/threshold.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/tune.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-new-holdout/fit.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-new-holdout/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-phishbench/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    }
+  },
+  "all_supported_rows_registered": true,
+  "saved_model_parity": {
+    "global": {
+      "rows": 128,
+      "research_max_delta": 0.0,
+      "active_max_delta": 0.0
+    },
+    "id_suffix_proxy": {
+      "rows": 128,
+      "research_max_delta": 0.0,
+      "active_max_delta": 0.0
+    }
+  },
+  "original_v6_metadata_and_binary_unchanged": true,
+  "independent_indonesia_gold_evaluation_completed": false,
+  "human_validation": {
+    "audited_at_utc": "2026-11-06T04:20:29.296501+00:00",
+    "source_sha256": "656599b59b4ebc5e9e7bfea41a416248d036c054c8fd799feed46ddb84ea169e",
+    "supersedes_human_input_census_in": "ml/reports/v6-indonesia-external-evaluation.json",
+    "external_report_sha256": "0d200dce9065ef48f2135d3eef010559982b9a27b2d17012b8b05714531cf6ee",
+    "correction": "Frozen external evaluator checked unprefixed filenames. This supplemental census checks the actual indonesia-*.csv filenames and template schemas. Frozen metrics, model artifacts, code and original report remain unchanged.",
+    "indonesia_inputs": {
+      "indonesia-candidates.csv": {
+        "exists": true,
+        "rows": 0,
+        "sha256": "c53dd77ffd36f22371e7e101e009875dc12560e02165cb4420a5668ad06b7b54"
+      },
+      "indonesia-reviewer-a.csv": {
+        "exists": true,
+        "rows": 0,
+        "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+        "syntactically_complete_attested_reviews": 0
+      },
+      "indonesia-reviewer-b.csv": {
+        "exists": true,
+        "rows": 0,
+        "sha256": "538dbeafbc70813b87100f36de11624b86b94f3a5f57de172c8ccb7e256a7bc2",
+        "syntactically_complete_attested_reviews": 0
+      },
+      "indonesia-adjudication.csv": {
+        "exists": true,
+        "rows": 0,
+        "sha256": "c025a51dab6963168a74acd92a85aa28e5730170db928439ba87e59caa7b5946"
+      },
+      "indonesia-error-review.csv": {
+        "exists": true,
+        "rows": 0,
+        "sha256": "b3ac920539c90d2c9f9d4329b3e5495b1df8c22827889d9d9591d0cf46b0349d"
+      }
+    },
+    "development_review": {
+      "files": {
+        "conflict-reviewer-a.csv": {
+          "rows": 170,
+          "complete_attested_reviews": 0,
+          "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+        },
+        "conflict-reviewer-b.csv": {
+          "rows": 170,
+          "complete_attested_reviews": 0,
+          "sha256": "a56d114216dac76a4a8ac4f648a80a304728f693996e5dfc37e29eee4800d310"
+        }
+      },
+      "cases": 170,
+      "complete_attested_pairs": 0,
+      "same_reviewer_id_pairs_rejected": 0,
+      "label_disagreements": 0,
+      "independence_established": false,
+      "identity_evidence_and_coordinator_independence_check_required": true,
+      "automatic_label_changes": 0,
+      "human_gold_established": false
+    },
+    "user_reported_reviewers_available": false,
+    "independent_human_identity_established": false,
+    "independent_indonesia_gold_evaluation_completed": false,
+    "indonesia_gold_metrics": null,
+    "production_ready": false
+  },
+  "human_evidence_status_sha256": "35f601eddf1eaebff8a6a4bab1d336547a1be0751a15c9d04e1db0e735b38514",
+  "production_ready": false
+}

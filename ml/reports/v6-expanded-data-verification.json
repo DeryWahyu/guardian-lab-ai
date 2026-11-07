@@ -1,0 +1,34 @@
+{
+  "tests": {
+    "tests": 116,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "all_protected_hashes_verified": true,
+  "data_model_and_selection_hashes_verified": true,
+  "real_artifact_reload_parity_cases": 130,
+  "max_reload_probability_delta": 0.0,
+  "control_policy_frozen_before_model_and_test": true,
+  "historical_registry_unchanged": true,
+  "all_exposure_sidecars_preserved": true,
+  "raw_targets_persisted_or_visited": false,
+  "environment_versions": {
+    "joblib": "1.5.3",
+    "numpy": "2.4.3",
+    "pandas": "2.2.3",
+    "requests": "2.32.3",
+    "scikit-learn": "1.8.0",
+    "scipy": "1.16.3",
+    "threadpoolctl": "3.6.0",
+    "tldextract": "5.3.0"
+  },
+  "files": {
+    "ml/reports/v6-expanded-data-evaluation.json": "58a0bd1e64177d0f11bdc7b9368abba57010616430f3007f20b338102b0f4d48",
+    "ml/reports/v6-expanded-data-evaluation.md": "7cc36d17eed7e65db62b2f0992506dd4f67fd60e40c3fce4c9a504dced7c74f1",
+    "ml/reports/v6-expanded-data-evaluation.png": "cebc89c7d1afed1f8ac5ea5a149b48ff0ad565bfc82e75e1d6a2d9f5279ee77a",
+    "ml/reports/v6-expanded-matched-control.json": "3d589389e8d983f15d85beb74a1b92f01598c013e9c2da82aa55b53ccc0a887d",
+    "ml/provenance/v6-expanded-data-exposure.json": "f3639aab89081d4e94ce07519f10ad751d51e26370f0df0c495ba62e58f100c3"
+  },
+  "production_ready": false
+}

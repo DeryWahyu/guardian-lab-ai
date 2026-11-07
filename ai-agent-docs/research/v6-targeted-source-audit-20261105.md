@@ -1,0 +1,40 @@
+# Audit sumber tambahan dan eksperimen terarah
+
+Pengguna meminta pencarian data dari jurnal dan perbaikan model pada 5 November 2026. Pencarian ini memakai halaman penerbit, repositori peneliti dan metadata rilis publik. Publikasi tidak dengan sendirinya membuktikan label tiap URL benar atau relevan untuk Indonesia. Tidak ada target dataset yang dikunjungi, HTML yang diunduh/dijalankan, formulir akses yang diserahkan, pesan ke peneliti, atau baris dataset yang dikirim ke LLM.
+
+## Sumber yang diambil
+
+[Phishing Websites Dataset, Ariyadasa/Fernando/Fernando V1](https://data.mendeley.com/datasets/n96ncsr5g4/1), DOI 10.17632/n96ncsr5g4.1, dirilis 16 November 2021, mencantumkan University of Moratuwa dan Uva Wellassa University serta CC BY 4.0. Rilis ini juga dirujuk pada bagian ketersediaan data [artikel Discover Computing 2026](https://link.springer.com/article/10.1007/s10791-026-10641-9). Penggunaan rilis tidak mengadopsi arsitektur model artikel tersebut.
+
+Hanya `index.sql` yang diambil; ukuran 10.211.200 byte dan SHA-256 `3de752bb74332c8f2c01cbc1355b6eda0e2a6d5bcf9a87fddf9b26b5bc8f1ccc` dipin dari metadata Mendeley. SQL dibaca sebagai teks literal; tidak pernah dieksekusi atau dimasukkan ke database SQL. Field website/HTML dan tanggal bukan fitur classifier. Semua label tetap milik penerbit: 0 benign, 1 phishing.
+
+Penerbit menjelaskan benign dari pencarian Google dan Ebbu2017, phishing dari PhishTank/OpenPhish/PhishRepo pada 2020–2021. Ini sumber historis global berbasis sumber daftar; tidak ada bukti review manusia independen per kasus oleh proyek dan bukan gold Indonesia. Deskripsi menyebut 83.275 record SQL sebelum penghapusan, tetapi file rilis yang benar-benar diparse berisi **80.000 literal record: 50.000 benign dan 30.000 phishing**. Tidak menyimpulkan label record yang tidak ada.
+
+Sanitasi eksperimen berversi mempertahankan 78.102 record sebelum deduplikasi dan pengecualian paparan. Seluruh raw URL hanya berada di memori; cache yang diabaikan Git memuat core tersanitasi. Redaksi heuristik tetap tidak menjamin anonimisasi sempurna. Registry historis, seluruh sidecar dan cache v6 diperiksa sebelum memilih URL/domain baru. Semua intake tersanitasi, termasuk holdout cadangan dan baris yang dikeluarkan, dicatat pada sidecar baru untuk audit berikutnya.
+
+## Sumber yang diperiksa tetapi tidak ditambahkan
+
+| Sumber primer | Bukti yang diperiksa | Alasan |
+| --- | --- | --- |
+| [Frontiers in Computer Science 2024](https://www.frontiersin.org/journals/computer-science/articles/10.3389/fcomp.2024.1308634/full), [Mendeley 6tm2d6sz7p V1](https://data.mendeley.com/datasets/6tm2d6sz7p/1) | 247.950 kasus; file Dataset.csv 26.700.164 byte, SHA-256 6a6ccc0031d42912301d3907e8538ee289c33311a177a46dbda5324b6337bd18; schema dibaca tanpa menampilkan baris | File hanya 41 fitur angka dan Type; tidak mengandung URL asli untuk encoder v6 atau audit domain. Tidak memetakan fitur yang tidak kompatibel secara diam-diam. |
+| [Scientific Data 2025](https://www.nature.com/articles/s41597-025-04407-z), [Figshare 27979439 V2](https://figshare.com/articles/dataset/Synthetic_Browsing_History/27979439) | Arsip synthetic-browsing-histories.zip 22.785.755 byte; SHA-256 20b9ef02f2993c89ff35f82e3a37c55de6b063d17bf1eb5dfd4dd8492532dd1d; 551 anggota arsip, tidak diekstrak ke disk; metadata MIT | Pemeriksaan direktori arsip tidak menemukan Indonesia. Riwayat sintetis/benign yang dijelaskan artikel tidak memberikan label phishing Indonesia. Tidak membuat label atau lokasi Indonesia. |
+| [DomainRadar, Data in Brief 2025](https://dspace.vut.cz/bitstreams/92cd575d-0614-4ef3-a59d-b07e285995f1/download), [Zenodo 14332167](https://zenodo.org/records/14332167) | 2023–2024 domain/URL, blacklist dan pemeriksaan VT menurut penerbit; data JSON 15,8 GB berisi DNS/WHOIS/TLS/GeoIP | Berguna untuk penelitian lanjut, tetapi bundel memuat metadata pendaftaran yang tidak diperlukan eksperimen URL-only. Tidak mengunduh seluruh bundel atau mencampur malware menjadi phishing. |
+| [GramBeddings, Computers & Security 2023](https://doi.org/10.1016/j.cose.2022.102964), [halaman peneliti Hacettepe](https://web.cs.hacettepe.edu.tr/~selman/grambeddings-dataset/) | 800.000 URL global, dikumpulkan Mei 2019–Juni 2021 menurut peneliti | Tombol unduhan mengarah layanan dokumen eksternal; tidak ada pengambilan dataset/lisensi baru yang selesai dalam audit ini. Tidak menganggap salinan pihak ketiga setara rilis terverifikasi. |
+| [EdgePhish-5G Zenodo](https://zenodo.org/records/19371661), [repositori peneliti](https://github.com/Hassan-Albattra/URL_Phishing_Detection_Dataset) | Metadata 340.000 URL dan CC BY 4.0; deskripsi koleksi pada sumber berbeda tidak konsisten | Belum dipakai; perlu rekonsiliasi provenance/tanggal dan bukti label sebelum penggabungan. |
+| [SABER Indonesia](https://jurnal.stikes-ibnusina.ac.id/index.php/SABER/article/view/3904), [IndoPhis-D Telkom](https://repositori.telkomuniversity.ac.id/pustaka/245173/adaptive-rule-based-detection-of-indonesian-phishing-website-through-multi-layered-filtering-based-on-url-features-dalam-bentuk-buku-karya-ilmiah.html), [tesis ITS 2017](https://repository.its.ac.id/43198/) | Publikasi lokal dan deskripsi data; ITS menyatakan teks dibatasi | Tidak ditemukan rilis mentah publik lengkap dengan hak penggunaan dan bukti label yang memadai. Tidak mengisi antrean review manusia dengan klaim jurnal. |
+
+Sumber CompPhish, Wangchuk, PhishBD, LegitPhish, PhishVN dan URL-Phish yang sudah terpapar tetap diperlakukan sesuai riwayatnya. Versi atau publikasi yang lebih baru tidak menghapus paparan record lama.
+
+## Perbaikan yang diuji
+
+[Protokol eksperimen](../../ml/reports/v6-targeted-20261105-protocol.json) ditulis sebelum pengunduhan PWD2021 dan sebelum prediksi sumber itu. Enam Logistic Regression C=2 memakai resep encoder/pembobotan yang sama: fondasi v6, fondasi + masing-masing tiga sumber tambahan, ketiganya bersama, lalu gabungan + PWD2021. Vocabulary dan scaler di-fit ulang hanya pada fitting subset masing-masing kandidat. Dengan demikian, penilaian kontribusi sumber tidak bergantung pada vocabulary dari sumber yang dikeluarkan.
+
+Semua kandidat memakai komposisi tune/calibration/threshold yang sama. Seleksi kandidat memakai tune dengan kebijakan utama FPR empiris 1% per sumber yang cukup didukung; calibration dan pemilihan threshold tetap pada partisi masing-masing. Empat kebijakan pooled FPR ditetapkan sebagai analisis tambahan sebelum test, tanpa memilih hasil paling bagus pada test. Budget pooled tidak menjamin FPR tiap sumber.
+
+PWD2021 baru dibagi berdasarkan domain setelah mengecualikan paparan lama; holdout domain cadangan dibekukan sebelum training. Benchmark yang sudah dibaca sebelumnya hanya pemeriksaan regresi. Peningkatan pada holdout domain historis tidak membuktikan validasi Indonesia atau ketahanan pada kampanye terkini. Hasil dan artifact baru hanya riset, dengan pembatasan nonkomersial yang diwarisi fondasi. Layanan dan notebook utama tetap frozen v6.
+
+## Hasil yang selesai
+
+Penambahan PWD2021 menaikkan macro recall pada tune yang sama dari 35,79% untuk gabungan tiga sumber menjadi 45,74%; kandidat gabungan PWD terpilih tanpa memakai test. Fitting berisi 616.050 URL dari sembilan sumber. Pada 3.544 URL holdout PWD, recall kandidat 55,34% dan FPR 4/1.654 = 0,24%, dibanding v6 aktif 49,89% dan 9/1.654 = 0,54%. Perbandingan dengan kandidat riset sebelumnya memberi recall 35,56% menjadi 55,34%, tetapi FP bertambah dari 3 menjadi 4. Kebijakan warning masing-masing berbeda; tidak menganggap FPR identik.
+
+Recall vendor dan PhishTank masih menurun terhadap v6 aktif, dan kalibrasi vendor memburuk. [Laporan hasil](../../ml/reports/v6-targeted-evaluation.md), [JSON](../../ml/reports/v6-targeted-evaluation.json), [kontrol sebelumnya](../../ml/reports/v6-targeted-previous-control.json) serta [verifikasi](../../ml/reports/v6-targeted-verification.json) mempertahankan semua regresi dan keterbatasan. Sebanyak 132 tes teknis lulus tanpa skip, dengan parity save/reload 130 probe dan delta nol. Tidak ada promosi produksi, label Indonesia atau reviewer manusia yang dibuat.

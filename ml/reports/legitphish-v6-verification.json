@@ -1,0 +1,22 @@
+{
+  "tests": {
+    "tests": 107,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "artifact_metadata_runtime_and_parity_verified": true,
+  "protocol_and_intake_sources_match": true,
+  "historical_exposure_unchanged": true,
+  "new_exposure_sidecar_verified": true,
+  "raw_csv_or_urls_persisted": false,
+  "target_requests_performed": false,
+  "label_inference_performed": false,
+  "files": {
+    "ml/reports/legitphish-v6-evaluation.json": "544c9715ac545a5695fe1e36bd1b4d778b736f8b224d1b642b410587f83357b7",
+    "ml/reports/legitphish-v6-evaluation.md": "a3aa33212e2098e09a27ff89d55011b1343e8192ed3f250fbbaff5280d62a565",
+    "ml/reports/legitphish-v6-evaluation.png": "47aeac97c5aad055f20bd52621f4b955a714040d30676c136573ac1e45366a6c",
+    "ml/provenance/legitphish-v2-exposure.json": "61e90ee0979591b28890e2126c9a51c316ef927db8c2c9f036c9225bb98064c3"
+  },
+  "production_ready": false
+}

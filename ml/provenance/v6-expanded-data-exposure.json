@@ -1,0 +1,13 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/v6-expanded-sources-20261105.sqlite",
+    "sha256": "1e77526b42db43ebf1f0e80f2e4fa6aacfe482c65fc99353e8b6cc81317041d1",
+    "url_hashes": 441940,
+    "domain_hashes": 125666,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "data_freeze": "ml/runs/v6-expanded-data-20261105/data-freeze.json",
+  "data_freeze_sha256": "9c3ac812b1793952cf38bdef5a8d368f61a99021d4b5ac86092964f18ba43195",
+  "scope": "all sanitized source intake; includes reserved not-yet-scored holdout",
+  "future_novelty_audits_must_include": true
+}

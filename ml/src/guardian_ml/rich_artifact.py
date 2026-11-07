@@ -44,7 +44,7 @@ def workspace_path(root: Path, relative: str) -> Path:
 class RichArtifact:
     def __init__(self, root=ROOT):
         self.root = Path(root).resolve()
-        manifest_path = self.root / "ml/policies/shadow-runtime-manifest.json"
+        manifest_path = self.root / "ml/policies/shadow-serving-manifest.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if manifest["schema_version"] != SCHEMA_VERSION:
             raise ArtifactRejected("unsupported_feature_schema")
@@ -128,9 +128,20 @@ class RichArtifact:
             raise ArtifactRejected("high_policy_mismatch")
         if thresholds != manifest["thresholds"]:
             raise ArtifactRejected("threshold_manifest_mismatch")
+        policy = manifest.get("decision_policy", {})
+        if (
+            not isinstance(policy, dict)
+            or policy.get("version") != "v6-user-warning-0.5-20261107"
+            or policy.get("thresholds") != {"warning": 0.5, "high": thresholds["high"]}
+            or policy.get("selection") != "user_fixed_after_observed_benchmark"
+            or policy.get("production_ready") is not False
+        ):
+            raise ArtifactRejected("decision_policy_mismatch")
         self.bundle = bundle
         self.metadata = metadata
         self.manifest = manifest
+        self.decision_thresholds = dict(policy["thresholds"])
+        self.decision_policy_version = policy["version"]
 
     def predict_cores(self, cores):
         values = probabilities(self.bundle, list(cores))

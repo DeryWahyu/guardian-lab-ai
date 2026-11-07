@@ -1,0 +1,82 @@
+{
+  "schema": "legitphish-v6-external-evaluation-20261105-2",
+  "declared_before_download_processing_and_scoring": false,
+  "dataset": {
+    "name": "LegitPhish",
+    "doi": "10.17632/hx4m73v2sf.2",
+    "version": 2,
+    "landing_page": "https://data.mendeley.com/datasets/hx4m73v2sf/2",
+    "file_list": "https://data.mendeley.com/public-api/datasets/hx4m73v2sf/files?folder_id=root&version=2",
+    "filename": "url_features_extracted1.csv",
+    "file_id": "0ed51e4d-d160-4047-b650-3f0801eea4aa",
+    "download_url": "https://data.mendeley.com/public-files/datasets/hx4m73v2sf/files/0ed51e4d-d160-4047-b650-3f0801eea4aa/file_downloaded",
+    "bytes": 8963838,
+    "sha256": "8685e7901c3b4e73eb43c106cb166cc932dd14f76960a032c713c2c32f09dbcd",
+    "license": "CC BY 4.0",
+    "publisher_label_mapping": {
+      "0": "phishing",
+      "1": "legitimate"
+    },
+    "project_label_mapping": {
+      "0": "benign",
+      "1": "phishing"
+    }
+  },
+  "scope": "historical_global_publisher_label_benchmark_not_Indonesia_gold_or_two_class_2026_temporal_holdout",
+  "artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "thresholds": {
+    "warning": 0.904713285827399,
+    "high": 0.9884744926236343
+  },
+  "curation_order": [
+    "Download repository bytes into memory only; verify publisher checksum and size before parsing.",
+    "Read URL and ClassLabel only; quarantine missing-label rows, reject nonmissing unknown labels, invert documented numeric 0/1 to project schema.",
+    "Use frozen v6 prepare_url in memory. Reject unsupported input and additional sensitive path assignments if experimental privacy guard would change the frozen core. Do not persist raw URLs or silently change representation.",
+    "Quarantine all scheme-free representations with conflicting publisher labels, then retain lowest original row number per consistent representation.",
+    "Exclude previously exposed canonical URL hashes, scheme-free representation hashes and domain/private-tenant hashes against the historical registry plus current v6 caches. Audit exclusion counts and class support.",
+    "Cap each remaining registered domain/private tenant at five rows, ordered by canonical digest without model scores or labels.",
+    "Freeze sanitized cache, counts, source/code/protocol and exposure hashes before any predictions. Keep all supported intake hashes in a separate local append-only exposure sidecar; never overwrite the historical registry."
+  ],
+  "scoring": "Original frozen v6 and both original thresholds only. No fitting, tuning, calibration fitting, threshold selection or candidate comparison.",
+  "minimum_for_binary_scoring": {
+    "benign": 1,
+    "phishing": 1
+  },
+  "uncertainty": {
+    "domain_bootstrap_repeats": 1000,
+    "seed": 20261105
+  },
+  "report": [
+    "raw and retained counts",
+    "unsupported/privacy/overlap exclusion by class",
+    "source label caveats",
+    "confusion counts",
+    "precision",
+    "recall",
+    "FPR",
+    "accuracy and balanced accuracy",
+    "Wilson and domain bootstrap intervals",
+    "calibration",
+    "structural slices and class/domain concentration",
+    "prediction parity",
+    "limitations"
+  ],
+  "limitations": [
+    "Publisher methods mix manual review and threat-feed matching; no claim that all rows had two independent human reviews.",
+    "The dataset includes URLhaus provenance; phishing-vs-malware scope and per-case labels remain unverified.",
+    "Shared upstream sources may cause overlap even though this release has not been evaluated by this run.",
+    "Domain-disjoint and hash-disjoint filtering does not establish campaign independence or correct labels.",
+    "Unknown collection timestamps and absence of verified Indonesia relevance prevent temporal/Indonesia claims.",
+    "Privacy heuristics are not proof of full anonymization; no raw targets are persisted or visited."
+  ],
+  "production_ready": false,
+  "qa_amendment_before_first_model_predictions": true,
+  "initial_protocol_sha256": "2f2608e7366507906ba79feaafc01da5efeb92324f00513c47aff8d9c56e0c07",
+  "qa_amendment": {
+    "reason": "Checksum-pinned release contains 101219 rows: 63678 class 0, 37540 class 1 and one URL without a label.",
+    "policy": "Quarantine missing-label rows without inferring or changing a label; reject any nonmissing value outside numeric 0/1.",
+    "inspection_report": "ml/reports/legitphish-label-schema-inspection.json",
+    "model_predictions_seen_before_amendment": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "audited_at_utc": "2026-11-06T04:10:11.570815+00:00",
+  "protocol_sha256": "7760a08b5025e52ad3ab59e146b28ef8ffd3ca69a92ca7909c05f40fa2c1c44e",
+  "raw_sha256_verified": true,
+  "rows": 450176,
+  "columns": [
+    "url",
+    "type"
+  ],
+  "model_predictions_performed": false,
+  "raw_persisted": false,
+  "label_column": "type",
+  "label_counts": {
+    "legitimate": 345738,
+    "phishing": 104438
+  }
+}

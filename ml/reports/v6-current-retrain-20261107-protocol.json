@@ -1,0 +1,70 @@
+{
+  "experiment": "v6-current-retrain-20261107",
+  "declared_before_fitting_and_replay_predictions": true,
+  "question": "Does the original v6 estimator/feature recipe improve when retrained on every currently authorized fitting partition?",
+  "original_artifact": "ml/runs/notebook-tfidf-logistic-v6/artifacts/url-core-logistic-v6.joblib",
+  "original_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "original_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "seed": 20261101,
+  "recipe": {
+    "estimators": "clone the exact original char/word/scaler/classifier/calibrator constructor parameters from the verified frozen v6 binary; never copy fitted coefficients, vocabulary, IDF or scaler statistics",
+    "char": "TF-IDF 2-5, max100000, min_df4, sublinear float32",
+    "word": "TF-IDF 1-2, max20000, min_df4, alphabetic tokens, sublinear float32",
+    "vocabulary_source_cap": 60000,
+    "vocabulary_fit_limit": 150000,
+    "feature_weights": {
+      "word": 0.7,
+      "numeric": 0.2
+    },
+    "classifier": "LogisticRegression liblinear C=2 max_iter=300 tol=0.0001 seed20261101; no warm start or hyperparameter search",
+    "classifier_weights": "sqrt(max_source_rows/source_rows), normalized to mean one; no equal-source/domain/class/difficulty weighting",
+    "calibration": "original sigmoid LogisticRegression C=1000 max_iter=200 seed20261101, unweighted rows on the same separate calibration partition for both new models"
+  },
+  "arms": {
+    "foundation_v6_recipe": "five original sources only, drawn from current curated fitting corpus; expected524699 rows",
+    "current_v6_recipe": "base616050 plus52334 authorized Stealth fitting plus3056 authorized ISCX fitting; expected671440 rows, eleven sources"
+  },
+  "foundation_sources": [
+    "phresh",
+    "phiusiil",
+    "deepurlbench",
+    "phishvn_core",
+    "mendeley2020"
+  ],
+  "common_development": "current targeted calibration50749, threshold58840, tune107094; identical for both new models, never augmented with test rows",
+  "representation": "versioned experiment path-assignment sanitizer applied consistently to fitting/calibration/threshold/tune/evaluation; preserve privacy already enforced by existing caches. This is NOT a byte-identical replay of original raw preprocessing; changes in privacy curation/calibration composition prevent attributing the direct frozen-v6 comparison to dataset size alone. Use foundation-vs-current matched recipe contrast for the data effect",
+  "curation": "only previously authorized fitting rows; verify domain/digest/representation separation before fitting; quarantine fitting conflicts and deterministic duplicates only, no automatic relabel; bind every input and output hash",
+  "thresholds": {
+    "warning": 0.01,
+    "high": 0.001
+  },
+  "threshold_rule": "original v6 source_threshold rule over every current threshold source, requiring both classes; choose warning and high exclusively on threshold partition",
+  "original_references": "report frozen v6 at its original thresholds, and the same frozen scores with a development-matched threshold-only policy. Never refit or modify the original binary/calibrator/serving policy",
+  "selection": "no winner/hyperparameter selection. Freeze both prescribed trained models and all policies before replaying historical tests",
+  "development_improvement_gate": "current vs matched foundation at warning: macro source recall gain>=0.02, no source recall loss>0.03, macro Brier increase<=0.001, no source Brier increase>0.005, no source FPR increase>0.0025; private/non-private slices with >=20 positives lose<=0.005 recall and >=100 benign gain<=0.0025 FPR",
+  "min_phishing_per_source_for_macro_recall": 20,
+  "evaluation": [
+    "observed_vendor",
+    "observed_phishtank_positive",
+    "observed_expanded",
+    "observed_pwd2021",
+    "observed_zenodo",
+    "observed_legitphish",
+    "observed_stealth",
+    "observed_phishbench",
+    "observed_ebbu",
+    "observed_iscx",
+    "observed_global"
+  ],
+  "evaluation_status": "all cohorts were observed previously; this is a controlled retraining experiment with historical regression replay, not a newly independent test or Indonesia gold",
+  "paired_comparisons": [
+    "current_minus_foundation",
+    "current_minus_frozen_native",
+    "current_minus_frozen_matched_policy"
+  ],
+  "bootstrap_repeats": 1000,
+  "evidence": "report class/domain counts, confusion matrix, accuracy only when two classes exist, precision, recall, FPR, Wilson and domain bootstrap, calibration, subgroup regressions, source and license limitations; positive-only feeds cannot supply FPR or traffic precision",
+  "reserved_data": "preserve every historical test and ALL169393 Mendeley reserved; Ebbu8849 remains external only; no new source intake or exposure deletion",
+  "production_ready": false,
+  "production_promotion_authorized": false
+}

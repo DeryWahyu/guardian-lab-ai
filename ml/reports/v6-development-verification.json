@@ -1,0 +1,22 @@
+{
+  "verified_at_utc": "2026-11-05T02:57:43.294219+00:00",
+  "tests": {
+    "tests": 90,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "report_sha256": "e5ab9f77affed148d6992a35504ff423ad76257119f4785a6e5ba3ebf2bd82f7",
+  "protocol_sha256": "64abd79585baf883084aae2714db2f71981fd91e735cab158b255e7b2f497acb",
+  "experiment_source_hashes_match": true,
+  "saved_candidate_sha256": "5ed22f7ed129325d0979b6ec1b7a95ffc079af8196bb1faba83529b680107143",
+  "saved_model_parity": {
+    "cases": 132,
+    "maximum_absolute_error": 0.0
+  },
+  "frozen_v6_original_confusion_counts_reproduced": true,
+  "frozen_v6_manifest_binary_metadata_sources_verified": true,
+  "exposure_registry_unchanged": true,
+  "production_ready": false,
+  "new_independent_test": false
+}

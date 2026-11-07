@@ -10,6 +10,8 @@
 !ml/src/**
 !ml/policies/
 !ml/policies/shadow-runtime-manifest.json
+!ml/policies/shadow-serving-manifest.json
+!ml/policies/shadow-gateway-manifest.json
 !ml/policies/url-qr-release-gates.json
 !ml/policies/v6-distribution.json
 !ml/provenance/

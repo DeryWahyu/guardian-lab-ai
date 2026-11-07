@@ -1,0 +1,22 @@
+{
+  "declared_before_new_source_predictions_and_classifier_fitting": true,
+  "release": "https://data.mendeley.com/datasets/2ctjcnm9kn/2",
+  "schema_audit": "ml/reports/v6-segmented-phishbench_external-schema-audit.json",
+  "schema_amendment": "The pinned retry passed integrity. The actual CSV names the target Results rather than label; aggregate inspection found 500 integer 0 and 500 integer 1. Map exactly the publisher's documented 0=legitimate, 1=phishing; no model predictions or per-case relabeling used. Preserve the earlier integrity failure and schema mismatch in the research history.",
+  "source": {
+    "filename": "Phishing Detection External Evaluation Dataset (1000 URLs).csv",
+    "download_url": "https://data.mendeley.com/public-files/datasets/2ctjcnm9kn/files/d7ac8833-833c-41e1-9662-09794abe1639/file_downloaded",
+    "bytes": 104074,
+    "sha256": "df25f4cae492c91cdca83887737a3d1672df71ebe8b581eeac21715a704b869f",
+    "rows": 1000,
+    "url_column": "URL",
+    "label_column": "Results",
+    "label_counts": {"0": 500, "1": 500},
+    "label_mapping": {"0": 0, "1": 1},
+    "license": "CC BY 4.0"
+  },
+  "curation": {"split_salt": "v6-segmented-phishbench-reserved:", "group_buckets": {"new_test": 100}, "max_rows_per_domain": 5},
+  "ordering": "Run after StealthPhisher exposure is registered so this independent publisher holdout excludes every supported StealthPhisher URL/domain, as well as all historical registries, sidecars and current v6 caches.",
+  "use": "All novel supported retained rows reserved for testing only; no fitting/tune/calibration/threshold or score-based sampling. Date/source labels are publisher evidence, not human gold or contemporary Indonesia traffic. Small/single-class support must be reported honestly.",
+  "production_ready": false
+}

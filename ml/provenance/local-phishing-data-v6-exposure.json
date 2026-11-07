@@ -1,0 +1,15 @@
+{
+  "input_filename": "phishing_data.csv",
+  "input_sha256": "d0cae5023a83e8325b4c5829e5556d5a7bcc149a9ed75555a972964b1360ccdf",
+  "supported_rows": 11241,
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/local-phishing-csv-v6-20261107.sqlite",
+    "sha256": "87828d519067c1f4affcaa097cccfd75b0267d8b03f044c72eb2cc86ac794e3c",
+    "url_hashes": 14873,
+    "domain_hashes": 5256,
+    "scope": "all_frozen_parser_supported_inputs_including_duplicates_conflicts_prior_overlap_and_scored_rows_hashes_only"
+  },
+  "purpose": "frozen_v6_local_external_evaluation_no_training_or_promotion",
+  "future_novelty_audits_must_include_sidecar": true,
+  "report": "ml/reports/local-phishing-data-v6-evaluation.json"
+}

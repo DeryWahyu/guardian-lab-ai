@@ -1,0 +1,58 @@
+{
+  "completed_at_utc": "2026-11-05T17:06:09.778475+00:00",
+  "sources": {
+    "phishbench_external": {
+      "asset": {
+        "release": "https://data.mendeley.com/datasets/2ctjcnm9kn/2",
+        "filename": "Phishing Detection External Evaluation Dataset (1000 URLs).csv",
+        "download_url": "https://data.mendeley.com/public-files/datasets/2ctjcnm9kn/files/d7ac8833-833c-41e1-9662-09794abe1639/file_downloaded",
+        "bytes": 104074,
+        "sha256": "df25f4cae492c91cdca83887737a3d1672df71ebe8b581eeac21715a704b869f",
+        "publisher_claimed_rows": 1000,
+        "publisher_claimed_benign": 500,
+        "publisher_claimed_phishing": 500,
+        "license": "CC BY 4.0"
+      },
+      "rows": 1000,
+      "columns": [
+        "URL",
+        "Using the IP Address",
+        "Long URL",
+        "URL Shortening Services",
+        "URL having @ Symbol",
+        "Redirecting using //",
+        "Prefix/Suffix with - in Domain",
+        "Sub Domain and Multi Sub Domains",
+        "HTTPS",
+        "Domain Registration Length",
+        "Favicon",
+        "HTTPS Token in Domain",
+        "Request URL",
+        "URL of Anchor",
+        "Links in Meta/Script/Link Tags",
+        "Server Form Handler (SFH)",
+        "Submitting to Email",
+        "Abnormal URL",
+        "Website Forwarding",
+        "Status Bar Customization",
+        "Using Pop-up Window",
+        "Age of Domain",
+        "DNS Record",
+        "Website Traffic",
+        "PageRank",
+        "Google Index",
+        "Number of Links Pointing to Page",
+        "Statistical-Reports Based Feature",
+        "Results"
+      ],
+      "url_columns": [
+        "URL"
+      ],
+      "label_counts": {},
+      "url_only_eligible": false,
+      "model_predictions_performed": false,
+      "raw_urls_persisted": false
+    }
+  },
+  "production_ready": false
+}

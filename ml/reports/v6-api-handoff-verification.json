@@ -1,0 +1,76 @@
+{
+  "verified_at_utc": "2026-11-07T09:46:55.054451+00:00",
+  "scope": "source_handoff_and_private_shadow_api_container_no_public_deployment",
+  "branch": "feat/v6-api-handoff-20261107",
+  "tested_source_commit": "908721f870b666f59d011d1230c447028f63898d",
+  "source_sha256": {
+    "Dockerfile": "c0f83d49ac4bc8c42bbd996d14932d1a2e478c915bb014579331c6d2725ed216",
+    ".dockerignore": "38747c08022f069f65d06046adb5b39e0293113ccd0f5ea2d2f6880c8d9ae850",
+    "docker/healthcheck.py": "5e3cd3d3c48baa3a94ab0a6f31cf17b6cc9fb6c1ad9a366ddd80fea3c3956e22",
+    "ml/policies/shadow-serving-manifest.json": "296ab772b708d56df65cf1c96bd0e0aa6ccf3f79aa2e21e9b3236d82ffedb20e",
+    "ml/policies/shadow-gateway-manifest.json": "27039f05a632372af22418a309d5aa806eb6862cb73d9167a3c21c52de2638da"
+  },
+  "windows_existing_artifact_suite": {
+    "passed": 290,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "clean_linux_checkout_ci": {
+    "passed": 245,
+    "skipped": 45,
+    "failures": 0,
+    "errors": 0,
+    "dependency_profile": "ml[test,dev,serve]",
+    "private_datasets_and_models_in_checkout": false,
+    "skip_reason": "Original model binaries and private research caches are absent from the clean Git checkout. The distributed image was tested separately with its installed official v6 artifact."
+  },
+  "ruff_check": "passed",
+  "ruff_format": "100 files already formatted",
+  "docker_build": {
+    "passed": true,
+    "image_tag": "guardian-lab-ai:v6-handoff-20261107",
+    "local_image_id": "sha256:84f4fcabe3ac8b219899ab86155a2f21657fe682afef9f0430fcb51a375e2d15",
+    "artifact_source": "checksum_verified_original_GitHub_release",
+    "host_data_environment_and_binaries_copied": false
+  },
+  "docker_api": {
+    "container_uid": 10001,
+    "model_available": true,
+    "mode": "shadow",
+    "production_ready": false,
+    "active_thresholds": {
+      "warning": 0.5,
+      "high": 0.9884744926236343
+    },
+    "decision_policy_version": "v6-user-warning-0.5-20261107",
+    "synthetic_reference_cases": 62,
+    "maximum_reference_probability_delta": 8.326672684688674e-17,
+    "url_qr_parity": true,
+    "warning_0p5_medium_case": true,
+    "unsupported_has_no_score_or_band": true,
+    "response_privacy_verified": true,
+    "gateway_manifest_verified": true,
+    "network": "none",
+    "read_only_rootfs": true,
+    "limits": {
+      "memory": "512m",
+      "cpus": 1,
+      "pids": 128
+    },
+    "target_network_access": false
+  },
+  "git_content_audit": {
+    "dataset_files": 0,
+    "model_binaries": 0,
+    "environments_or_exposure_databases": 0,
+    "credential_pattern_findings": 0
+  },
+  "production_ready": false,
+  "public_api_deployed": false,
+  "limitations": [
+    "The image was tested locally on Linux/amd64 through Docker Desktop; this is not a production SLA.",
+    "The web adapter must preserve the additional policy metadata and provide Bearer authentication if it switches from primary service to the optional gateway.",
+    "Research scripts and historical protocols are published for review; reproducing historical dataset experiments still requires private local data not included in Git."
+  ]
+}

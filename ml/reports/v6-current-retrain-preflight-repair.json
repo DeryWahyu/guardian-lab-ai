@@ -1,0 +1,12 @@
+{
+  "recorded_at_utc": "2026-11-07T03:01:25.906879+00:00",
+  "stage": "before_any_estimator_fit",
+  "archive": "ml/runs/v6-current-retrain-preflight-20261107",
+  "prior_data_freeze_sha256": "935e3d8b73876a40c056492f3a2e3af64125fa56f5cc14a854f9cf7ee0146ecc",
+  "prior_runner_sha256": "aaac0949ca5515f44388023a3c3f8697b01aafd0fc6c7c7abbaebd7cc5a50159",
+  "fixed_runner_sha256": "7d27b4540a3be68a3e242b8eb540e1e3e6c5499d177cb075df5f3c7537a1cab5",
+  "repair": "source_threshold returns a full policy mapping; unpack it rather than nesting the mapping inside the numeric threshold field.",
+  "models_fitted_before_repair": 0,
+  "historical_test_predictions_before_repair": 0,
+  "regression_test": "test_threshold_policy_preserves_original_rule_without_nested_thresholds"
+}

@@ -1,0 +1,16 @@
+{
+  "schema": "v6-expanded-matched-fpr-control-20261105-1",
+  "status": "additional_analysis_declared_after_first_candidate_tune_before_any_final_test_predictions",
+  "reason": "Expanded tune sources change the most restrictive source FPR constraint. Compare classification ability at the same declared development FPR budgets in addition to the original v6 serving thresholds.",
+  "control_model": "original_frozen_v6_encoder_classifier_calibrator",
+  "threshold_selection_partition": "expanded threshold partition only",
+  "warning_budget_per_supported_source": 0.01,
+  "high_budget_per_supported_source": 0.001,
+  "minimum_benign_per_source": 100,
+  "evaluation": "same prospective domain holdout and all same observed regression cohorts as main experiment",
+  "thresholds_frozen_before_final_test": true,
+  "original_v6_thresholds_unchanged_and_reported_separately": true,
+  "candidate_selection_changed": false,
+  "fitting_or_recalibration": false,
+  "production_ready": false
+}

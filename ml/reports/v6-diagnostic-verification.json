@@ -1,0 +1,26 @@
+{
+  "tests": {
+    "tests": 99,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "runtime_integrity_verified": true,
+  "source_hashes_verified": true,
+  "protocol_verified": true,
+  "registry_unchanged": true,
+  "files": {
+    "ml/reports/v6-diagnostic-evaluation.json": "c38ba774108829f176c7d7531a0872054db41718dedc83b59da26688b878189d",
+    "ml/reports/v6-diagnostic-evaluation.md": "7e9369a57408fa04c32ebc7b6189ac622aefb2720b468a2c1255abc44fe8f1fb",
+    "ml/reports/v6-diagnostic-evaluation.png": "1c94c74caf1ec16f2d611a49e512c12cb619b3f051fb0f82a199d8f938eaa88e",
+    "ml/reports/v6-label-conflict-provenance.json": "7b49cb3a04778082cdffe3ba62c469f8cfd6142fa4a7763a559be7de5481b5a2",
+    "ml/policies/v6-indonesia-validation-protocol.json": "5f255385107ede37f883215b15beb28c08c1e74f53f0f66b7d6a9a73446a3aac"
+  },
+  "human_review_and_indonesia_validation": "pending_real_evidence",
+  "production_ready": false,
+  "blind_review_rows_each": 66,
+  "local_review_queue_hashes": {
+    "conflict-reviewer-a.csv": "7349ca0a8317be24b9433452796685865fe186bf8d0e4dd88d3ffad56a457da8",
+    "conflict-reviewer-b.csv": "7349ca0a8317be24b9433452796685865fe186bf8d0e4dd88d3ffad56a457da8"
+  }
+}

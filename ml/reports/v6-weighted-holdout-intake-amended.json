@@ -1,0 +1,50 @@
+{
+  "declared_before_tabular_row_parsing_or_predictions": true,
+  "source": "Phishing and Legitimate Websites Dataset, Zenodo V2",
+  "release": "https://zenodo.org/records/23477065",
+  "license": "CC BY 4.0",
+  "publication_date": "2026-10-19",
+  "collection_dates": "not documented in selected URL table; do not infer observation date from publication",
+  "asset": {
+    "download_url": "https://zenodo.org/api/records/23477065/files/Phishing%20dataset%20V2.0.zip/content",
+    "bytes": 4476190126,
+    "publisher_whole_archive_md5": "6177616951de95ee82a3aa30f4970ada",
+    "whole_archive_md5_recomputed": false,
+    "member": {
+      "name": "Phishing dataset/url/merged_features_final.csv",
+      "bytes": 6779081,
+      "compressed_bytes": 2076213,
+      "crc32": 2056700931
+    },
+    "member_sha256": "83bca273fd7f3a778d3c83f0cba2085998231c258081c37253f9f2f56adf06ac"
+  },
+  "download": "bounded HTTPS Range requests to zenodo.org only; ZIP64 directory and one CSV member only; reject full HTTP 200 responses; no image/HTML extraction or target requests",
+  "csv": {
+    "delimiter": ";",
+    "url_column": "url",
+    "label_column": "label"
+  },
+  "published_class_counts": {
+    "phishing": 31641,
+    "benign": 28359
+  },
+  "label_handling": "Preserve publisher legitimate/phishing meaning with the explicit project mapping; require exact published class totals; no case relabeling or human verification claimed.",
+  "novelty": "snapshot historical registry, every sidecar and current v6 cache before adding own sidecar; identity-only exposure flags frozen at intake; preserve all supported sanitized intake in own sidecar including reserved holdout",
+  "max_rows_per_domain": 5,
+  "all_retained_novel_rows_reserved_for_final_evaluation": true,
+  "dataset_rows_sent_to_llm": false,
+  "raw_urls_persisted": false,
+  "human_gold": false,
+  "Indonesia_gold": false,
+  "production_ready": false,
+  "schema_amendment_before_first_prediction": {
+    "parent_protocol_sha256": "983a5a7fee27e41ca0f9aeeacb387da8d594078591d5c0f922a0455844891f80",
+    "inspection": "ml/reports/v6-weighted-holdout-schema-inspection.json",
+    "inspection_sha256": "fca7a43b1526ee9a711c2fc1b249e733f4f4aaf1a5efa37241f4811416ccb8c1",
+    "reason": "Actual selected CSV uses explicit legitimate/phishing text labels, not a numeric enum. Exact class totals match the publisher. No model predictions have occurred."
+  },
+  "explicit_publisher_mapping": {
+    "legitimate": 0,
+    "phishing": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "control": "previous_frozen_expanded_domain_C2",
+  "timing": "supplement declared while targeted source-ablation training is running, before final targeted test scoring; does not change candidate grid or selection",
+  "comparison": "retain the previous expanded candidate, classifier/calibrator and original warning threshold unchanged",
+  "purpose": "the new research candidate must be compared with the last research candidate as well as active frozen v6",
+  "new_pwd_holdout": "score previous artifact only after targeted selection is frozen; pair with selected targeted candidate at its frozen strict per-source threshold",
+  "observed_cohorts": "reuse previous aggregate metrics only after binding the original report, artifact and cohort-file hashes; these are observed regression benchmarks",
+  "no_new_fitting_or_threshold_selection": true,
+  "no_production_promotion": true,
+  "domain_bootstrap_repeats": 1000,
+  "seed": 20261105
+}

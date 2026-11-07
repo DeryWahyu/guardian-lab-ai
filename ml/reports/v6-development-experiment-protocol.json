@@ -1,0 +1,54 @@
+{
+  "protocol_version": "v6-development-20261105-1",
+  "declared_date": "2026-11-05",
+  "status": "declared_before_candidate_fitting_and_benchmark_scoring",
+  "scope": "three_isolated_logistic_regression_development_candidates_not_a_new_final_test",
+  "seed": 20261105,
+  "candidates": [
+    {"name": "privacy_retrain", "weighting": "source_sqrt", "C": 2},
+    {"name": "source_class_balance", "weighting": "source_class", "C": 2},
+    {"name": "hard_segments", "weighting": "hard_segments", "C": 2}
+  ],
+  "representation": "url-core-path-assignment-redacted-experiment-1",
+  "shared_changes": [
+    "Versioned experimental sanitizer redacts short sensitive path assignments including percent-encoded keys; frozen runtime is unchanged.",
+    "Scheme-free representation conflicts are quarantined using fit labels only; consistent fit duplicates retain the smallest original digest. No automatic relabeling.",
+    "Refit original v6 TF-IDF and numeric scaling recipe using curated fit rows only. Shared encoder for all three candidates.",
+    "Source-square-root weights are normalized to mean one. Source-class variant additionally equalizes class mass within each source. Hard-segments variant doubles weights for fit phishing URLs over 120 scheme-free characters and fit benign private-hosting tenants."
+  ],
+  "classifier": {"solver": "liblinear", "max_iter": 300, "tol": 0.0001},
+  "vocabulary": {"source_cap": 60000, "total_cap": 150000, "char_features": 100000, "word_features": 20000, "min_df": 4},
+  "selection": {
+    "partition": "tune",
+    "objective": "lexicographic_macro_source_recall_then_minimum_source_recall_then_AP_at_1pct_empirical_FPR_per_source",
+    "improvement_requirement": "macro recall >= frozen v6 tune control + 0.02 and no source recall delta below -0.05",
+    "fallback": "evaluate best development candidate as exploratory even if improvement requirement fails; never promote automatically",
+    "tie_break": "candidate declaration order",
+    "test_metrics_used": false
+  },
+  "calibration": {"partition": "calibration", "method": "sigmoid_LogisticRegression", "C": 1000, "max_iter": 200, "require_positive_slope": true},
+  "thresholds": {"partition": "threshold", "warning_fpr_budget_per_source": 0.01, "high_fpr_budget_per_source": 0.001, "selection": "lowest threshold satisfying all source empirical negative budgets; ties conservative"},
+  "development": {"filename": "development-v6.parquet", "sha256": "b0c867f9ab0c813d1498908d1cd43d731b46fffe83f8d5836e0e5f2b319097a8", "rows": 703604},
+  "benchmarks": {
+    "vendor": {"filename": "deepurlbench-holdout-v6.parquet", "sha256": "a9b8002a5734ed4faf63acfda23cd722511a79a192de4cdbcf0dd6bd2c8df3a2", "rows": 20000},
+    "community_positive": {"filename": "phishtank-2026-v6.parquet", "sha256": "623bb330743d0ccf0969e8427938704d80f4bdc067007a4d18aba3cf4cc96b92", "rows": 9269}
+  },
+  "benchmark_policy": "After selecting and saving candidate, score it and original frozen v6 once on both already-observed benchmarks. Report all regressions without further candidate selection or tuning.",
+  "uncertainty": {"domain_bootstrap_repeats": 1000, "paired_delta_repeats": 1000, "seed": 20261105},
+  "segments": ["scheme_free_length_gt_120", "private_hosting", "punycode"],
+  "frozen_artifact_sha256": "f332bcbf7665955677e17daa73c487a7e1572a18d7f465b87e73caaa72e06319",
+  "frozen_metadata_sha256": "4d2e6955af24d0507abce7bdfb65c7af7637183d3e26af75beaaa733846a2fb5",
+  "runtime_manifest_sha256": "9036818d932873232707b8f800bf3a3d7920d959a56f7073f6486dd0965f4f4a",
+  "limitations": [
+    "Existing development and benchmarks have prior exposure; this run cannot establish new independent generalization or Indonesian validation.",
+    "Labels retain publisher provenance and are not new human-reviewed gold labels.",
+    "Historical benign and recent positive-only feed remain separate distributions; positive-only FPR, precision and binary accuracy are unavailable.",
+    "Sanitizer remains heuristic and does not establish full anonymization.",
+    "Research noncommercial use only; API stays frozen v6 shadow with production_ready=false."
+  ],
+  "method_references": [
+    "https://scikit-learn.org/stable/common_pitfalls.html#data-leakage",
+    "https://scikit-learn.org/stable/modules/classification_threshold.html",
+    "https://scikit-learn.org/stable/modules/calibration.html"
+  ]
+}

@@ -47,7 +47,7 @@ class ShadowPredictor:
                 geek=GeekView(),
             )
         metadata = self.artifact.metadata
-        thresholds = metadata["thresholds"]
+        thresholds = self.artifact.decision_thresholds
         band = (
             "HIGH"
             if metadata["high_enabled"] and probability >= thresholds["high"]
@@ -96,6 +96,8 @@ class ShadowPredictor:
                 artifact_sha256=self.artifact.manifest["bundle_sha256"],
                 feature_schema=SCHEMA_VERSION,
                 thresholds=thresholds,
+                frozen_thresholds=metadata["thresholds"],
+                decision_policy_version=self.artifact.decision_policy_version,
                 context_flags=flags,
             ),
         )

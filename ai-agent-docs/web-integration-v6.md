@@ -2,17 +2,20 @@
 
 Kode dan hasil evaluasi ada di repository [DeryWahyu/guardian-lab-ai](https://github.com/DeryWahyu/guardian-lab-ai). Binary model tersedia terpisah pada [GitHub Release v6 shadow](https://github.com/DeryWahyu/guardian-lab-ai/releases/tag/v6-shadow-20261103), bersama metadata pembekuan asli. Dataset, environment dan arsip lokal tidak dibagikan.
 
+Untuk checkout yang sudah memuat gateway baru, integrasi backend disarankan melalui [gateway dengan autentikasi/kuota](v6-shadow-gateway.md). Source gateway saat ini berada pada branch pengembangan; artifact model tetap memakai release v6 yang sama. Langkah di bawah mempertahankan primary service asli untuk penggunaan internal langsung. Gateway memakai port 8002, memerlukan secret backend dan header Bearer, serta tetap `production_ready=false`.
+
 ## 1. Pasang layanan Python 3.12
 
-Dari terminal di komputer/server pengembang:
+Dari terminal di komputer/server pengembang. Branch handoff di bawah memuat warning 0,5, gateway serta hasil evaluasi terbaru. Untuk checkout yang sudah ada, jalankan `git fetch origin` lalu beralih ke `feat/v6-api-handoff-20261107` tanpa menimpa perubahan lokal.
 
 ```bash
-git clone https://github.com/DeryWahyu/guardian-lab-ai.git
+git clone --branch feat/v6-api-handoff-20261107 https://github.com/DeryWahyu/guardian-lab-ai.git
 cd guardian-lab-ai
 python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e "./ml[serve]"
 python scripts/install_v6_model.py
+python scripts/validate_v6.py
 python -m uvicorn guardian_ml.shadow_service:create_app --factory --host 127.0.0.1 --port 8001 --workers 1 --no-access-log
 ```
 
@@ -20,9 +23,13 @@ Di Windows gunakan `python -m venv .venv` dan `.venv\Scripts\Activate.ps1`, lalu
 
 Jika ZIP sudah diunduh melalui browser, gunakan `python scripts/install_v6_model.py --archive "PATH/guardian-lab-v6-shadow.zip"`. Tidak perlu training ulang atau mengunduh dataset. `/health` harus menampilkan `model_available=true`; `production_ready=false` tetap merupakan status yang benar.
 
+Untuk menjalankan gateway, ikuti perintah pada [panduan gateway](v6-shadow-gateway.md), lalu gunakan `GUARDIAN_ML_URL=http://127.0.0.1:8002` dan key server `GUARDIAN_SHADOW_GATEWAY_KEY`. Gateway menampung primary service dalam proses yang sama; port primary tanpa gateway tidak perlu dibuka untuk integrasi ini.
+
 ### Docker bersama Guardian Lab
 
 Letakkan kedua checkout sebagai direktori sejajar `guardian-lab` dan `guardian-lab-ai`. Dari repo web, Compose `docker/docker-compose.dev.yml` membangun layanan `ml` menggunakan Dockerfile repo ini bersama Next dev, MySQL dan sandbox. Jalankan `docker compose --env-file .env -f docker/docker-compose.dev.yml up --build --watch` dari root repo web. Build memasang dependency terpin dan mengunduh paket v6 melalui installer resmi; build berhenti jika checksum atau guard ditolak. Konteks build hanya mengizinkan sumber runtime, policy, provenance, laporan agregat yang diperlukan health, serta installer. Dataset, environment, snapshot lokal dan binary dari host tidak disalin.
+
+Nama folder harus cocok dengan `build.context` dan jalur Watch Compose. Workspace bernama `guardian_lab_ai` tidak otomatis cocok dengan `../../guardian-lab-ai`; gunakan nama checkout di atas atau sesuaikan dua jalur tersebut di konfigurasi web. Di repo AI sendiri, `docker build -t guardian-lab-ai:v6 .` membangun image. Untuk demo lokal terpisah: `docker run --rm --read-only --cap-drop ALL --security-opt no-new-privileges:true --tmpfs /tmp:rw,noexec,nosuid,size=16m -p 127.0.0.1:8001:8001 guardian-lab-ai:v6`. API ini memakai primary service privat tanpa Bearer; gateway opsional menggunakan key serta perintah berbeda di panduannya.
 
 Model berjalan sebagai user non-root, satu worker, pada port internal 8001 tanpa port host atau access log. Healthcheck memeriksa ketersediaan model dalam mode shadow, bukan promosi produksi. Runtime tetap read-only dan hanya terhubung ke jaringan model privat; unduhan artifact hanya terjadi saat build. Compose mengatur backend Next ke `GUARDIAN_ML_URL=http://ml:8001`. Persiapan database, jaringan broker, perintah Compose, dan diagnosis aplikasi dijelaskan pada `ai-agent-docs/deployment.md` milik repo web.
 
@@ -35,6 +42,8 @@ Compose Watch memicu rebuild model untuk perubahan runtime yang diizinkan `.dock
 Simpan alamat layanan sebagai konfigurasi server, misalnya `GUARDIAN_ML_URL=http://127.0.0.1:8001`. Frontend memanggil backend web milik aplikasi, lalu backend memanggil model. Alamat layanan tidak berasal dari input pengguna. Jika server terpisah, gunakan jaringan privat dan proteksi gateway sesuai lingkungan pengembang.
 
 Implementasi Guardian Lab berada pada `lib/analysis/guardian-ml.ts`, `lib/investigations/receive-url.ts`, dan kontrak Zod `lib/validations/guardian-ml.ts` di repo web. Kedua jenis input memakai satu lifecycle investigasi: penerimaan serta `PROCESSING` ditransaksikan terlebih dahulu, panggilan model berlangsung di luar transaksi database, kemudian hasil terminal disimpan pada ID yang sama. Respons lengkap tervalidasi disimpan pada `technicalEvidence.urlModel`, termasuk skor asli, threshold, status riset, dan metadata artifact. Skor integer 0–100 hanya pembulatan untuk tampilan; kategori tetap mengikuti skor asli.
+
+Kontrak web perlu mempertahankan `geek.decision_policy_version` dan `geek.frozen_thresholds` selain threshold aktif agar kebijakan baru dapat ditelusuri di riwayat. Skema Zod lama membuang field yang belum dideklarasikan, meskipun kategori dari `geek.thresholds` tetap dapat dibaca. Backend yang memakai gateway harus menambahkan header Bearer sesuai panduan; adapter primary service tanpa header tersebut tidak dapat langsung dipindahkan ke port gateway.
 
 Sebelum pengiriman maupun penyimpanan, backend web menyaring URL melalui PII Scrubber dan sanitizer khusus yang menangani nilai sensitif path serta menghapus isi query/fragment. Keberadaan query/fragment dipertahankan sebagai penanda konteks. Path tanpa redaksi mempertahankan encoding aslinya. Target yang sudah dinonaktifkan atau didekode untuk tampilan tidak dipakai sebagai input model. Ini dapat mengubah skor untuk input sensitif, tetapi tidak mengubah preprocessing/representasi beku Python; sanitizer tetap heuristik. URL yang tidak dapat disanitasi ditolak tanpa menyimpan target asli.
 
@@ -61,11 +70,13 @@ export async function checkUrl(url, inputType = "URL") {
 
 Caller perlu menangani timeout/kegagalan jaringan sebagai unavailable/perlu verifikasi. Jangan mencatat URL, request body atau credential di log. Untuk QR, caller mendekode gambarnya terlebih dahulu dan mengirim URL dengan `input_type="QR"`. Payload QR non-URL tidak diberi hasil aman.
 
+Contoh `fetch` di atas adalah pemanggilan langsung primary service internal. Untuk gateway, gunakan contoh server-side pada [panduan gateway](v6-shadow-gateway.md), dengan `Authorization: Bearer <key>` dan timeout client yang lebih besar daripada deadline gateway. HTTP 401/408/413/429/503/504 tidak menjadi LOW atau score nol. Key hanya disimpan pada backend; monitoring dan log tidak menyimpan body/URL/credential.
+
 Contoh di atas hanya menunjukkan pemanggilan dasar. Adapter web aktif juga membatasi respons stream aktual 64 KiB, memvalidasi schema, provenance, pasangan HTTP/status dan konsistensi score/band/threshold. Kegagalan model atau respons rusak menghasilkan rekaman `UNAVAILABLE` tanpa skor; unsupported menghasilkan `FAILED` dengan ID. Web mengembalikan 201 setelah rekaman hasil selesai/unavailable tersimpan, atau 422 untuk input unsupported. Tidak ada retry otomatis atau pemrosesan ulang rekaman lama.
 
 ## 3. Tampilkan arti hasil dengan benar
 
-- `risk_band` adalah LOW, MEDIUM atau HIGH berdasarkan threshold asli, bukan keputusan aman terkonfirmasi.
+- `risk_band` adalah LOW, MEDIUM atau HIGH berdasarkan threshold layanan aktif: warning 0,5 dan HIGH 0,9884744926236343. Gunakan `geek.thresholds`; `geek.frozen_thresholds` menyimpan ambang historis. Ini bukan keputusan aman terkonfirmasi. Lihat [kebijakan 7 November 2026](v6-serving-threshold-0p5.md).
 - Gunakan `human.title`, `human.explanation` dan `human.recommended_action` untuk tampilan biasa; `geek` menyimpan versi, scope dan threshold.
 - LOW tetap berarti perlu verifikasi. HTTP 422/503 dan timeout tidak diubah menjadi LOW, skor nol atau SAFE.
 - Respons tidak menggemakan URL. `model_score` merupakan skor kalibrasi riset, bukan probabilitas trafik Indonesia.

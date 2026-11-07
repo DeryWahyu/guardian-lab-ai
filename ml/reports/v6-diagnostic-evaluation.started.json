@@ -1,0 +1,12 @@
+{
+  "started_at_utc": "2026-11-05T03:34:18.744412+00:00",
+  "protocol_sha256": "6719cd55ae29dc00a88cbbe1474c69bcc7299b305113abe4d5a0bba07fc15ea8",
+  "source_hashes": {
+    "scripts/evaluate_v6_diagnostics.py": "cdaecc767ef3ac1707a0c67f14cc69b3c0281f1ef19b00c44ff1d727be13ca93",
+    "scripts/v6_diagnostic_support.py": "42bd7cdcd7d495d9fae0317b4bf7e85293fee7e1435fa97e9da7a81e92969572",
+    "scripts/v6_development_support.py": "4b9d6f2067005cb9cd7d9c2a658b5bb0a1567842d52d98636a27231820e316ad",
+    "scripts/experiment_v6_development.py": "d98195827bdde039be9ac0c20506c9ada86f3ce06b81f41207071b86804b7d8e",
+    "scripts/validate_v6.py": "e14dc786f0079745866b5f78cd7b47ede611fcbec16114e83bf50a974683567d"
+  },
+  "registry_sha256": "462f644545d68b38b5ca5d9403c8cad085c4c01c520fb5c63b120b43410ff052"
+}

@@ -1,0 +1,34 @@
+{
+  "asset_sha256": "8685e7901c3b4e73eb43c106cb166cc932dd14f76960a032c713c2c32f09dbcd",
+  "raw_rows": 101219,
+  "columns": [
+    "URL",
+    "url_length",
+    "has_ip_address",
+    "dot_count",
+    "https_flag",
+    "url_entropy",
+    "token_count",
+    "subdomain_count",
+    "query_param_count",
+    "tld_length",
+    "path_length",
+    "has_hyphen_in_domain",
+    "number_of_digits",
+    "tld_popularity",
+    "suspicious_file_extension",
+    "domain_name_length",
+    "percentage_numeric_chars",
+    "ClassLabel"
+  ],
+  "numeric_label_counts": {
+    "0.0": 63678,
+    "1.0": 37540
+  },
+  "missing_label_rows": 1,
+  "nonnumeric_nonmissing_label_rows": 0,
+  "entirely_empty_rows": 0,
+  "missing_url_rows": 0,
+  "both_url_and_label_missing_rows": 0,
+  "model_predictions_performed": false
+}

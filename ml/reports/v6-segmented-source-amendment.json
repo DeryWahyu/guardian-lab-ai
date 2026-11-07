@@ -1,0 +1,38 @@
+{
+  "parent_protocol": "ml/reports/v6-segmented-20261105-protocol.json",
+  "parent_sha256": "6de6c20759e293f5d4fdfcb38f3e50edc45859b9ddc1ada51de2f4159281dc44",
+  "declared_before_all_classifier_fitting_and_new_source_predictions": true,
+  "reason": "The pinned StealthPhisher schema inspection found raw URL and literal Phishing/Legitimate labels with exact publisher totals. Admit publisher-label research data with limitations; add a separately identified augmentation arm while retaining the original three fixed-data feature arms. A second public release failed its integrity pin and is not admitted.",
+  "source": {
+    "release": "https://data.mendeley.com/datasets/m2479kmybx/1",
+    "filename": "StealthPhisher2025.csv",
+    "download_url": "https://data.mendeley.com/public-files/datasets/m2479kmybx/files/71fe498a-ad6f-4204-b4ad-5d8d4d1ca0f3/file_downloaded",
+    "bytes": 93319036,
+    "sha256": "e6d9cb9a8ef87a8bdab24c0f4e22dfd5c77acc8fe7b5cb190fa62c0b5aaa25c8",
+    "rows": 336749,
+    "label_counts": {"Phishing": 175806, "Legitimate": 160943},
+    "label_mapping": {"Phishing": 1, "Legitimate": 0},
+    "url_column": "URL",
+    "label_column": "Label",
+    "license": "CC BY 4.0",
+    "provenance_limits": "Publisher says PhishTank/spam repositories/user submissions; per-case review and observation dates are not established. Do not claim verified human labels, temporal 2026 or Indonesia provenance. Only URL and literal label are used; HTML and existing feature columns are discarded."
+  },
+  "curation": {
+    "split_salt": "v6-segmented-stealthphisher:",
+    "group_buckets": {"fit": 60, "new_test": 100},
+    "max_rows_per_domain": 5,
+    "exposure": "Check historical registry, every sidecar and current v6 caches; quarantine within-representation conflicts, drop representation duplicates and all prior URL/domain exposure before splitting by domain. Record all supported sanitized inputs, including exclusions, in a new sidecar."
+  },
+  "augmentation_arm": {
+    "name": "segmented_text_structure_augmented",
+    "feature_mode": "segmented_text_structure",
+    "fit": "616050 original fitting rows plus only novel new-source fit groups; new-source new_test rows never enter fitting, calibration, threshold or tune",
+    "minimum_new_fit_per_class": 100,
+    "encoder": "Same encoder fitted only on the original 616050 fit; new-source fitting rows are transformed without refitting vocabulary/scaler",
+    "weights": "Same source_equal_domain_sqrt definition over the combined fit; do not mine test errors or relabel",
+    "calibrators": ["source_equal_sigmoid", "source_equal_beta"],
+    "selection": "Original common tune, calibration and threshold partitions remain fixed; parent regression gates apply unchanged to the nine development sources. The new publisher is not represented in these calibration partitions, which is a domain-shift limitation."
+  },
+  "test_interpretation": "Held-out novel domains from a publisher also used in the separately declared augmentation arm; not an independent-source benchmark for that arm, not independently human verified. All arms and policies freeze before test. All prior test cohorts, including Zenodo websites V2, remain observed regression checks.",
+  "production_ready": false
+}

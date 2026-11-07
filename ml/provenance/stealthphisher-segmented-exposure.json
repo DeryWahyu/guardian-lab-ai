@@ -1,0 +1,12 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/stealthphisher-segmented-20261105.sqlite",
+    "sha256": "7693973bd6f89d25189131e60f297e411c0b4a8cd73a0617dce876af2b4db610",
+    "url_hashes": 591399,
+    "domain_hashes": 222331,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "intake_freeze_sha256": "2f6f7761be7dd1db5428e6fef6d6c1b96d4fd5b55c4d841d3ddf857cd5dfc864",
+  "scope": "all supported sanitized publisher inputs, including exclusions, fit and reserved holdout",
+  "future_novelty_audits_must_include": true
+}

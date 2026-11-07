@@ -1,0 +1,13 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/mendeley-vfs-indonesia-external-20261106.sqlite",
+    "sha256": "748aa50929756a0a8c6884b00a01d264f321c984a27d73bf30da2ec232661298",
+    "url_hashes": 775433,
+    "domain_hashes": 139309,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "intake_freeze_path": "ml/data/v6-indonesia-external-20261106/frozen.json",
+  "intake_freeze_sha256": "86eca8bfa572edfd53d584df88c17c6b3e0e6db923bdb6bf158abbfc29014ca2",
+  "scope": "all sanitized supported inputs, including excluded and all reserved test rows",
+  "future_novelty_audits_must_include": true
+}

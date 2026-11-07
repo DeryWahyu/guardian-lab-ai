@@ -1,0 +1,12 @@
+{
+  "sidecar": {
+    "path": "ml/data/exposure-sidecars/phishbench-segmented-20261105.sqlite",
+    "sha256": "c9b0308c9f897da0674abf32bb63e1d820e9145e655c1f3c5385a30873e4819c",
+    "url_hashes": 1849,
+    "domain_hashes": 807,
+    "scope": "all_supported_privacy_screened_intake_before_curation_not_only_scored_rows"
+  },
+  "intake_freeze_sha256": "55f97b6ab6639d08e3dc77d620bcbd3e37cdb44cb7a4886d4ab5154cdaccc1e7",
+  "scope": "all supported sanitized publisher inputs, including excluded and reserved test rows",
+  "future_novelty_audits_must_include": true
+}

@@ -1,0 +1,291 @@
+{
+  "verified_at_utc": "2026-11-07T02:43:31.902584+00:00",
+  "report_sha256": "eab4129a3c26e0054a32eb82e133c8fc64c155e0efd3392e4993d85b65812a1a",
+  "verifier_sha256": "e3aebf324a380a21cc67479a696c0b92d3874fe3048aa3bd1316f68022ece751",
+  "test_report_sha256": "87210fa19253cbc10f01137af059f23612c990b552be9a6287deb1f06131636c",
+  "test_run_manifest": {
+    "source_reports": {
+      "tests-core.xml": "fa520e2d5f799695cd59a27947d4fd6ee689b691ce720e997ec9bd2e24cbd136",
+      "tests-artifacts.xml": "c7f731e8457fec821b7c3549d996a7c030a9b88e3926b16c5018cf06d600ca23"
+    },
+    "aggregate": {
+      "tests": 221,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "unique_test_cases": 221,
+    "method": "Concatenate actual disjoint pytest JUnit suites; no case or outcome generated."
+  },
+  "tests": {
+    "tests": 221,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "chronology_verified": true,
+  "selection_replayed_using_tune_only": true,
+  "all_supported_rows_registered": 118038,
+  "publisher_sanitization_counts": {
+    "ebbu2017": {
+      "raw_label_counts": {
+        "1": 37175,
+        "0": 36400
+      },
+      "supported_label_counts": {
+        "0": 36341,
+        "1": 36786
+      },
+      "unsupported_by_label": {
+        "0": 59,
+        "1": 389
+      },
+      "label_0": "benign",
+      "label_1": "phishing"
+    },
+    "iscx2016_replica": {
+      "raw_label_counts": {
+        "0": 35378,
+        "1": 9965
+      },
+      "supported_label_counts": {
+        "0": 35279,
+        "1": 9632
+      },
+      "unsupported_by_label": {
+        "0": 99,
+        "1": 333
+      },
+      "label_0": "benign",
+      "label_1": "phishing"
+    }
+  },
+  "novel_rows": 13971,
+  "novelty_audit": {
+    "ml/data/indonesia-gold/registry/known-exposure.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/legitphish-v2-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/mendeley-vfs-indonesia-external-20261106.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/phishbench-segmented-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/pwd2021-targeted-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/stealthphisher-segmented-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/v6-expanded-sources-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/exposure-sidecars/zenodo-websites-v2-20261105.sqlite": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/development-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/deepurlbench-holdout-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/notebook-tfidf-logistic-v6/data/phishtank-2026-v6.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-weighted-new-holdout/holdout.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-expanded-data-20261105/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/legitphish-v2-v6-qa/sanitized-domain-disjoint.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/fit.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/calibration.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/threshold.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/runs/v6-targeted-20261105/tune.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-new-holdout/fit.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-new-holdout/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-segmented-phishbench/new_test.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-indonesia-external-20261106/global.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-indonesia-external-20261106/id_suffix_proxy.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-indonesia-external-20261106/reserved.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    },
+    "ml/data/v6-indonesia-external-20261106/supported.parquet": {
+      "url_or_representation_overlap": 0,
+      "domain_overlap": 0
+    }
+  },
+  "nested_learning_curve": {
+    "curve_25": {
+      "rows": 164835,
+      "groups": 106030
+    },
+    "curve_50": {
+      "rows": 310415,
+      "groups": 212061
+    },
+    "curve_75": {
+      "rows": 459425,
+      "groups": 318092
+    },
+    "control": {
+      "rows": 616050,
+      "groups": 424123
+    }
+  },
+  "saved_model_parity": {
+    "control": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "curve_25": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "curve_50": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "curve_75": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "regularization_c05": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "regularization_c8": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "private_phishing_x2": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "hard_benign_x2": {
+      "cases": 128,
+      "max_delta": 0.0
+    },
+    "plus_iscx_fit": {
+      "cases": 128,
+      "max_delta": 0.0
+    }
+  },
+  "saved_prediction_recounts_and_replay": {
+    "ebbu_external": {
+      "active_v6": {
+        "rows": 8849,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "control": {
+        "rows": 8849,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "regularization_c8": {
+        "rows": 8849,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      }
+    },
+    "iscx_external": {
+      "active_v6": {
+        "rows": 2066,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "control": {
+        "rows": 2066,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "regularization_c8": {
+        "rows": 2066,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      }
+    },
+    "observed_global_50000": {
+      "active_v6": {
+        "rows": 50000,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "control": {
+        "rows": 50000,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      },
+      "regularization_c8": {
+        "rows": 50000,
+        "confusion_matrix_verified": true,
+        "distributed_replay_cases": 128,
+        "max_delta": 0.0
+      }
+    }
+  },
+  "all_169393_previous_reserved_rows_preserved": true,
+  "original_v6_binary_metadata_and_thresholds_unchanged": true,
+  "production_ready": false
+}
